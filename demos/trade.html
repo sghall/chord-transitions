@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Trade - Chord Diagrams</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+  </head>
+  <body ng-app="app" ng-controller="mainCntrl">
+    <graph-view></graph-view>
+    <script src="../bower_components/d3/d3.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script>
+      angular.module('app', []);
+
+      angular.module('app').controller('mainCntrl', ['$scope', 
+      function ($scope) {
+
+        $scope.master = [];
+
+        d3.csv('../data/all_countries.csv', function (err, data) {
+          console.log("data", data);
+          $scope.master = data;
+        })
+
+      }]);
+    </script>
+  </body>
+</html>
