@@ -4,18 +4,18 @@ function ($window, matrixFactory) {
 
   var link = function ($scope, $el, $attr) {
 
-    var size = [600, 600];
-    var marg = [10, 10, 10, 10];
+    var size = [1000, 1000];
+    var marg = [1, 1, 1, 1];
     var dims = [];
     dims[0] = size[0] - marg[1] - marg[3];
     dims[1] = size[1] - marg[0] - marg[2];
 
     var colors = d3.scale.ordinal()
-      .range(['rgb(249,130,69)','rgb(188,68,6)','rgb(249,177,69)','rgb(4,125,86)','rgb(130,130,130)','rgb(188,115,6)','rgb(239,93,20)','rgb(46,165,126)','rgb(148,89,0)','rgb(255,159,111)','rgb(24,88,156)','rgb(54,107,162)','rgb(13,159,111)','rgb(6,50,96)','rgb(239,151,20)','rgb(0,98,66)','rgb(81,186,152)','rgb(255,197,111)','rgb(148,50,0)','rgb(88,134,183)']);
+      .range(['#9C7E5C','#99744E','#66453D','#663B33','#665B52','#634B46','#EDD8B7','#E6C7A1','#E3BD8A','#CC9766','#CCA37A','#CC9454','#B5967D','#B28F6B','#B28159','#635250','#4F473E','#4C342F','#4C3E3C','#4C3936','#4A3D35','#362820','#362725','#30201E','#211514']);
 
     var chord = d3.layout.chord()
       .padding(0.02)
-      .sortSubgroups(d3.descending)
+      .sortSubgroups(d3.ascending)
       .sortChords(d3.ascending);
 
     var matrix = matrixFactory.chord()
@@ -40,7 +40,7 @@ function ($window, matrixFactory) {
 
     var svg = d3.select($el[0]).append("svg")
       .attr("class", "chart")
-      .style("background-color", "rgba(0,0,0,0.3)")
+      .style("background-color", "rgba(0,0,0,0.8)")
       .attr({width: size[0] + "px", height: size[1] + "px"})
       .attr("viewBox", "0 0 " + size[0] + " " + size[1]);
 
@@ -72,7 +72,7 @@ function ($window, matrixFactory) {
         .attr("transform", "translate(" + (size[0] / 2) + "," + (size[1] / 2) + ")");
 
       gEnter.append("path")
-        .style("stroke", "grey")
+        .style("stroke", "white")
         .style("fill", function (d) { return colors(d.index); })
         .style("opacity", 0.7)
         .attr("d", arc);
@@ -110,7 +110,7 @@ function ($window, matrixFactory) {
 
       var cEnter = chords.enter().append("path")
         .attr("class", "chord")
-        .style("stroke", function (d) { return d3.rgb(colors(d.target.index)).darker(); })
+        .style("stroke", "white")
         .style("fill", function (d) { return colors(d.target.index); })
         .style("opacity", 0.8)
         .attr("d", path)
