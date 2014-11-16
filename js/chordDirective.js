@@ -5,7 +5,7 @@ function ($window, matrixFactory) {
   var link = function ($scope, $el, $attr) {
 
     var size = [600, 600];
-    var marg = [25, 45, 30, 20];
+    var marg = [10, 10, 10, 10];
     var dims = [];
     dims[0] = size[0] - marg[1] - marg[3];
     dims[1] = size[1] - marg[0] - marg[2];
@@ -14,12 +14,20 @@ function ($window, matrixFactory) {
       .range(['rgb(249,130,69)','rgb(188,68,6)','rgb(249,177,69)','rgb(4,125,86)','rgb(130,130,130)','rgb(188,115,6)','rgb(239,93,20)','rgb(46,165,126)','rgb(148,89,0)','rgb(255,159,111)','rgb(24,88,156)','rgb(54,107,162)','rgb(13,159,111)','rgb(6,50,96)','rgb(239,151,20)','rgb(0,98,66)','rgb(81,186,152)','rgb(255,197,111)','rgb(148,50,0)','rgb(88,134,183)']);
 
     var chord = d3.layout.chord()
-      .padding(0.01)
+      .padding(0.02)
       .sortSubgroups(d3.descending)
       .sortChords(d3.ascending);
 
-    var matrix = matrixFactory.create()
-      .find(function ())
+    var matrix = matrixFactory.chord()
+      .layout(chord)
+      .filter(function (row, a, b) {
+        return (row.importer1 === a.name && row.importer2 === b.name) ||
+               (row.importer1 === b.name && row.importer2 === a.name)
+      })
+      .reduce(function (recs, a, b) {
+        if (!recs[0]) return 0;
+          return recs[0].importer1 === a.name ? +recs[0].flow1 : +recs[0].flow2; 
+      });
 
     var r0 = (size[1] / 2) - 100;
 
@@ -47,11 +55,15 @@ function ($window, matrixFactory) {
 
     $scope.drawChords = function (data) {
 
-      console.log("Matrix:", matrix);
+      matrix.data(data)
+        .resetKeys()
+        .addKeys('importer1')
+        .addKeys('importer2')
 
+      matrix.genMatrix();
 
       var groups = svg.selectAll("g.group")
-        .data(layout.groups(), function (d) { return d.index; });
+        .data(matrix.groups(), function (d) { return d.index; });
       
       var gEnter = groups.enter()
         .append("g")
@@ -69,14 +81,14 @@ function ($window, matrixFactory) {
         .attr("dy", ".35em")
         .attr("color", "#fff")
         .style("font", "5px sans-serif")
-        .text(function (d) {
-          console.log(reader(d).gname);
-          return reader(d).gname;
-        });
+        // .text(function (d) {
+        //   console.log(reader(d).gname);
+        //   return reader(d).gname;
+        // });
 
       groups.select("path")
         .transition().duration(1500)
-        .attrTween("d", chordPrvdr.groupTween(arc, cached));
+        .attrTween("d", matrix.groupTween(arc).bind(matrix));
 
       groups.select("text")
         .transition()
@@ -94,7 +106,7 @@ function ($window, matrixFactory) {
       groups.exit().remove();
 
       var chords = svg.selectAll("path.chord")
-        .data(layout.chords(), chordPrvdr.geyChordKey)
+        .data(matrix.chords(), matrix.chordID)
 
       var cEnter = chords.enter().append("path")
         .attr("class", "chord")
@@ -105,13 +117,14 @@ function ($window, matrixFactory) {
         .attr("transform", "translate(" + (size[0] / 2) + "," + (size[1] / 2) + ")");
 
       chords.transition().duration(1500)
-        .attrTween("d", chordPrvdr.chordTween(path, cached));
+        .attrTween("d", matrix.chordTween(path).bind(matrix));
 
       chords.exit().remove();
 
       function mouseover(d, i) {
+        var index = d.index
         chords.style("opacity", function (p) {
-          var cond = p.source.index != i && p.target.index != i;
+          var cond = p.source.index != index && p.target.index != index;
           return cond ? 0.1: 0.9;
         });
       }

@@ -3,37 +3,40 @@ angular.module('app').factory('matrixFactory', [function () {
   var chordMatrix = function () {
     var _id = 0, _keys = {}, _store = [];
 
-    var _matrix, _mindex
-    var _find = function () {};
-    var _fold = function () {};
+    var _matrix, _index;
+    var _filter = function () {};
+    var _reduce = function () {};
 
-    var _layout, _layoutCache;
+    var _layout, _cache;
 
     var matrix = {};
 
     matrix.genMatrix = function (numbers) {
       _matrix = [], recs = [], entry = {};
 
-      _layoutCache = {};
+      _cache = {groups: {}, chords: {}};
 
       _layout.groups().forEach(function (group) {
-        _layoutCache[_mindex[group.index]] = group;
+        _cache.groups[_index[group.index]] = group;
       });
 
       _layout.chords().forEach(function (chord) {
-        _layoutCache[this.getChordID(chord)] = chord;
+        _cache.chords[chordID(chord)] = chord;
       });
 
-      _mindex = Object.keys(_keys);
+      _index = Object.keys(_keys);
 
-      for (var i = 0; i < _mindex.length; i++) {
-        for (var j = 0; j < _mindex.length; j++) {
+      for (var i = 0; i < _index.length; i++) {
+        if (!_matrix[i]) {
+          _matrix[i] = [];
+        }
+        for (var j = 0; j < _index.length; j++) {
           recs = _store.filter(function (row) {
-            return _find(row, _keys[_mindex[i]], _keys[_mindex[j]]);
+            return _filter(row, _keys[_index[i]], _keys[_index[j]]);
           });
-          entry = _fold(recs, _keys[_mindex[i]], _keys[_mindex[j]]);
+          entry = _reduce(recs, _keys[_index[i]], _keys[_index[j]]);
           entry.valueOf = function () { return +this.value };
-          matrix[i][j] = numbers ? +entry: entry;
+          _matrix[i][j] = numbers ? +entry: entry;
         }
       }
       _layout.matrix(_matrix);
@@ -41,17 +44,17 @@ angular.module('app').factory('matrixFactory', [function () {
     };
 
     matrix.data = function (data) {
-      this.store = data;
+      _store = data;
       return this;
     };
 
-    matrix.find = function (func) {
-      _find = func;
+    matrix.filter = function (func) {
+      _filter = func;
       return this;
     };
 
-    matrix.fold = function (func) {
-      _fold = func;
+    matrix.reduce = function (func) {
+      _reduce = func;
       return this;
     };
 
@@ -70,30 +73,35 @@ angular.module('app').factory('matrixFactory', [function () {
 
     matrix.addKey = function (key, data) {
       if (!_keys[key]) {
-        _keys[key] = {name: value, data: data || {}};
+        _keys[key] = {name: key, data: data || {}};
       }
     };
 
     matrix.addKeys = function (prop, func) {
-      for (var i = 0; i < store.length; i++) {
-        if (!_keys[_store[i][prop]])) {
+      for (var i = 0; i < _store.length; i++) {
+        if (!_keys[_store[i][prop]]) {
           this.addKey(_store[i][prop], func ? func(_store, prop):{});
         }
       }
       return this;
     };
 
-    matrix.getChordID = function (d) {
-      var s = _mindex[d.source.index];
-      var t = _mindex[d.target.index];
-      return (s < t) ? s + "___" + t: t + "___" + s;
+    matrix.resetKeys = function () {
+      _keys = {};
+      return this;
     };
 
-    matrix.groupTween = function (arc) {
+    function chordID(d) {
+      var s = _index[d.source.index];
+      var t = _index[d.target.index];
+      return (s < t) ? s + "__" + t: t + "__" + s;
+    }
+
+    matrix.groupTween = function (d3_arc) {
 
       return function (d, i) {
         var tween; 
-        var cached = _layoutCache[_mindex[d.index]];
+        var cached = _cache.groups[_index[d.index]];
 
         if (cached) {
           tween = d3.interpolate(cached, d);
@@ -105,16 +113,16 @@ angular.module('app').factory('matrixFactory', [function () {
         }
 
         return function (t) {
-          return arc(tween(t));
+          return d3_arc(tween(t));
         };
       };
     };
 
-    matrix.ChordTween = function (path) {
+    matrix.chordTween = function (d3_path) {
 
       return function (d, i) {
         var tween, groups;
-        var cached = _layoutCache[this.getChordID(d)];
+        var cached = _cache.chords[chordID(d)];
 
         if (cached) {
           if (d.source.index !== cached.source.index){
@@ -122,15 +130,22 @@ angular.module('app').factory('matrixFactory', [function () {
           }
           tween = d3.interpolate(cached, d);
         } else {
-          if (_layoutCache) {
-            groups = _layoutCache.groups.filter(function (group) {
-              return ((group.index === d.source.index) || (group.index === d.target.index));
-            });
+          if (_cache.groups) {
+            groups = [];
 
-            cached = {source: groups[0], target: groups[1] || groups[0]};
-
-            if (d.source.index !== cached.source.index) {
-              cached = {source: cached.target, target: cached.source};
+            for (var key in _cache.groups) {
+              cached = _cache.groups[key];
+              if (cached.index === d.source.index || cached.index === d.target.index) {
+                groups.push(cached);
+              }
+            }
+            if (groups.length > 0) {
+              cached = {source: groups[0], target: groups[1] || groups[0]};
+              if (d.source.index !== cached.source.index) {
+                cached = {source: cached.target, target: cached.source};
+              }
+            } else {
+              cached = d;
             }
           } else {
             cached = d;
@@ -149,7 +164,7 @@ angular.module('app').factory('matrixFactory', [function () {
         }
 
         return function (t) {
-          return path(tween(t));
+          return d3_path(tween(t));
         };
       };
     };

@@ -4,12 +4,19 @@
     <meta charset="utf-8">
     <title>Trade - Chord Diagrams</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="../css/app.css">
   </head>
   <body ng-app="app" ng-controller="mainCntrl">
-    <graph-view></graph-view>
-    <script src="../bower_components/d3/d3.js"></script>
-    <script src="../bower_components/angular/angular.js"></script>
+    <div style="position:absolute; left: 200px;">
+      <h1>{{ selected_year }}</h1>
+    </div>
+    <div style="position:absolute; top: 200px; width: 100px;">
+      <button ng-repeat="year in years" ng-click="change(year)">{{ year }}</button>
+    </div>
+    <chord-diagram></chord-diagram>
+    <script src="../bower_components/d3/d3.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
     <script>
       angular.module('app', []);
 
@@ -17,13 +24,37 @@
       function ($scope) {
 
         $scope.master = [];
+        $scope.selected_year = 2005;
+        $scope.years = d3.range(1870,2010,5);
+
+        $scope.change = function (year) {
+          $scope.selected_year = year;
+          update();
+        }
 
         d3.csv('../data/all_countries.csv', function (err, data) {
-          console.log("data", data);
+          // console.log("data", data);
+
+          data.forEach(function (d) {
+            d.year  = +d.year;
+            d.flow1 = +d.flow1;
+            d.flow2 = +d.flow2;
+          })
+
           $scope.master = data;
+          update();
         })
+
+        function update() {
+          $scope.drawChords($scope.master.filter(function (d) {
+            return d.year === $scope.selected_year;
+          }))
+        }
+
 
       }]);
     </script>
+    <script src="../js/matrixFactory.js"></script>
+    <script src="../js/chordDirective.js"></script>
   </body>
 </html>
