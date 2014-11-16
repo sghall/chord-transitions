@@ -5,13 +5,13 @@ function ($window, matrixFactory) {
   var link = function ($scope, $el, $attr) {
 
     var size = [1000, 1000];
-    var marg = [1, 1, 1, 1];
+    var marg = [100, 100, 100, 100];
     var dims = [];
     dims[0] = size[0] - marg[1] - marg[3];
     dims[1] = size[1] - marg[0] - marg[2];
 
     var colors = d3.scale.ordinal()
-      .range(['#9C7E5C','#99744E','#66453D','#663B33','#665B52','#634B46','#EDD8B7','#E6C7A1','#E3BD8A','#CC9766','#CCA37A','#CC9454','#B5967D','#B28F6B','#B28159','#635250','#4F473E','#4C342F','#4C3E3C','#4C3936','#4A3D35','#362820','#362725','#30201E','#211514']);
+      .range(['#665B52','#634B46','#EDD8B7','#E6C7A1','#E3BD8A','#9C7E5C','#99744E','#66453D','#663B33','#CC9766','#CCA37A','#CC9454','#B5967D','#B28F6B','#B28159','#635250','#4F473E','#4C342F','#4C3E3C','#4C3936','#4A3D35','#362820','#362725','#30201E','#211514']);
 
     var chord = d3.layout.chord()
       .padding(0.02)
@@ -25,8 +25,13 @@ function ($window, matrixFactory) {
                (row.importer1 === b.name && row.importer2 === a.name)
       })
       .reduce(function (recs, a, b) {
-        if (!recs[0]) return 0;
-          return recs[0].importer1 === a.name ? +recs[0].flow1 : +recs[0].flow2; 
+        var value;
+        if (!recs[0]) {
+           value = 0;
+        } else {
+          value = recs[0].importer1 === a.name ? +recs[0].flow1 : +recs[0].flow2;
+        }
+        return {value: value, data: recs[0]}; 
       });
 
     var r0 = (size[1] / 2) - 100;
@@ -40,18 +45,12 @@ function ($window, matrixFactory) {
 
     var svg = d3.select($el[0]).append("svg")
       .attr("class", "chart")
-      .style("background-color", "rgba(0,0,0,0.8)")
       .attr({width: size[0] + "px", height: size[1] + "px"})
       .attr("viewBox", "0 0 " + size[0] + " " + size[1]);
 
     var container = svg.append("g")
       .attr("id", "container")
       .attr("transform", "translate(" + marg[1] + "," + marg[0] + ")");
-
-    var outer = svg.append("g")
-      .attr("id", "circle")
-      .attr("transform", "translate(" + (size[0] / 2) + "," + (size[1] / 2) + ")")
-      .append("circle").attr("r", r0 + 20).attr("fill", "none");
 
     $scope.drawChords = function (data) {
 
@@ -60,31 +59,35 @@ function ($window, matrixFactory) {
         .addKeys('importer1')
         .addKeys('importer2')
 
-      matrix.genMatrix();
+      matrix.update()
+      var groupData = matrix.groups();
+      var chordData = matrix.chords();
+      console.log("groupData", groupData);
+      console.log("chordData", chordData);
 
-      var groups = svg.selectAll("g.group")
-        .data(matrix.groups(), function (d) { return d.index; });
+      var groups = container.selectAll("g.group")
+        .data(groupData, function (d) { return d._id; });
       
       var gEnter = groups.enter()
         .append("g")
         .attr("class", "group")
         .on("mouseover", mouseover)
-        .attr("transform", "translate(" + (size[0] / 2) + "," + (size[1] / 2) + ")");
+        .on("mouseout", mouseout)
+        .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
 
       gEnter.append("path")
-        .style("stroke", "white")
-        .style("fill", function (d) { return colors(d.index); })
-        .style("opacity", 0.7)
+        .style("stroke", "none")
+        .style("fill", function (d) { return colors(matrix.read(d).gname); })
+        .style("opacity", 0.9)
         .attr("d", arc);
  
       gEnter.append("text")
         .attr("dy", ".35em")
-        .attr("color", "#fff")
-        .style("font", "5px sans-serif")
-        // .text(function (d) {
-        //   console.log(reader(d).gname);
-        //   return reader(d).gname;
-        // });
+        .attr("fill", "#fff")
+        .style("font", "10px sans-serif")
+        .text(function (d) {
+          return d._id;
+        });
 
       groups.select("path")
         .transition().duration(1500)
@@ -106,26 +109,32 @@ function ($window, matrixFactory) {
       groups.exit().remove();
 
       var chords = svg.selectAll("path.chord")
-        .data(matrix.chords(), matrix.chordID)
+        .data(chordData, function (d) { return d._id; });
 
       var cEnter = chords.enter().append("path")
         .attr("class", "chord")
-        .style("stroke", "white")
-        .style("fill", function (d) { return colors(d.target.index); })
+        .style("stroke", "none")
+        .style("fill", function (d) {
+          return colors(d._id);
+        })
         .style("opacity", 0.8)
         .attr("d", path)
         .attr("transform", "translate(" + (size[0] / 2) + "," + (size[1] / 2) + ")");
 
       chords.transition().duration(1500)
-        .attrTween("d", matrix.chordTween(path).bind(matrix));
+        .attrTween("d", matrix.chordTween(path));
 
       chords.exit().remove();
 
+      function mouseout(d, i) {
+        chords.style("opacity",0.9);
+      }
+
       function mouseover(d, i) {
-        var index = d.index
         chords.style("opacity", function (p) {
-          var cond = p.source.index != index && p.target.index != index;
-          return cond ? 0.1: 0.9;
+          var sid = p.source._id;
+          var tid = p.target._id;
+          return (sid != d._id && tid != d._id) ? 0.1: 0.9;
         });
       }
     }; // END DRAWCHORDS FUNCTION

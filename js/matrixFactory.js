@@ -3,26 +3,29 @@ angular.module('app').factory('matrixFactory', [function () {
   var chordMatrix = function () {
     var _id = 0, _keys = {}, _store = [];
 
-    var _matrix, _index;
+    var _matrix;
     var _filter = function () {};
     var _reduce = function () {};
 
-    var _layout, _cache;
+    var _index;
+    var _layout, _layoutCache;
 
     var matrix = {};
 
-    matrix.genMatrix = function (numbers) {
+    matrix.update = function () {
       _matrix = [], recs = [], entry = {};
 
-      _cache = {groups: {}, chords: {}};
+      _layoutCache = {groups: {}, chords: {}};
 
       _layout.groups().forEach(function (group) {
-        _cache.groups[_index[group.index]] = group;
+        _layoutCache.groups[_index[group.index]] = group;
       });
 
       _layout.chords().forEach(function (chord) {
-        _cache.chords[chordID(chord)] = chord;
+        _layoutCache.chords[chordID(chord)] = chord;
       });
+
+      console.log("_layoutCache", _layoutCache);
 
       _index = Object.keys(_keys);
 
@@ -36,7 +39,7 @@ angular.module('app').factory('matrixFactory', [function () {
           });
           entry = _reduce(recs, _keys[_index[i]], _keys[_index[j]]);
           entry.valueOf = function () { return +this.value };
-          _matrix[i][j] = numbers ? +entry: entry;
+          _matrix[i][j] = entry;
         }
       }
       _layout.matrix(_matrix);
@@ -64,11 +67,19 @@ angular.module('app').factory('matrixFactory', [function () {
     };
 
     matrix.groups = function () {
-      return _layout.groups();
+      return _layout.groups().map(function (group) {
+        group._id = _index[group.index];
+        return group;
+      });
     };
 
     matrix.chords = function () {
-      return _layout.chords();
+      return _layout.chords().map(function (chord) {
+        chord._id = chordID(chord);
+        chord.source._id = _index[chord.source.index];
+        chord.target._id = _index[chord.target.index];
+        return chord;
+      });
     };
 
     matrix.addKey = function (key, data) {
@@ -101,7 +112,7 @@ angular.module('app').factory('matrixFactory', [function () {
 
       return function (d, i) {
         var tween; 
-        var cached = _cache.groups[_index[d.index]];
+        var cached = _layoutCache.groups[_index[d.index]];
 
         if (cached) {
           tween = d3.interpolate(cached, d);
@@ -119,22 +130,21 @@ angular.module('app').factory('matrixFactory', [function () {
     };
 
     matrix.chordTween = function (d3_path) {
-
+      console.log("chord", _layoutCache);
       return function (d, i) {
         var tween, groups;
-        var cached = _cache.chords[chordID(d)];
+        var cached = _layoutCache.chords[chordID(d)];
 
         if (cached) {
-          if (d.source.index !== cached.source.index){
-            cached = {source: cached.target, target: cached.source};
-          }
+          // if (d.source.index !== cached.source.index){
+          //   cached = {source: cached.target, target: cached.source};
+          // }
           tween = d3.interpolate(cached, d);
         } else {
-          if (_cache.groups) {
+          if (_layoutCache.groups) {
             groups = [];
-
-            for (var key in _cache.groups) {
-              cached = _cache.groups[key];
+            for (var key in _layoutCache.groups) {
+              cached = _layoutCache.groups[key];
               if (cached.index === d.source.index || cached.index === d.target.index) {
                 groups.push(cached);
               }
@@ -168,6 +178,33 @@ angular.module('app').factory('matrixFactory', [function () {
         };
       };
     };
+
+    matrix.read = function (d) {
+      var s, t, g, m = {};
+      if (d.source) {
+        s = _matrix[d.source.index][d.source.subindex];
+        t = _matrix[d.target.index][d.target.subindex];
+        m.sname  = _keys[_index[d.source.index]].name;
+        m.sdata  = d.source.value;
+        m.svalue = +d.source.value;
+        m.stotal = _matrix[d.source.index].reduce(function (k, n) { return k + n; }, 0);
+        m.tname  = _keys[_index[d.target.index]].name;
+        m.tdata  = d.target.value;
+        m.tvalue = +d.target.value;
+        m.ttotal = _matrix[d.target.index].reduce(function (k, n) { return k + n; }, 0);
+      } else {
+        g = _keys[_index[d.index]]
+        // console.log("keys", _keys, "index", _index, "d", d);
+        m.gname  = _keys[_index[d.index]].name;
+        m.gdata  = g.data;
+        m.gvalue = d.value;
+      }
+      m.mtotal = _matrix.reduce(function (m1, n1) { 
+        return m1 + n1.reduce(function (m2, n2) { return m2 + n2; }, 0);
+      }, 0);
+      return m;
+    };
+
     return matrix;
   };
 

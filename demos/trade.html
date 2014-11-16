@@ -33,7 +33,6 @@
         }
 
         d3.csv('../data/all_countries.csv', function (err, data) {
-          // console.log("data", data);
 
           data.forEach(function (d) {
             d.year  = +d.year;
