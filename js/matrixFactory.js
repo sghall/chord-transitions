@@ -14,14 +14,14 @@ angular.module('app').factory('matrixFactory', [function () {
     matrix.genMatrix = function (numbers) {
       _matrix = [], recs = [], entry = {};
 
-      _layoutCache = { groups: {}, chords: {} };
+      _layoutCache = {};
 
       _layout.groups().forEach(function (group) {
-        _layoutCache.groups[_mindex[group.index]] = group;
+        _layoutCache[_mindex[group.index]] = group;
       });
 
       _layout.chords().forEach(function (chord) {
-        _layoutCache.chords[this.getChordID(chord)] = chord;
+        _layoutCache[this.getChordID(chord)] = chord;
       });
 
       _mindex = Object.keys(_keys);
@@ -55,8 +55,8 @@ angular.module('app').factory('matrixFactory', [function () {
       return this;
     };
 
-    matrix.layout = function (layout) {
-      _layout = layout;
+    matrix.layout = function (d3_layout) {
+      _layout = d3_layout;
       return this;
     };
 
@@ -68,7 +68,7 @@ angular.module('app').factory('matrixFactory', [function () {
       return _layout.chords();
     };
 
-    matrix.add = function (key, data) {
+    matrix.addKey = function (key, data) {
       if (!_keys[key]) {
         _keys[key] = {name: value, data: data || {}};
       }
@@ -77,32 +77,23 @@ angular.module('app').factory('matrixFactory', [function () {
     matrix.addKeys = function (prop, func) {
       for (var i = 0; i < store.length; i++) {
         if (!_keys[_store[i][prop]])) {
-          this.add(_store[i][prop], func ? func(_store, prop):{});
+          this.addKey(_store[i][prop], func ? func(_store, prop):{});
         }
       }
       return this;
     };
 
     matrix.getChordID = function (d) {
-      var s = _matrix[d.source.index][d.source.subindex];
-      var t = _matrix[d.target.index][d.target.subindex];
-      return (s.name < t.name) ?
-        s.name + "-" + t.name:
-        t.name + "-" + s.name;
+      var s = _mindex[d.source.index];
+      var t = _mindex[d.target.index];
+      return (s < t) ? s + "___" + t: t + "___" + s;
     };
 
     matrix.groupTween = function (arc) {
-      var cache = {};
-
-      if (_layoutCache) {
-        _layoutCache.groups.forEach(function (d) {
-          cache[_mindex[d.index].name] = d;
-        });
-      }
 
       return function (d, i) {
         var tween; 
-        var cached = cache[_mindex[d.index].name];
+        var cached = _layoutCache[_mindex[d.index]];
 
         if (cached) {
           tween = d3.interpolate(cached, d);
@@ -121,32 +112,24 @@ angular.module('app').factory('matrixFactory', [function () {
 
     matrix.ChordTween = function (path) {
 
-      var cache = {};
-      
-      if (_layoutCache) {
-        _layoutCache.chords.forEach(function (d) {
-          cache[this.getChordID(d)] = d;
-        });
-      }
-      
       return function (d, i) {
         var tween, groups;
-        var cached = cache[this.getChordID(d)];
+        var cached = _layoutCache[this.getChordID(d)];
 
         if (cached) {
-          if (d.source.index != cached.source.index){
+          if (d.source.index !== cached.source.index){
             cached = {source: cached.target, target: cached.source};
           }
           tween = d3.interpolate(cached, d);
         } else {
           if (_layoutCache) {
             groups = _layoutCache.groups.filter(function (group) {
-              return ((group.index == d.source.index) || (group.index == d.target.index));
+              return ((group.index === d.source.index) || (group.index === d.target.index));
             });
 
             cached = {source: groups[0], target: groups[1] || groups[0]};
 
-            if (d.source.index != cached.source.index) {
+            if (d.source.index !== cached.source.index) {
               cached = {source: cached.target, target: cached.source};
             }
           } else {
@@ -155,7 +138,7 @@ angular.module('app').factory('matrixFactory', [function () {
 
           tween = d3.interpolate({
             source: { 
-              startAngle: cached.source.startAngle,       
+              startAngle: cached.source.startAngle,
               endAngle: cached.source.startAngle
             },
             target: { 
