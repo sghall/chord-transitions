@@ -13,14 +13,13 @@ function ($window, matrixFactory) {
     var colors = d3.scale.ordinal()
       .range(['rgb(249,130,69)','rgb(188,68,6)','rgb(249,177,69)','rgb(4,125,86)','rgb(130,130,130)','rgb(188,115,6)','rgb(239,93,20)','rgb(46,165,126)','rgb(148,89,0)','rgb(255,159,111)','rgb(24,88,156)','rgb(54,107,162)','rgb(13,159,111)','rgb(6,50,96)','rgb(239,151,20)','rgb(0,98,66)','rgb(81,186,152)','rgb(255,197,111)','rgb(148,50,0)','rgb(88,134,183)']);
 
-    function getLayout() {
-      return d3.layout.chord()
+    var chord = d3.layout.chord()
       .padding(0.01)
       .sortSubgroups(d3.descending)
       .sortChords(d3.ascending);
-    }
 
-    var layout, cached;
+    var matrix = matrixFactory.create()
+      .find(function ())
 
     var r0 = (size[1] / 2) - 100;
 
@@ -35,12 +34,7 @@ function ($window, matrixFactory) {
       .attr("class", "chart")
       .style("background-color", "rgba(0,0,0,0.3)")
       .attr({width: size[0] + "px", height: size[1] + "px"})
-      .attr("viewBox", "0 0 " + size[0] + " " + size[1])
-      .style("opacity", 0);
-
-    svg.transition().duration(1500)
-      .ease("linear")
-      .style("opacity", 1);
+      .attr("viewBox", "0 0 " + size[0] + " " + size[1]);
 
     var container = svg.append("g")
       .attr("id", "container")
@@ -51,15 +45,10 @@ function ($window, matrixFactory) {
       .attr("transform", "translate(" + (size[0] / 2) + "," + (size[1] / 2) + ")")
       .append("circle").attr("r", r0 + 20).attr("fill", "none");
 
-    $scope.drawChords = function (matrix, mmap) {
-
-      cached = layout;
-      layout = getLayout();
-      layout.matrix(matrix);
-
-      var reader = chordPrvdr.reader(matrix, mmap);
+    $scope.drawChords = function (data) {
 
       console.log("Matrix:", matrix);
+
 
       var groups = svg.selectAll("g.group")
         .data(layout.groups(), function (d) { return d.index; });
