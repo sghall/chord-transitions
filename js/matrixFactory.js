@@ -3,29 +3,27 @@ angular.module('app').factory('matrixFactory', [function () {
   var chordMatrix = function () {
     var _id = 0, _keys = {}, _store = [];
 
-    var _matrix;
     var _filter = function () {};
     var _reduce = function () {};
 
-    var _index;
-    var _layout, _layoutCache;
+    var _matrix, _index, _layout, _cache;
 
     var matrix = {};
 
     matrix.update = function () {
       _matrix = [], recs = [], entry = {};
 
-      _layoutCache = {groups: {}, chords: {}};
+      _cache = {groups: {}, chords: {}};
 
       _layout.groups().forEach(function (group) {
-        _layoutCache.groups[_index[group.index]] = group;
+        _cache.groups[_index[group.index]] = group;
       });
 
       _layout.chords().forEach(function (chord) {
-        _layoutCache.chords[chordID(chord)] = chord;
+        chord.source._id = _index[chord.source.index];
+        chord.target._id = _index[chord.target.index];
+        _cache.chords[chordID(chord)] = chord;
       });
-
-      console.log("_layoutCache", _layoutCache);
 
       _index = Object.keys(_keys);
 
@@ -109,10 +107,9 @@ angular.module('app').factory('matrixFactory', [function () {
     }
 
     matrix.groupTween = function (d3_arc) {
-
       return function (d, i) {
         var tween; 
-        var cached = _layoutCache.groups[_index[d.index]];
+        var cached = _cache.groups[_index[d.index]];
 
         if (cached) {
           tween = d3.interpolate(cached, d);
@@ -130,28 +127,27 @@ angular.module('app').factory('matrixFactory', [function () {
     };
 
     matrix.chordTween = function (d3_path) {
-      console.log("chord", _layoutCache);
       return function (d, i) {
         var tween, groups;
-        var cached = _layoutCache.chords[chordID(d)];
+        var cached = _cache.chords[d._id];
 
         if (cached) {
-          // if (d.source.index !== cached.source.index){
-          //   cached = {source: cached.target, target: cached.source};
-          // }
+          if (d.source._id !== cached.source._id){
+            cached = {source: cached.target, target: cached.source};
+          }
           tween = d3.interpolate(cached, d);
         } else {
-          if (_layoutCache.groups) {
+          if (_cache.groups) {
             groups = [];
-            for (var key in _layoutCache.groups) {
-              cached = _layoutCache.groups[key];
-              if (cached.index === d.source.index || cached.index === d.target.index) {
+            for (var key in _cache.groups) {
+              cached = _cache.groups[key];
+              if (cached._id === d.source._id || cached._id === d.target._id) {
                 groups.push(cached);
               }
             }
             if (groups.length > 0) {
               cached = {source: groups[0], target: groups[1] || groups[0]};
-              if (d.source.index !== cached.source.index) {
+              if (d.source._id !== cached.source._id) {
                 cached = {source: cached.target, target: cached.source};
               }
             } else {
@@ -194,7 +190,6 @@ angular.module('app').factory('matrixFactory', [function () {
         m.ttotal = _matrix[d.target.index].reduce(function (k, n) { return k + n; }, 0);
       } else {
         g = _keys[_index[d.index]]
-        // console.log("keys", _keys, "index", _index, "d", d);
         m.gname  = _keys[_index[d.index]].name;
         m.gdata  = g.data;
         m.gvalue = d.value;
@@ -209,6 +204,6 @@ angular.module('app').factory('matrixFactory', [function () {
   };
 
   return {
-    chord: chordMatrix
+    chordMatrix: chordMatrix
   };
 }]);

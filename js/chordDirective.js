@@ -5,7 +5,7 @@ function ($window, matrixFactory) {
   var link = function ($scope, $el, $attr) {
 
     var size = [1000, 1000];
-    var marg = [100, 100, 100, 100];
+    var marg = [200, 200, 200, 200];
     var dims = [];
     dims[0] = size[0] - marg[1] - marg[3];
     dims[1] = size[1] - marg[0] - marg[2];
@@ -18,7 +18,7 @@ function ($window, matrixFactory) {
       .sortSubgroups(d3.ascending)
       .sortChords(d3.ascending);
 
-    var matrix = matrixFactory.chord()
+    var matrix = matrixFactory.chordMatrix()
       .layout(chord)
       .filter(function (row, a, b) {
         return (row.importer1 === a.name && row.importer2 === b.name) ||
@@ -60,13 +60,9 @@ function ($window, matrixFactory) {
         .addKeys('importer2')
 
       matrix.update()
-      var groupData = matrix.groups();
-      var chordData = matrix.chords();
-      console.log("groupData", groupData);
-      console.log("chordData", chordData);
 
       var groups = container.selectAll("g.group")
-        .data(groupData, function (d) { return d._id; });
+        .data(matrix.groups(), function (d) { return d._id; });
       
       var gEnter = groups.enter()
         .append("g")
@@ -78,7 +74,7 @@ function ($window, matrixFactory) {
       gEnter.append("path")
         .style("stroke", "none")
         .style("fill", function (d) { return colors(matrix.read(d).gname); })
-        .style("opacity", 0.9)
+        .style("opacity", 1)
         .attr("d", arc);
  
       gEnter.append("text")
@@ -108,18 +104,18 @@ function ($window, matrixFactory) {
 
       groups.exit().remove();
 
-      var chords = svg.selectAll("path.chord")
-        .data(chordData, function (d) { return d._id; });
+      var chords = container.selectAll("path.chord")
+        .data(matrix.chords(), function (d) { return d._id; });
 
       var cEnter = chords.enter().append("path")
         .attr("class", "chord")
         .style("stroke", "none")
         .style("fill", function (d) {
-          return colors(d._id);
+          return colors(d.source._id);
         })
-        .style("opacity", 0.8)
+        .style("opacity", 0.9)
         .attr("d", path)
-        .attr("transform", "translate(" + (size[0] / 2) + "," + (size[1] / 2) + ")");
+        .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
 
       chords.transition().duration(1500)
         .attrTween("d", matrix.chordTween(path));
@@ -127,15 +123,15 @@ function ($window, matrixFactory) {
       chords.exit().remove();
 
       function mouseout(d, i) {
-        chords.style("opacity",0.9);
+        container.selectAll("path.chord")
+          .style("opacity",0.9);
       }
 
       function mouseover(d, i) {
-        chords.style("opacity", function (p) {
-          var sid = p.source._id;
-          var tid = p.target._id;
-          return (sid != d._id && tid != d._id) ? 0.1: 0.9;
-        });
+        container.selectAll("path.chord")
+          .style("opacity", function (p) {
+            return (p.source._id === d._id || p.target._id === d._id) ? 0.9: 0.1;
+          });
       }
     }; // END DRAWCHORDS FUNCTION
 
