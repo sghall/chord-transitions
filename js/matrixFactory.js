@@ -1,36 +1,42 @@
 angular.module('app').factory('matrixFactory', [function () {
 
   var chordMatrix = function () {
-    var id = 0, keys = {}, store = [];
+    var _id = 0, _keys = {}, _store = [];
 
-    var _matrix, _mindex;
+    var _matrix, _mindex
     var _find = function () {};
     var _fold = function () {};
 
-    var matrix = {};
-
     var _layout, _layoutCache;
 
-    matrix.genMatrix = function (layout) {
-      _matrix = [], recs = [], entry = {};
-      _mindex = Object.keys(keys);
+    var matrix = {};
 
-      if(_layout) {
-        _layoutCache.groups = _layout.groups();
-        _layoutCache.chords = _layout.chords();
-      }
-      _layout = layout;
+    matrix.genMatrix = function (numbers) {
+      _matrix = [], recs = [], entry = {};
+
+      _layoutCache = { groups: {}, chords: {} };
+
+      _layout.groups().forEach(function (group) {
+        _layoutCache.groups[_mindex[group.index]] = group;
+      });
+
+      _layout.chords().forEach(function (chord) {
+        _layoutCache.chords[this.getChordID(chord)] = chord;
+      });
+
+      _mindex = Object.keys(_keys);
 
       for (var i = 0; i < _mindex.length; i++) {
         for (var j = 0; j < _mindex.length; j++) {
-          recs = data.filter(function (row) {
-            return _find(row, keys[_mindex[i]], keys[_mindex[j]]);
+          recs = _store.filter(function (row) {
+            return _find(row, _keys[_mindex[i]], _keys[_mindex[j]]);
           });
-          entry = _fold(recs, keys[_mindex[i]], keys[_mindex[j]]);
+          entry = _fold(recs, _keys[_mindex[i]], _keys[_mindex[j]]);
           entry.valueOf = function () { return +this.value };
-          matrix[i][j] = entry;
+          matrix[i][j] = numbers ? +entry: entry;
         }
       }
+      _layout.matrix(_matrix);
       return _matrix;
     };
 
@@ -49,24 +55,37 @@ angular.module('app').factory('matrixFactory', [function () {
       return this;
     };
 
+    matrix.layout = function (layout) {
+      _layout = layout;
+      return this;
+    };
+
+    matrix.groups = function () {
+      return _layout.groups();
+    };
+
+    matrix.chords = function () {
+      return _layout.chords();
+    };
+
     matrix.add = function (key, data) {
-      if (!keys[key]) {
-        keys[key] = {name: value, data: data || {}};
+      if (!_keys[key]) {
+        _keys[key] = {name: value, data: data || {}};
       }
     };
 
     matrix.addKeys = function (prop, func) {
       for (var i = 0; i < store.length; i++) {
-        if (!keys[store[i][prop]])) {
-          this.add(store[i][prop], func ? func(store, prop):{});
+        if (!_keys[_store[i][prop]])) {
+          this.add(_store[i][prop], func ? func(_store, prop):{});
         }
       }
       return this;
     };
 
     matrix.getChordID = function (d) {
-      var s = _mindex(d.source.index, d.source.subindex);
-      var t = _mindex(d.target.index, d.target.subindex);
+      var s = _matrix[d.source.index][d.source.subindex];
+      var t = _matrix[d.target.index][d.target.subindex];
       return (s.name < t.name) ?
         s.name + "-" + t.name:
         t.name + "-" + s.name;
@@ -151,6 +170,7 @@ angular.module('app').factory('matrixFactory', [function () {
         };
       };
     };
+    return matrix;
   };
 
   return {
