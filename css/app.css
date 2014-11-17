@@ -16,3 +16,7 @@ md-radio-button, md-checkbox {
 path.chord {
   opacity: 0.9;
 }
+
+text, path.group {
+  cursor: pointer;
+}

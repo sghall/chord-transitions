@@ -79,7 +79,7 @@
         $scope.selected_year = 2005;
         $scope.years = d3.range(2005, 1865, -5);
 
-        $scope.filters = [];
+        $scope.filters = {};
 
         $scope.tooltip = {};
         $scope.pFormat = d3.format(".1%");
@@ -91,13 +91,27 @@
         }
 
         $scope.addFilter = function (name) {
-          $scope.filters.push({
+          $scope.filters[name] = {
             name: name,
             hide: true
-          });
+          };
           $scope.$apply();
-          console.log("filters", $scope.filters);
-        }
+        };
+
+        $scope.update = function () {
+          var data = $scope.master.filter(function (d) {
+            return d.year === $scope.selected_year;
+          });
+          $scope.drawChords(data.filter(function (d) {
+            var fl = $scope.filters;
+            var v1 = d.importer1, v2 = d.importer2;
+
+            if ((fl[v1] && fl[v1].hide) || (fl[v2] && fl[v2].hide)) {
+              return false;
+            }
+            return true;
+          }));
+        };
 
         d3.csv('../data/trade.csv', function (err, data) {
 
@@ -111,14 +125,8 @@
           $scope.update();
         });
 
-        $scope.update = function () {
-          var data = $scope.master.filter(function (d) {
-            return d.year === $scope.selected_year;
-          });
-          $scope.drawChords(data);
-        };
-
         $scope.$watch('selected_year', $scope.update);
+        $scope.$watch('filters', $scope.update, true);
 
       }]);
     </script>
