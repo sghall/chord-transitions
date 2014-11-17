@@ -17,6 +17,7 @@ md-radio-button {
 
 .tooltip {
   background-color: white;
+  pointer-events: none;
   font-size: 12px;
   position: fixed;
   border-radius: 6px;

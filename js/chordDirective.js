@@ -15,8 +15,7 @@ function ($window, matrixFactory) {
 
     var chord = d3.layout.chord()
       .padding(0.02)
-      .sortSubgroups(d3.ascending)
-      .sortChords(d3.ascending);
+      .sortSubgroups(d3.ascending);
 
     var matrix = matrixFactory.chordMatrix()
       .layout(chord)
@@ -84,12 +83,12 @@ function ($window, matrixFactory) {
         });
 
       groups.select("path")
-        .transition().duration(1500)
+        .transition().duration(2000)
         .attrTween("d", matrix.groupTween(arc).bind(matrix));
 
       groups.select("text")
         .transition()
-        .duration(1500)
+        .duration(2000)
         .attr("transform", function (d) {
           d.angle = (d.startAngle + d.endAngle) / 2;
           var r = "rotate(" + (d.angle * 180 / Math.PI - 90) + ")";
@@ -100,7 +99,12 @@ function ($window, matrixFactory) {
           return d.angle > Math.PI ? "end" : "begin";
         });
 
-      groups.exit().remove();
+
+      groups.exit().select("text").attr("fill", "orange");
+      groups.exit().select("path").remove();
+
+      groups.exit().transition().duration(1000)
+        .style("opacity", 0).remove();
 
       var chords = container.selectAll("path.chord")
         .data(matrix.chords(), function (d) { return d._id; });
@@ -135,7 +139,7 @@ function ($window, matrixFactory) {
         })
         .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
 
-      chords.transition().duration(1500)
+      chords.transition().duration(2000)
         .attrTween("d", matrix.chordTween(path));
 
       chords.exit().remove()
