@@ -7,14 +7,21 @@ path {
   stroke-width: 1.5px;
 }
 
+svg {
+  z-index: -200;
+}
+
 md-radio-button {
   margin: 5px;
 }
 
 .tooltip {
-  position: absolute;
-  top:0px;
-  right: 0px;
-  width: 300px;
-  height: 100px;
+  background-color: white;
+  font-size: 12px;
+  position: fixed;
+  border-radius: 6px;
+  opacity: 0;
+  top:20px;
+  right: 20px;
+  width: 400px;
 }

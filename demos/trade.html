@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/app.css">
   </head>
   <body ng-app="app" ng-controller="mainCntrl" md-theme="trade">
-    <md-toolbar>
+    <md-toolbar style="z-index:0;">
       <h1 class="md-toolbar-tools">
         <span>International Trade</span>
       </h1>
@@ -25,9 +25,29 @@
       </md-whiteframe>
       <div flex style="position:relative;">
         <h2 style="margin:0px;">Selected Year: <span class="radioValue">{{ selected_year }}</span></h2>
-          <md-whiteframe class="tooltip md-whiteframe-z3" layout layout-align="center center">
-          </md-whiteframe>
-          <chord-diagram></chord-diagram>
+        <md-whiteframe class="tooltip md-whiteframe-z3" layout="vertical" layout-align="center center">
+          <md-list layout="vertical">
+            <md-item>
+              <md-item-content>
+                <div class="md-tile-content">
+                  <h3>{{ tooltip.sname }} imported from  {{ tooltip.tname }} : $ {{ qFormat(tooltip.svalue) }}M</h3>
+                  <h4>{{ pFormat(tooltip.svalue/tooltip.stotal) }} of {{ tooltip.sname }}'s Total ($ {{ qFormat(tooltip.stotal) }}M)</h4>
+                  <p>{{ pFormat(tooltip.svalue/tooltip.mtotal) }} of {{ selected_year }} Total ($ {{ qFormat(tooltip.mtotal) }}M)</p>
+                </div>
+              </md-item-content>
+            </md-item>
+            <md-item>
+              <md-item-content>
+                <div class="md-tile-content">
+                  <h3>{{ tooltip.tname }} imported from  {{ tooltip.sname }} : $ {{ qFormat(tooltip.tvalue) }}M</h3>
+                  <h4>{{ pFormat(tooltip.tvalue/tooltip.ttotal) }} of {{ tooltip.tname }}'s Total ($ {{ qFormat(tooltip.ttotal) }}M)</h4>
+                  <p>{{ pFormat(tooltip.tvalue/tooltip.mtotal) }} of {{ selected_year }} Total ($ {{ qFormat(tooltip.mtotal) }}M)</p>
+                </div>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </md-whiteframe>
+        <chord-diagram></chord-diagram>
         <p>Colors by <a target="_blank" href="http://en.wikipedia.org/wiki/Paul_Klee">Paul Klee</a></p>
       </div>
     </md-content>
@@ -49,6 +69,15 @@
         $scope.master = [];
         $scope.selected_year = 2005;
         $scope.years = d3.range(2005,1865,-5);
+        $scope.tooltip = {};
+        $scope.pFormat = d3.format(".1%");
+        $scope.qFormat = d3.format(",.0f");
+
+        $scope.updateTooltip = function (data) {
+          $scope.tooltip = data;
+          $scope.$apply();
+          console.log("scope", $scope)
+        }
 
         $scope.change = function (year) {
           $scope.selected_year = year;

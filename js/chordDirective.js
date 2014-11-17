@@ -113,13 +113,25 @@ function ($window, matrixFactory) {
         })
         .style("opacity", 0.9)
         .attr("d", path)
-        .on("mouseover", function () {
+        .on("mouseover", function (d) {
           d3.select(".tooltip")
             .style("opacity", 1);
+
+          container.selectAll("path.chord")
+            .style("opacity", function (p) {
+              return (p._id === d._id) ? 0.9: 0.1;
+            });
+
+          console.log("data", matrix.read(d));
+          $scope.updateTooltip(matrix.read(d));
         })
         .on("mouseout", function () {
           d3.select(".tooltip")
             .style("opacity", 0);
+
+          container.selectAll("path.chord")
+            .style("opacity",0.9);
+
         })
         .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
 
