@@ -1,21 +1,8 @@
-body {
-/*  background-color: #888;
-  color: white;*/
-}
-
-path {
-  stroke-width: 1.5px;
-}
-
-svg {
-  z-index: -200;
-}
-
-md-radio-button {
+md-radio-button, md-checkbox {
   margin: 5px;
 }
 
-.tooltip {
+#tooltip {
   background-color: white;
   pointer-events: none;
   font-size: 12px;
@@ -23,6 +10,9 @@ md-radio-button {
   border-radius: 6px;
   opacity: 0;
   top:20px;
-  right: 20px;
-  width: 400px;
+  right: 25%;
+}
+
+path.chord {
+  opacity: 0.9;
 }

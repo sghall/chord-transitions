@@ -5,13 +5,13 @@ function ($window, matrixFactory) {
   var link = function ($scope, $el, $attr) {
 
     var size = [1000, 1000];
-    var marg = [70, 50, 50, 50];
+    var marg = [80, 50, 50, 50];
     var dims = [];
     dims[0] = size[0] - marg[1] - marg[3];
     dims[1] = size[1] - marg[0] - marg[2];
 
     var colors = d3.scale.ordinal()
-      .range(['#665B52','#634B46','#EDD8B7','#E6C7A1','#E3BD8A','#9C7E5C','#99744E','#66453D','#663B33','#CC9766','#CCA37A','#CC9454','#B5967D','#B28F6B','#B28159','#635250','#4F473E','#4C342F','#4C3E3C','#4C3936','#4A3D35','#362820','#362725','#30201E','#211514']);
+      .range(['#99744E','#66453D','#663B33','#CC9766','#CCA37A','#CC9454','#B5967D','#B28F6B','#B28159','#635250','#4F473E','#4C342F','#4C3E3C','#4C3936','#4A3D35','#362820','#362725','#30201E','#211514','#665B52','#634B46','#EDD8B7','#E6C7A1','#E3BD8A','#9C7E5C']);
 
     var chord = d3.layout.chord()
       .padding(0.02)
@@ -66,14 +66,13 @@ function ($window, matrixFactory) {
       var gEnter = groups.enter()
         .append("g")
         .attr("class", "group")
-        .on("mouseover", mouseover)
-        .on("mouseout", mouseout)
+        .on("click", groupClick)
+        .on("mouseover", dimChords)
+        .on("mouseout", resetChords)
         .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
 
       gEnter.append("path")
-        .style("stroke", "none")
         .style("fill", function (d) { return colors(matrix.read(d).gname); })
-        .style("opacity", 1)
         .attr("d", arc);
  
       gEnter.append("text")
@@ -99,7 +98,6 @@ function ($window, matrixFactory) {
           return d.angle > Math.PI ? "end" : "begin";
         });
 
-
       groups.exit().select("text").attr("fill", "orange");
       groups.exit().select("path").remove();
 
@@ -111,32 +109,12 @@ function ($window, matrixFactory) {
 
       chords.enter().append("path")
         .attr("class", "chord")
-        .style("stroke", "none")
         .style("fill", function (d) {
           return colors(d.source._id);
         })
-        .style("opacity", 0.9)
         .attr("d", path)
-        .on("mouseover", function (d) {
-          d3.select(".tooltip")
-            .style("opacity", 1);
-
-          container.selectAll("path.chord")
-            .style("opacity", function (p) {
-              return (p._id === d._id) ? 0.9: 0.1;
-            });
-
-          console.log("data", matrix.read(d));
-          $scope.updateTooltip(matrix.read(d));
-        })
-        .on("mouseout", function () {
-          d3.select(".tooltip")
-            .style("opacity", 0);
-
-          container.selectAll("path.chord")
-            .style("opacity",0.9);
-
-        })
+        .on("mouseover", chordMouseover)
+        .on("mouseout", chordMouseout)
         .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
 
       chords.transition().duration(2000)
@@ -144,16 +122,33 @@ function ($window, matrixFactory) {
 
       chords.exit().remove()
 
-      function mouseout(d, i) {
-        container.selectAll("path.chord")
-          .style("opacity",0.9);
+      function groupClick(d) {
+        $scope.addFilter(d._id);
       }
 
-      function mouseover(d, i) {
-        container.selectAll("path.chord")
-          .style("opacity", function (p) {
+      function chordMouseover(d) {
+        dimChords(d);
+        d3.select("#tooltip").style("opacity", 1);
+        $scope.updateTooltip(matrix.read(d));
+      }
+
+      function chordMouseout() {
+        d3.select("#tooltip").style("opacity", 0);
+        resetChords();
+      }
+
+      function resetChords() {
+        container.selectAll("path.chord").style("opacity",0.9);
+      }
+
+      function dimChords(d) {
+        container.selectAll("path.chord").style("opacity", function (p) {
+          if (d.source) {
+            return (p._id === d._id) ? 0.9: 0.1;
+          } else {
             return (p.source._id === d._id || p.target._id === d._id) ? 0.9: 0.1;
-          });
+          }
+        });
       }
     }; // END DRAWCHORDS FUNCTION
 

@@ -14,18 +14,21 @@
         <span>International Trade (1870-2005)</span>
       </h1>
     </md-toolbar>
-
+    <div flex layout="vertical" layout-align="center center">
+      <h2 style="margin-bottom:0px;">International Trade Flows <span class="radioValue">{{ selected_year }}</span></h2>
+      <p style="margin:0px;">Top 100 dyads are shown for each year</p>
+    </div>
     <md-content layout="horizontal" layout-padding>
-      <md-whiteframe flex="15" class="md-whiteframe-z3" layout layout-align="center center">
-         <md-radio-group ng-model="selected_year">
-          <md-radio-button ng-repeat="year in years" ng-value="year" ng-click="change(year)">
+      <md-whiteframe flex="15" class="md-whiteframe-z1" layout="vertical" layout-align="start center">
+        <h4 style="margin:0px;">Year:</h4>
+        <md-radio-group ng-model="selected_year">
+          <md-radio-button ng-repeat="year in years" ng-value="year">
             {{ year }}
           </md-radio-button>
         </md-radio-group>
       </md-whiteframe>
-      <div flex style="position:relative;">
-        <h2 style="margin:0px;">Selected Year: <span class="radioValue">{{ selected_year }}</span></h2>
-        <md-whiteframe class="tooltip md-whiteframe-z3" layout="vertical" layout-align="center center">
+      <div flex>
+        <md-whiteframe id="tooltip" class="md-whiteframe-z1" layout="vertical" layout-align="center center">
           <md-list layout="vertical">
             <md-item>
               <md-item-content>
@@ -49,6 +52,12 @@
         </md-whiteframe>
         <chord-diagram></chord-diagram>
       </div>
+      <md-whiteframe flex="20" class="md-whiteframe-z1" layout="vertical" layout-align="start start">
+        <h4 style="margin:0px;">Filters:</h4>
+        <md-checkbox ng-repeat="filter in filters" ng-model="filter.hide" aria-label="filter.name">
+            {{ filter.name }}
+        </md-checkbox>
+      </md-whiteframe>
     </md-content>
     <hr/>
     <p>Colors By <a target="_blank" href="http://en.wikipedia.org/wiki/Paul_Klee">Paul Klee</a></p>
@@ -68,7 +77,10 @@
 
         $scope.master = [];
         $scope.selected_year = 2005;
-        $scope.years = d3.range(2005,1865,-5);
+        $scope.years = d3.range(2005, 1865, -5);
+
+        $scope.filters = [];
+
         $scope.tooltip = {};
         $scope.pFormat = d3.format(".1%");
         $scope.qFormat = d3.format(",.0f");
@@ -76,15 +88,18 @@
         $scope.updateTooltip = function (data) {
           $scope.tooltip = data;
           $scope.$apply();
-          console.log("scope", $scope)
         }
 
-        $scope.change = function (year) {
-          $scope.selected_year = year;
-          update();
+        $scope.addFilter = function (name) {
+          $scope.filters.push({
+            name: name,
+            hide: true
+          });
+          $scope.$apply();
+          console.log("filters", $scope.filters);
         }
 
-        d3.csv('../data/all_countries.csv', function (err, data) {
+        d3.csv('../data/trade.csv', function (err, data) {
 
           data.forEach(function (d) {
             d.year  = +d.year;
@@ -93,15 +108,17 @@
           })
 
           $scope.master = data;
-          update();
-        })
+          $scope.update();
+        });
 
-        function update() {
-          $scope.drawChords($scope.master.filter(function (d) {
+        $scope.update = function () {
+          var data = $scope.master.filter(function (d) {
             return d.year === $scope.selected_year;
-          }))
-        }
+          });
+          $scope.drawChords(data);
+        };
 
+        $scope.$watch('selected_year', $scope.update);
 
       }]);
     </script>
