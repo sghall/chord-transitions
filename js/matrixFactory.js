@@ -176,20 +176,18 @@ angular.module('app').factory('matrixFactory', [function () {
     };
 
     matrix.read = function (d) {
-      var s, t, g, m = {};
+      var g, m = {};
       if (d.source) {
-        s = _matrix[d.source.index][d.source.subindex];
-        t = _matrix[d.target.index][d.target.subindex];
-        m.sname  = _keys[_index[d.source.index]].name;
+        m.sname  = _keys[d.source._id].name;
         m.sdata  = d.source.value;
         m.svalue = +d.source.value;
         m.stotal = _matrix[d.source.index].reduce(function (k, n) { return k + n; }, 0);
-        m.tname  = _keys[_index[d.target.index]].name;
+        m.tname  = _keys[d.target._id].name;
         m.tdata  = d.target.value;
         m.tvalue = +d.target.value;
         m.ttotal = _matrix[d.target.index].reduce(function (k, n) { return k + n; }, 0);
       } else {
-        g = _keys[_index[d.index]]
+        g = _keys[_index[d.index]];
         m.gname  = _keys[_index[d.index]].name;
         m.gdata  = g.data;
         m.gvalue = d.value;

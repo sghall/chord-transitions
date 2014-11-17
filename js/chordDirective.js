@@ -5,7 +5,7 @@ function ($window, matrixFactory) {
   var link = function ($scope, $el, $attr) {
 
     var size = [1000, 1000];
-    var marg = [200, 200, 200, 200];
+    var marg = [70, 50, 50, 50];
     var dims = [];
     dims[0] = size[0] - marg[1] - marg[3];
     dims[1] = size[1] - marg[0] - marg[2];
@@ -34,14 +34,14 @@ function ($window, matrixFactory) {
         return {value: value, data: recs[0]}; 
       });
 
-    var r0 = (size[1] / 2) - 100;
+    var innerRadius = (dims[1] / 2) - 100;
 
     var arc = d3.svg.arc()
-      .innerRadius(r0)
-      .outerRadius(r0 + 20);
+      .innerRadius(innerRadius)
+      .outerRadius(innerRadius + 20);
 
     var path = d3.svg.chord()
-      .radius(r0);
+      .radius(innerRadius);
 
     var svg = d3.select($el[0]).append("svg")
       .attr("class", "chart")
@@ -79,8 +79,6 @@ function ($window, matrixFactory) {
  
       gEnter.append("text")
         .attr("dy", ".35em")
-        .attr("fill", "#fff")
-        .style("font", "10px sans-serif")
         .text(function (d) {
           return d._id;
         });
@@ -95,7 +93,7 @@ function ($window, matrixFactory) {
         .attr("transform", function (d) {
           d.angle = (d.startAngle + d.endAngle) / 2;
           var r = "rotate(" + (d.angle * 180 / Math.PI - 90) + ")";
-          var t = " translate(" + (r0 + 26) + ")";
+          var t = " translate(" + (innerRadius + 26) + ")";
           return r + t + (d.angle > Math.PI ? " rotate(180)" : " rotate(0)"); 
         })
         .attr("text-anchor", function (d) {
@@ -107,7 +105,7 @@ function ($window, matrixFactory) {
       var chords = container.selectAll("path.chord")
         .data(matrix.chords(), function (d) { return d._id; });
 
-      var cEnter = chords.enter().append("path")
+      chords.enter().append("path")
         .attr("class", "chord")
         .style("stroke", "none")
         .style("fill", function (d) {
@@ -115,12 +113,20 @@ function ($window, matrixFactory) {
         })
         .style("opacity", 0.9)
         .attr("d", path)
+        .on("mouseover", function () {
+          d3.select(".tooltip")
+            .style("opacity", 1);
+        })
+        .on("mouseout", function () {
+          d3.select(".tooltip")
+            .style("opacity", 0);
+        })
         .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
 
       chords.transition().duration(1500)
         .attrTween("d", matrix.chordTween(path));
 
-      chords.exit().remove();
+      chords.exit().remove()
 
       function mouseout(d, i) {
         container.selectAll("path.chord")

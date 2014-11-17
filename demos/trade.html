@@ -4,28 +4,51 @@
     <meta charset="utf-8">
     <title>Trade - Chord Diagrams</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="../bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" type="text/css" href="../css/trade-theme.css">
     <link rel="stylesheet" type="text/css" href="../css/app.css">
   </head>
-  <body ng-app="app" ng-controller="mainCntrl">
-    <div style="position:absolute; left: 200px;">
-      <h1>{{ selected_year }}</h1>
+  <body ng-app="app" ng-controller="mainCntrl" md-theme="trade">
+    <md-toolbar>
+      <h1 class="md-toolbar-tools">
+        <span>International Trade</span>
+      </h1>
+    </md-toolbar>
+
+    <md-content layout="horizontal" layout-padding>
+      <md-whiteframe flex="15" class="md-whiteframe-z3" layout layout-align="center center">
+         <md-radio-group ng-model="selected_year">
+          <md-radio-button ng-repeat="year in years" ng-value="year" ng-click="change(year)">
+            {{ year }}
+          </md-radio-button>
+        </md-radio-group>
+      </md-whiteframe>
+      <div flex style="position:relative;">
+        <h2 style="margin:0px;">Selected Year: <span class="radioValue">{{ selected_year }}</span></h2>
+          <md-whiteframe class="tooltip md-whiteframe-z3" layout layout-align="center center">
+          </md-whiteframe>
+          <chord-diagram></chord-diagram>
+        <p>Colors by <a target="_blank" href="http://en.wikipedia.org/wiki/Paul_Klee">Paul Klee</a></p>
+      </div>
+    </md-content>
+
     </div>
-    <div style="position:absolute; top: 200px; width: 100px;">
-      <button ng-repeat="year in years" ng-click="change(year)">{{ year }}</button>
-    </div>
-    <chord-diagram></chord-diagram>
     <script src="../bower_components/d3/d3.min.js"></script>
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/hammerjs/hammer.js"></script>
+    <script src="../bower_components/angular-material/angular-material.js"></script>
     <script>
-      angular.module('app', []);
+      angular.module('app', ['ngMaterial']);
 
       angular.module('app').controller('mainCntrl', ['$scope', 
       function ($scope) {
 
         $scope.master = [];
         $scope.selected_year = 2005;
-        $scope.years = d3.range(1870,2010,5);
+        $scope.years = d3.range(2005,1865,-5);
 
         $scope.change = function (year) {
           $scope.selected_year = year;
