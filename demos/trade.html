@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Trade - Chord Diagrams</title>
+    <title>delimited | Chord Transitions Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="../bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" type="text/css" href="../css/trade-theme.css">
@@ -13,7 +13,7 @@
     <script src="../bower_components/hammerjs/hammer.min.js"></script>
     <script src="../bower_components/angular-material/angular-material.min.js"></script>
   </head>
-  <body ng-app="app" ng-controller="mainCntrl" md-theme="trade">
+  <body ng-app="app" ng-cloak ng-controller="mainCntrl" md-theme="trade">
 
     <!-- top tool bar -->
     <md-toolbar style="z-index:0;">
@@ -104,7 +104,7 @@
       angular.module('app').controller('mainCntrl', ['$scope', 
       function ($scope) {
 
-        $scope.master = []; // Store Master Dataset
+        $scope.master = {}; // Store Master Dataset
 
         $scope.selected_year = 2005;
         $scope.years = d3.range(2005, 1865, -5);
@@ -131,19 +131,19 @@
         };
 
         $scope.update = function () {
-          var data = $scope.master.filter(function (d) {
-            return d.year === $scope.selected_year;
-          });
+          var data = $scope.master[$scope.selected_year];
 
-          $scope.drawChords(data.filter(function (d) {
-            var fl = $scope.filters;
-            var v1 = d.importer1, v2 = d.importer2;
+          if (data) {
+            $scope.drawChords(data.filter(function (d) {
+              var fl = $scope.filters;
+              var v1 = d.importer1, v2 = d.importer2;
 
-            if ((fl[v1] && fl[v1].hide) || (fl[v2] && fl[v2].hide)) {
-              return false;
-            }
-            return true;
-          }));
+              if ((fl[v1] && fl[v1].hide) || (fl[v2] && fl[v2].hide)) {
+                return false;
+              }
+              return true;
+            }));
+          }
         };
 
         d3.csv('../data/trade.csv', function (err, data) {
@@ -152,9 +152,12 @@
             d.year  = +d.year;
             d.flow1 = +d.flow1;
             d.flow2 = +d.flow2;
-          })
 
-          $scope.master = data;
+            if (!$scope.master[d.year]) {
+              $scope.master[d.year] = [];
+            }
+            $scope.master[d.year].push(d);
+          })
           $scope.update();
         });
 
