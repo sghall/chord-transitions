@@ -17,6 +17,6 @@ path.chord {
   opacity: 0.9;
 }
 
-text, path.group {
+text, .group path {
   cursor: pointer;
 }

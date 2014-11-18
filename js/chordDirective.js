@@ -23,14 +23,14 @@ function ($window, matrixFactory) {
         return (row.importer1 === a.name && row.importer2 === b.name) ||
                (row.importer1 === b.name && row.importer2 === a.name)
       })
-      .reduce(function (recs, a, b) {
+      .reduce(function (rows, a, b) {
         var value;
-        if (!recs[0]) {
-           value = 0;
+        if (!rows[0]) {
+          value = 0;
         } else {
-          value = recs[0].importer1 === a.name ? +recs[0].flow1 : +recs[0].flow2;
+          value = rows[0].importer1 === a.name ? +rows[0].flow1 : +rows[0].flow2;
         }
-        return {value: value, data: recs[0]}; 
+        return {value: value, data: rows[0] || {}}; 
       });
 
     var innerRadius = (dims[1] / 2) - 100;
@@ -124,6 +124,7 @@ function ($window, matrixFactory) {
 
       function groupClick(d) {
         $scope.addFilter(d._id);
+        resetChords();
       }
 
       function chordMouseover(d) {
@@ -143,9 +144,9 @@ function ($window, matrixFactory) {
 
       function dimChords(d) {
         container.selectAll("path.chord").style("opacity", function (p) {
-          if (d.source) {
+          if (d.source) { // COMPARE CHORD IDS
             return (p._id === d._id) ? 0.9: 0.1;
-          } else {
+          } else { // COMPARE GROUP IDS
             return (p.source._id === d._id || p.target._id === d._id) ? 0.9: 0.1;
           }
         });
