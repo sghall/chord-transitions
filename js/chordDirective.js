@@ -11,7 +11,7 @@ function ($window, matrixFactory) {
     dims[1] = size[1] - marg[0] - marg[2]; // HEIGHT
 
     var colors = d3.scale.ordinal()
-      .range(['#121212','#8FB5AA','#85889E','#9C7989','#91919C','#7E9C8D','#9C6744','#C9BEB9','#C4BAA1','#C2B6BF','#242B27','#212429','#99677B','#36352B','#33332F','#2B2B2E','#2E1F13','#2B242A','#918A59','#6E676C','#6E4752','#6B4A2F','#998476','#8A968D','#968D8A','#968D96','#967860','#929488','#949278','#A0A3BD','#BD93A1','#65666B','#6B5745','#6B6664','#695C52','#56695E','#69545C','#565A69','#696043','#63635C','#636150','#333131','#332820','#302D30','#302D1F','#2D302F','#CFB6A3','#CFA07E','#CC855C','#362F2A']);
+      .range(['#9C6744','#C9BEB9','#C4BAA1','#C2B6BF','#121212','#8FB5AA','#85889E','#9C7989','#91919C','#242B27','#212429','#99677B','#36352B','#33332F','#2B2B2E','#2E1F13','#2B242A','#918A59','#6E676C','#6E4752','#6B4A2F','#998476','#8A968D','#968D8A','#968D96','#967860','#929488','#949278','#A0A3BD','#BD93A1','#65666B','#6B5745','#6B6664','#695C52','#56695E','#69545C','#565A69','#696043','#63635C','#636150','#333131','#332820','#302D30','#302D1F','#2D302F','#CFB6A3','#CFA07E','#CC855C','#362F2A']);
 
     var chord = d3.layout.chord()
       .padding(0.02)
@@ -36,7 +36,7 @@ function ($window, matrixFactory) {
             }
           }, 0);
         }
-        return {value: value, data: rows || {}}; 
+        return {value: value, data: {}}; 
       });
 
     var innerRadius = (dims[1] / 2) - 100;
@@ -61,12 +61,7 @@ function ($window, matrixFactory) {
 
       matrix.data(data)
         .resetKeys()
-        .addKeys('importer1', stashRow)
-        .addKeys('importer2', stashRow);
-
-      function stashRow(row, prop, data) {
-        return row;
-      }
+        .addKeys(['importer1', 'importer2'])
 
       matrix.update()
 

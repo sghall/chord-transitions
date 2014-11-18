@@ -87,10 +87,10 @@ angular.module('app').factory('matrixFactory', [function () {
       }
     };
 
-    matrix.addKeys = function (prop, func) {
+    matrix.addKeys = function (props, fun) {
       for (var i = 0; i < dataStore.length; i++) {
-        if (!indexKeys[dataStore[i][prop]]) {
-          this.addKey(dataStore[i][prop], func ? func(dataStore[i], prop, dataStore):{});
+        for (var j = 0; j < props.length; j++) {
+          this.addKey(dataStore[i][props[j]], fun ? fun(dataStore[i], props[j]):{});
         }
       }
       return this;
