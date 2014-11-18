@@ -21,7 +21,7 @@ function ($window, matrixFactory) {
       .layout(chord)
       .filter(function (item, r, c) {
         return (item.importer1 === r.name && item.importer2 === c.name) ||
-               (item.importer1 === c.name && item.importer2 === r.name)
+               (item.importer1 === c.name && item.importer2 === r.name);
       })
       .reduce(function (items, r, c) {
         var value;
@@ -32,11 +32,11 @@ function ($window, matrixFactory) {
             if (r === c) {
               return m + (n.flow1 + n.flow2);
             } else {
-              return m + (n.importer1 === r.name ? n.flow1 : n.flow2);
+              return m + (n.importer1 === r.name ? n.flow1: n.flow2);
             }
           }, 0);
         }
-        return {value: value, data: items}; 
+        return {value: value, data: items};
       });
 
     var innerRadius = (dims[1] / 2) - 100;
@@ -61,9 +61,7 @@ function ($window, matrixFactory) {
 
       matrix.data(data)
         .resetKeys()
-        .addKeys(['importer1', 'importer2'], function (row) {
-          return row;
-        })
+        .addKeys(['importer1', 'importer2'])
         .update()
 
       var groups = container.selectAll("g.group")
