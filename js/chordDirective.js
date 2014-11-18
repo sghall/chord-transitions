@@ -19,20 +19,20 @@ function ($window, matrixFactory) {
 
     var matrix = matrixFactory.chordMatrix()
       .layout(chord)
-      .filter(function (row, a, b) {
-        return (row.importer1 === a.name && row.importer2 === b.name) ||
-               (row.importer1 === b.name && row.importer2 === a.name)
+      .filter(function (row, mtrx_i, mtrx_j) {
+        return (row.importer1 === mtrx_i.name && row.importer2 === mtrx_j.name) ||
+               (row.importer1 === mtrx_j.name && row.importer2 === mtrx_i.name)
       })
-      .reduce(function (rows, a, b) {
+      .reduce(function (rows, mtrx_i, mtrx_j) {
         var value;
         if (!rows[0]) {
           value = 0;
         } else {
           value = rows.reduce(function (m, n) {
-            if (a === b) {
+            if (mtrx_i === mtrx_j) {
               return m + (n.flow1 + n.flow2);
             } else {
-              return m + (n.importer1 === a.name ? n.flow1 : n.flow2);
+              return m + (n.importer1 === mtrx_i.name ? n.flow1 : n.flow2);
             }
           }, 0);
         }
@@ -62,8 +62,7 @@ function ($window, matrixFactory) {
       matrix.data(data)
         .resetKeys()
         .addKeys(['importer1', 'importer2'])
-
-      matrix.update()
+        .update()
 
       var groups = container.selectAll("g.group")
         .data(matrix.groups(), function (d) { return d._id; });
