@@ -36,7 +36,7 @@ function ($window, matrixFactory) {
             }
           }, 0);
         }
-        return {value: value, data: {}}; 
+        return {value: value, data: rows}; 
       });
 
     var innerRadius = (dims[1] / 2) - 100;
@@ -61,7 +61,9 @@ function ($window, matrixFactory) {
 
       matrix.data(data)
         .resetKeys()
-        .addKeys(['importer1', 'importer2'])
+        .addKeys(['importer1', 'importer2'], function (row) {
+          return row;
+        })
         .update()
 
       var groups = container.selectAll("g.group")
@@ -76,7 +78,7 @@ function ($window, matrixFactory) {
         .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
 
       gEnter.append("path")
-        .style("fill", function (d) { return colors(matrix.read(d).gname); })
+        .style("fill", function (d) { return colors(d._id); })
         .attr("d", arc);
  
       gEnter.append("text")

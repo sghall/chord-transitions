@@ -3,7 +3,7 @@ angular.module('app').factory('matrixFactory', [function () {
   var chordMatrix = function () {
 
     var _matrix = [], dataStore = [], _id = 0;
-    var matrixIndex = [], indexKeys = {};
+    var matrixIndex = [], indexHash = {};
     var chordLayout, layoutCache;
 
     var filter = function () {};
@@ -17,16 +17,28 @@ angular.module('app').factory('matrixFactory', [function () {
       layoutCache = {groups: {}, chords: {}};
 
       chordLayout.groups().forEach(function (group) {
-        layoutCache.groups[matrixIndex[group.index]] = group;
+        layoutCache.groups[group._id] = {
+          startAngle: group.startAngle,
+          endAngle: group.endAngle
+        };
       });
 
       chordLayout.chords().forEach(function (chord) {
-        chord.source._id = matrixIndex[chord.source.index];
-        chord.target._id = matrixIndex[chord.target.index];
-        layoutCache.chords[chordID(chord)] = chord;
+        layoutCache.chords[chordID(chord)] = {
+          source: {
+            _id: chord.source._id,
+            startAngle: chord.source.startAngle,
+            endAngle: chord.source.endAngle
+          },
+          target: {
+            _id: chord.target._id,
+            startAngle: chord.target.startAngle,
+            endAngle: chord.target.endAngle
+          }
+        };
       });
 
-      matrixIndex = Object.keys(indexKeys);
+      matrixIndex = Object.keys(indexHash);
 
       for (var i = 0; i < matrixIndex.length; i++) {
         if (!_matrix[i]) {
@@ -34,9 +46,9 @@ angular.module('app').factory('matrixFactory', [function () {
         }
         for (var j = 0; j < matrixIndex.length; j++) {
           recs = dataStore.filter(function (row) {
-            return filter(row, indexKeys[matrixIndex[i]], indexKeys[matrixIndex[j]]);
+            return filter(row, indexHash[matrixIndex[i]], indexHash[matrixIndex[j]]);
           });
-          entry = reduce(recs, indexKeys[matrixIndex[i]], indexKeys[matrixIndex[j]]);
+          entry = reduce(recs, indexHash[matrixIndex[i]], indexHash[matrixIndex[j]]);
           entry.valueOf = function () { return +this.value };
           _matrix[i][j] = entry;
         }
@@ -82,8 +94,8 @@ angular.module('app').factory('matrixFactory', [function () {
     };
 
     matrix.addKey = function (key, data) {
-      if (!indexKeys[key]) {
-        indexKeys[key] = {name: key, data: data || {}};
+      if (!indexHash[key]) {
+        indexHash[key] = {name: key, data: data || {}};
       }
     };
 
@@ -97,7 +109,7 @@ angular.module('app').factory('matrixFactory', [function () {
     };
 
     matrix.resetKeys = function () {
-      indexKeys = {};
+      indexHash = {};
       return this;
     };
 
@@ -110,12 +122,12 @@ angular.module('app').factory('matrixFactory', [function () {
     matrix.groupTween = function (d3_arc) {
       return function (d, i) {
         var tween; 
-        var cached = layoutCache.groups[matrixIndex[d.index]];
+        var cached = layoutCache.groups[d._id];
 
         if (cached) {
-          tween = d3.interpolate(cached, d);
+          tween = d3.interpolateObject(cached, d);
         } else {
-          tween = d3.interpolate({
+          tween = d3.interpolateObject({
             startAngle:d.startAngle,
             endAngle:d.startAngle
           }, d);
@@ -136,7 +148,7 @@ angular.module('app').factory('matrixFactory', [function () {
           if (d.source._id !== cached.source._id){
             cached = {source: cached.target, target: cached.source};
           }
-          tween = d3.interpolate(cached, d);
+          tween = d3.interpolateObject(cached, d);
         } else {
           if (layoutCache.groups) {
             groups = [];
@@ -158,7 +170,7 @@ angular.module('app').factory('matrixFactory', [function () {
             cached = d;
           }
 
-          tween = d3.interpolate({
+          tween = d3.interpolateObject({
             source: { 
               startAngle: cached.source.startAngle,
               endAngle: cached.source.startAngle
@@ -180,16 +192,16 @@ angular.module('app').factory('matrixFactory', [function () {
       var g, m = {};
 
       if (d.source) {
-        m.sname  = indexKeys[d.source._id].name;
+        m.sname  = d.source._id;
         m.sdata  = d.source.value;
         m.svalue = +d.source.value;
         m.stotal = _matrix[d.source.index].reduce(function (k, n) { return k + n; }, 0);
-        m.tname  = indexKeys[d.target._id].name;
+        m.tname  = d.target._id;
         m.tdata  = d.target.value;
         m.tvalue = +d.target.value;
         m.ttotal = _matrix[d.target.index].reduce(function (k, n) { return k + n; }, 0);
       } else {
-        g = indexKeys[matrixIndex[d.index]];
+        g = indexHash[d._id];
         m.gname  = g.name;
         m.gdata  = g.data;
         m.gvalue = d.value;
