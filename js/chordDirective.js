@@ -19,24 +19,24 @@ function ($window, matrixFactory) {
 
     var matrix = matrixFactory.chordMatrix()
       .layout(chord)
-      .filter(function (row, mtrx_i, mtrx_j) {
-        return (row.importer1 === mtrx_i.name && row.importer2 === mtrx_j.name) ||
-               (row.importer1 === mtrx_j.name && row.importer2 === mtrx_i.name)
+      .filter(function (item, r, c) {
+        return (item.importer1 === r.name && item.importer2 === c.name) ||
+               (item.importer1 === c.name && item.importer2 === r.name)
       })
-      .reduce(function (rows, mtrx_i, mtrx_j) {
+      .reduce(function (items, r, c) {
         var value;
-        if (!rows[0]) {
+        if (!items[0]) {
           value = 0;
         } else {
-          value = rows.reduce(function (m, n) {
-            if (mtrx_i === mtrx_j) {
+          value = items.reduce(function (m, n) {
+            if (r === c) {
               return m + (n.flow1 + n.flow2);
             } else {
-              return m + (n.importer1 === mtrx_i.name ? n.flow1 : n.flow2);
+              return m + (n.importer1 === r.name ? n.flow1 : n.flow2);
             }
           }, 0);
         }
-        return {value: value, data: rows}; 
+        return {value: value, data: items}; 
       });
 
     var innerRadius = (dims[1] / 2) - 100;
