@@ -9,59 +9,87 @@
     <link rel="stylesheet" type="text/css" href="../css/app.css">
   </head>
   <body ng-app="app" ng-controller="mainCntrl" md-theme="trade">
+
+    <!-- top tool bar -->
     <md-toolbar style="z-index:0;">
       <h1 class="md-toolbar-tools">
         <span>International Trade (1870-2005)</span>
       </h1>
     </md-toolbar>
+
+    <!-- intro -->
     <div flex layout="vertical" layout-align="center center">
       <h2 style="margin-bottom:0px;">International Trade Flows <span class="radioValue">{{ selected_year }}</span></h2>
       <p style="margin:0px;">Top 100 dyads are shown for each year</p>
     </div>
+
+    <!-- main content -->
     <md-content layout="horizontal" layout-padding>
+
+      <!-- left side - year selectors -->
       <md-whiteframe flex="15" class="md-whiteframe-z1" layout="vertical" layout-align="start center">
-        <h4 style="margin:0px;">Year:</h4>
+        <h4 style="margin:0px;">Years:</h4>
         <md-radio-group ng-model="selected_year">
           <md-radio-button ng-repeat="year in years" ng-value="year">
             {{ year }}
           </md-radio-button>
         </md-radio-group>
       </md-whiteframe>
+
+      <!-- chord diagram -->
       <div flex>
-        <md-whiteframe id="tooltip" class="md-whiteframe-z1" layout="vertical" layout-align="center center">
-          <md-list layout="vertical">
-            <md-item>
-              <md-item-content>
-                <div class="md-tile-content">
-                  <h3>{{ tooltip.sname }} imported from  {{ tooltip.tname }} : $ {{ qFormat(tooltip.svalue) }}M</h3>
-                  <h4>{{ pFormat(tooltip.svalue/tooltip.stotal) }} of {{ tooltip.sname }}'s Total ($ {{ qFormat(tooltip.stotal) }}M)</h4>
-                  <p>{{ pFormat(tooltip.svalue/tooltip.mtotal) }} of {{ selected_year }} Total ($ {{ qFormat(tooltip.mtotal) }}M)</p>
-                </div>
-              </md-item-content>
-            </md-item>
-            <md-item>
-              <md-item-content>
-                <div class="md-tile-content">
-                  <h3>{{ tooltip.tname }} imported from  {{ tooltip.sname }} : $ {{ qFormat(tooltip.tvalue) }}M</h3>
-                  <h4>{{ pFormat(tooltip.tvalue/tooltip.ttotal) }} of {{ tooltip.tname }}'s Total ($ {{ qFormat(tooltip.ttotal) }}M)</h4>
-                  <p>{{ pFormat(tooltip.tvalue/tooltip.mtotal) }} of {{ selected_year }} Total ($ {{ qFormat(tooltip.mtotal) }}M)</p>
-                </div>
-              </md-item-content>
-            </md-item>
-          </md-list>
-        </md-whiteframe>
         <chord-diagram></chord-diagram>
       </div>
-      <md-whiteframe flex="20" class="md-whiteframe-z1" layout="vertical" layout-align="start start">
-        <h4 style="margin:0px;">Filters:</h4>
+
+      <!-- right side - filter list -->
+      <md-whiteframe flex="20" class="md-whiteframe-z1" layout="vertical" layout-align="start space-around">
+        <div layout="horizontal" layout-align="space-around">
+          <div><h4 style="margin-top:5px;">Filters:</h4></div>
+          <div>
+            <md-button class="md-primary" aria-label="clear" ng-click="filters = {}; hasFilters = false;">
+              clear all
+            </md-button>
+          </div>
+        </div>
+        <div ng-if="hasFilters === false" style="margin-left: 15px; opacity: 0.5;">
+          Click on a country
+        </div>
         <md-checkbox ng-repeat="filter in filters" ng-model="filter.hide" aria-label="filter.name">
             {{ filter.name }}
         </md-checkbox>
       </md-whiteframe>
+
     </md-content>
+
+    <!-- bottom links -->
     <hr/>
     <p>Colors By <a target="_blank" href="http://en.wikipedia.org/wiki/Paul_Klee">Paul Klee</a></p>
     <a target="_blank" href="http://www.delimited.io/blog">delimited.io</a>
+
+    <!-- TOOL TIP -->
+    <md-whiteframe id="tooltip" class="md-whiteframe-z1" layout="vertical" layout-align="center center">
+      <md-list layout="vertical">
+        <md-item>
+          <md-item-content>
+            <div class="md-tile-content">
+              <h3>{{ tooltip.sname }} imported from  {{ tooltip.tname }} : $ {{ qFormat(tooltip.svalue) }}M</h3>
+              <h4>{{ pFormat(tooltip.svalue/tooltip.stotal) }} of {{ tooltip.sname }}'s Total ($ {{ qFormat(tooltip.stotal) }}M)</h4>
+              <p>{{ pFormat(tooltip.svalue/tooltip.mtotal) }} of Total ($ {{ qFormat(tooltip.mtotal) }}M)</p>
+            </div>
+          </md-item-content>
+        </md-item>
+        <md-item>
+          <md-item-content>
+            <div class="md-tile-content">
+              <h3>{{ tooltip.tname }} imported from  {{ tooltip.sname }} : $ {{ qFormat(tooltip.tvalue) }}M</h3>
+              <h4>{{ pFormat(tooltip.tvalue/tooltip.ttotal) }} of {{ tooltip.tname }}'s Total ($ {{ qFormat(tooltip.ttotal) }}M)</h4>
+              <p>{{ pFormat(tooltip.tvalue/tooltip.mtotal) }} of Total ($ {{ qFormat(tooltip.mtotal) }}M)</p>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </md-whiteframe>
+
     <script src="../bower_components/d3/d3.min.js"></script>
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
@@ -80,6 +108,7 @@
         $scope.years = d3.range(2005, 1865, -5);
 
         $scope.filters = {};
+        $scope.hasFilters = false;
 
         $scope.tooltip = {};
         $scope.pFormat = d3.format(".1%");
@@ -91,6 +120,7 @@
         }
 
         $scope.addFilter = function (name) {
+          $scope.hasFilters = true;
           $scope.filters[name] = {
             name: name,
             hide: true
