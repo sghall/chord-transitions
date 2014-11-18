@@ -34,7 +34,7 @@ md-button.md-trade-theme {
       background-color: rgba(158, 158, 158, 0.3); }
     md-button.md-trade-theme.md-raised.md-primary, md-button.md-trade-theme.md-fab.md-primary {
       color: white;
-      background-color: rgb(102, 91, 82); }
+      background-color: rgb(46, 31, 19); }
       md-button.md-trade-theme.md-raised.md-primary:not([disabled]):hover, md-button.md-trade-theme.md-raised.md-primary:not([disabled]).focus, md-button.md-trade-theme.md-fab.md-primary:not([disabled]):hover, md-button.md-trade-theme.md-fab.md-primary:not([disabled]).focus {
         background-color: #6d4c41; }
     md-button.md-trade-theme.md-raised.md-warn, md-button.md-trade-theme.md-fab.md-warn {
@@ -55,7 +55,7 @@ md-checkbox.md-trade-theme.md-checked .md-ripple {
 md-checkbox.md-trade-theme .md-icon {
   border-color: rgba(0, 0, 0, 0.54); }
 md-checkbox.md-trade-theme.md-checked .md-icon {
-  background-color: rgba(204, 151, 102, 0.87); }
+  background-color: rgba(138, 150, 141, 0.87); }
 md-checkbox.md-trade-theme.md-checked .md-icon:after {
   border-color: #eeeeee; }
 md-checkbox.md-trade-theme[disabled] .md-icon {
@@ -78,14 +78,14 @@ md-divider.md-trade-theme {
 md-progress-circular.md-trade-theme {
   background-color: transparent; }
   md-progress-circular.md-trade-theme .md-circle .md-mask .md-fill {
-    background-color: rgb(102, 91, 82); }
+    background-color: rgb(46, 31, 19); }
   md-progress-circular.md-trade-theme .md-inset {
     background-color: #ffffff; }
 
 md-progress-linear.md-trade-theme .md-container {
   background-color: #d7ccc8; }
 md-progress-linear.md-trade-theme .md-bar {
-  background-color: rgb(102, 91, 82); }
+  background-color: rgb(46, 31, 19); }
 md-progress-linear.md-trade-theme[mode=buffer] .md-dashed:before {
   background: radial-gradient(#d7ccc8 0%, #d7ccc8 16%, transparent 42%); }
 md-progress-linear.md-trade-theme[mode=buffer] .md-bar1 {
@@ -96,11 +96,11 @@ md-radio-button.md-trade-theme .md-container .md-ripple, md-switch.md-trade-them
 md-radio-button.md-trade-theme .md-off, md-switch.md-trade-theme .md-switch-thumb .md-off {
   border-color: rgba(0, 0, 0, 0.54); }
 md-radio-button.md-trade-theme .md-on, md-switch.md-trade-theme .md-switch-thumb .md-on {
-  background-color: rgba(204, 151, 102, 0.87); }
+  background-color: rgba(138, 150, 141, 0.87); }
 md-radio-button.md-trade-theme.md-checked .md-off, md-switch.md-trade-theme .md-switch-thumb.md-checked .md-off {
-  border-color: rgba(204, 151, 102, 0.87); }
+  border-color: rgba(138, 150, 141, 0.87); }
 md-radio-button.md-trade-theme.md-checked .md-ink-ripple, md-switch.md-trade-theme .md-switch-thumb.md-checked .md-ink-ripple {
-  color: rgba(204, 151, 102, 0.87); }
+  color: rgba(138, 150, 141, 0.87); }
 
 md-radio-group.md-trade-theme:focus {
   border-color: rgba(0, 0, 0, 0.73); }
@@ -108,14 +108,14 @@ md-radio-group.md-trade-theme:focus {
 md-slider.md-trade-theme .md-track {
   background-color: rgba(0, 0, 0, 0.26); }
 md-slider.md-trade-theme .md-track-fill {
-  background-color: rgb(102, 91, 82); }
+  background-color: rgb(46, 31, 19); }
 md-slider.md-trade-theme .md-thumb:after {
-  border-color: rgb(102, 91, 82);
-  background-color: rgb(102, 91, 82); }
+  border-color: rgb(46, 31, 19);
+  background-color: rgb(46, 31, 19); }
 md-slider.md-trade-theme .md-sign {
-  background-color: rgb(102, 91, 82); }
+  background-color: rgb(46, 31, 19); }
   md-slider.md-trade-theme .md-sign:after {
-    border-top-color: rgb(102, 91, 82); }
+    border-top-color: rgb(46, 31, 19); }
 md-slider.md-trade-theme .md-thumb-text {
   color: white; }
 md-slider.md-trade-theme .md-focus-thumb {
@@ -135,7 +135,7 @@ md-slider.md-trade-theme[disabled]:not(.md-min) .md-thumb:after {
   color: rgba(0, 0, 0, 0.54);
   background-color: #ffffff; }
   .md-subheader.md-trade-theme.md-primary {
-    color: rgb(102, 91, 82); }
+    color: rgb(46, 31, 19); }
 
 md-switch.md-trade-theme .md-switch-bar {
   background-color: rgba(0, 0, 0, 0.54); }
@@ -143,7 +143,7 @@ md-switch.md-trade-theme .md-switch-thumb:focus .md-label {
   border: 1px dotted black; }
 
 md-tabs.md-trade-theme .md-header {
-  background-color: rgb(102, 91, 82); }
+  background-color: rgb(46, 31, 19); }
 md-tabs.md-trade-theme md-tabs-ink-bar {
   background: #ffff85; }
 md-tabs.md-trade-theme md-tab {
@@ -170,9 +170,9 @@ md-input-group.md-trade-theme input, md-input-group.md-trade-theme textarea {
   color: rgba(0, 0, 0, 0.73);
   border-color: rgba(0, 0, 0, 0.12); }
 md-input-group.md-trade-theme.md-input-focused input, md-input-group.md-trade-theme.md-input-focused textarea {
-  border-color: rgb(102, 91, 82); }
+  border-color: rgb(46, 31, 19); }
 md-input-group.md-trade-theme.md-input-focused label {
-  color: rgb(102, 91, 82); }
+  color: rgb(46, 31, 19); }
 md-input-group.md-trade-theme.md-input-has-value:not(.md-input-focused) label {
   color: rgba(0, 0, 0, 0.372); }
 md-input-group.md-trade-theme[disabled] input, md-input-group.md-trade-theme[disabled] textarea {
@@ -189,7 +189,7 @@ md-toast.md-trade-theme {
      }
 
 md-toolbar.md-trade-theme {
-  background-color: rgb(102, 91, 82);
+  background-color: rgb(46, 31, 19);
   color: white; }
 
 md-tooltip.md-trade-theme {

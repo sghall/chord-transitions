@@ -4,14 +4,14 @@ function ($window, matrixFactory) {
 
   var link = function ($scope, $el, $attr) {
 
-    var size = [1000, 1000];
-    var marg = [80, 50, 50, 50];
-    var dims = [];
+    var size = [1000, 1000]; // SVG SIZE WIDTH, HEIGHT
+    var marg = [80, 50, 50, 50]; // TOP, RIGHT, BOTTOM, LEFT
+    var dims = []; // USABLE DIMENSIONS
     dims[0] = size[0] - marg[1] - marg[3];
     dims[1] = size[1] - marg[0] - marg[2];
 
     var colors = d3.scale.ordinal()
-      .range(['#99744E','#66453D','#663B33','#CC9766','#CCA37A','#CC9454','#B5967D','#B28F6B','#B28159','#635250','#4F473E','#4C342F','#4C3E3C','#4C3936','#4A3D35','#362820','#362725','#30201E','#211514','#665B52','#634B46','#EDD8B7','#E6C7A1','#E3BD8A','#9C7E5C']);
+      .range(['#121212','#8FB5AA','#85889E','#9C7989','#91919C','#7E9C8D','#9C6744','#C9BEB9','#C4BAA1','#C2B6BF','#242B27','#212429','#99677B','#36352B','#33332F','#2B2B2E','#2E1F13','#2B242A','#918A59','#6E676C','#6E4752','#6B4A2F','#998476','#8A968D','#968D8A','#968D96','#967860','#929488','#949278','#A0A3BD','#BD93A1','#65666B','#6B5745','#6B6664','#695C52','#56695E','#69545C','#565A69','#696043','#63635C','#636150','#333131','#332820','#302D30','#302D1F','#2D302F','#CFB6A3','#CFA07E','#CC855C','#362F2A']);
 
     var chord = d3.layout.chord()
       .padding(0.02)
@@ -28,9 +28,15 @@ function ($window, matrixFactory) {
         if (!rows[0]) {
           value = 0;
         } else {
-          value = rows[0].importer1 === a.name ? +rows[0].flow1 : +rows[0].flow2;
+          value = rows.reduce(function (m, n) {
+            if (a === b) {
+              return m + (n.flow1 + n.flow2);
+            } else {
+              return m + (n.importer1 === a.name ? n.flow1 : n.flow2);
+            }
+          }, 0);
         }
-        return {value: value, data: rows[0] || {}}; 
+        return {value: value, data: rows || {}}; 
       });
 
     var innerRadius = (dims[1] / 2) - 100;
@@ -49,14 +55,18 @@ function ($window, matrixFactory) {
 
     var container = svg.append("g")
       .attr("id", "container")
-      .attr("transform", "translate(" + marg[1] + "," + marg[0] + ")");
+      .attr("transform", "translate(" + marg[3] + "," + marg[0] + ")");
 
     $scope.drawChords = function (data) {
 
       matrix.data(data)
         .resetKeys()
-        .addKeys('importer1')
-        .addKeys('importer2')
+        .addKeys('importer1', stashRow)
+        .addKeys('importer2', stashRow);
+
+      function stashRow(row, prop, data) {
+        return row;
+      }
 
       matrix.update()
 
@@ -83,7 +93,7 @@ function ($window, matrixFactory) {
 
       groups.select("path")
         .transition().duration(2000)
-        .attrTween("d", matrix.groupTween(arc).bind(matrix));
+        .attrTween("d", matrix.groupTween(arc));
 
       groups.select("text")
         .transition()
@@ -153,9 +163,6 @@ function ($window, matrixFactory) {
       }
     }; // END DRAWCHORDS FUNCTION
 
-    //******************************************************************************
-    // HELPER FUNCTIONS
-    //******************************************************************************
     function resize() {
       var width = $($el[0]).parent().width();
       svg.attr({

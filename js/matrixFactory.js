@@ -178,6 +178,7 @@ angular.module('app').factory('matrixFactory', [function () {
 
     matrix.read = function (d) {
       var g, m = {};
+
       if (d.source) {
         m.sname  = indexKeys[d.source._id].name;
         m.sdata  = d.source.value;

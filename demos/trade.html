@@ -20,7 +20,6 @@
     <!-- intro -->
     <div flex layout="vertical" layout-align="center center">
       <h2 style="margin-bottom:0px;">International Trade Flows <span class="radioValue">{{ selected_year }}</span></h2>
-      <p style="margin:0px;">Top 100 dyads are shown for each year</p>
     </div>
 
     <!-- main content -->
@@ -47,7 +46,7 @@
           <div><h4 style="margin-top:5px;">Filters:</h4></div>
           <div>
             <md-button class="md-primary" aria-label="clear" ng-click="filters = {}; hasFilters = false;">
-              clear all
+              clear
             </md-button>
           </div>
         </div>
@@ -63,8 +62,11 @@
 
     <!-- bottom links -->
     <hr/>
-    <p>Colors By <a target="_blank" href="http://en.wikipedia.org/wiki/Paul_Klee">Paul Klee</a></p>
-    <a target="_blank" href="http://www.delimited.io/blog">delimited.io</a>
+    <div style="padding: 5px;">
+      Colors by <a target="_blank" href="http://en.wikipedia.org/wiki/Paul_Klee">Paul Klee (After the Flood)</a><br />
+      Data Visualization by <a target="_blank" href="http://www.delimited.io/blog">delimited.io</a><br />
+      Trade Data from <a target="_blank" href="http://www.correlatesofwar.org">Correlates of War</a>
+    </div>
 
     <!-- TOOL TIP -->
     <md-whiteframe id="tooltip" class="md-whiteframe-z1" layout="vertical" layout-align="center center">
@@ -74,7 +76,7 @@
             <div class="md-tile-content">
               <h3>{{ tooltip.sname }} imported from  {{ tooltip.tname }} : $ {{ qFormat(tooltip.svalue) }}M</h3>
               <h4>{{ pFormat(tooltip.svalue/tooltip.stotal) }} of {{ tooltip.sname }}'s Total ($ {{ qFormat(tooltip.stotal) }}M)</h4>
-              <p>{{ pFormat(tooltip.svalue/tooltip.mtotal) }} of Total ($ {{ qFormat(tooltip.mtotal) }}M)</p>
+              <p>{{ pFormat(tooltip.svalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M</p>
             </div>
           </md-item-content>
         </md-item>
@@ -83,7 +85,7 @@
             <div class="md-tile-content">
               <h3>{{ tooltip.tname }} imported from  {{ tooltip.sname }} : $ {{ qFormat(tooltip.tvalue) }}M</h3>
               <h4>{{ pFormat(tooltip.tvalue/tooltip.ttotal) }} of {{ tooltip.tname }}'s Total ($ {{ qFormat(tooltip.ttotal) }}M)</h4>
-              <p>{{ pFormat(tooltip.tvalue/tooltip.mtotal) }} of Total ($ {{ qFormat(tooltip.mtotal) }}M)</p>
+              <p>{{ pFormat(tooltip.tvalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M</p>
             </div>
           </md-item-content>
         </md-item>
@@ -103,7 +105,8 @@
       angular.module('app').controller('mainCntrl', ['$scope', 
       function ($scope) {
 
-        $scope.master = [];
+        $scope.master = []; // Store Master Dataset
+
         $scope.selected_year = 2005;
         $scope.years = d3.range(2005, 1865, -5);
 
@@ -111,8 +114,8 @@
         $scope.hasFilters = false;
 
         $scope.tooltip = {};
-        $scope.pFormat = d3.format(".1%");
-        $scope.qFormat = d3.format(",.0f");
+        $scope.pFormat = d3.format(".1%");  // Percent Format
+        $scope.qFormat = d3.format(",.0f"); // Commas for large Numbers
 
         $scope.updateTooltip = function (data) {
           $scope.tooltip = data;
@@ -132,6 +135,7 @@
           var data = $scope.master.filter(function (d) {
             return d.year === $scope.selected_year;
           });
+
           $scope.drawChords(data.filter(function (d) {
             var fl = $scope.filters;
             var v1 = d.importer1, v2 = d.importer2;
