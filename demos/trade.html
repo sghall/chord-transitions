@@ -4,9 +4,14 @@
     <meta charset="utf-8">
     <title>Trade - Chord Diagrams</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="../bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" type="text/css" href="../css/trade-theme.css">
     <link rel="stylesheet" type="text/css" href="../css/app.css">
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="../bower_components/hammerjs/hammer.min.js"></script>
+    <script src="../bower_components/angular-material/angular-material.min.js"></script>
   </head>
   <body ng-app="app" ng-controller="mainCntrl" md-theme="trade">
 
@@ -51,7 +56,7 @@
           </div>
         </div>
         <div ng-if="hasFilters === false" style="margin-left: 15px; opacity: 0.5;">
-          Click on a country
+          Click a country
         </div>
         <md-checkbox ng-repeat="filter in filters" ng-model="filter.hide" aria-label="filter.name">
             {{ filter.name }}
@@ -93,12 +98,6 @@
     </md-whiteframe>
 
     <script src="../bower_components/d3/d3.min.js"></script>
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/angular-aria/angular-aria.js"></script>
-    <script src="../bower_components/angular-animate/angular-animate.js"></script>
-    <script src="../bower_components/hammerjs/hammer.js"></script>
-    <script src="../bower_components/angular-material/angular-material.js"></script>
     <script>
       angular.module('app', ['ngMaterial']);
 

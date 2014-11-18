@@ -5,10 +5,10 @@ function ($window, matrixFactory) {
   var link = function ($scope, $el, $attr) {
 
     var size = [1000, 1000]; // SVG SIZE WIDTH, HEIGHT
-    var marg = [80, 50, 50, 50]; // TOP, RIGHT, BOTTOM, LEFT
+    var marg = [50, 50, 50, 50]; // TOP, RIGHT, BOTTOM, LEFT
     var dims = []; // USABLE DIMENSIONS
-    dims[0] = size[0] - marg[1] - marg[3];
-    dims[1] = size[1] - marg[0] - marg[2];
+    dims[0] = size[0] - marg[1] - marg[3]; // WIDTH
+    dims[1] = size[1] - marg[0] - marg[2]; // HEIGHT
 
     var colors = d3.scale.ordinal()
       .range(['#121212','#8FB5AA','#85889E','#9C7989','#91919C','#7E9C8D','#9C6744','#C9BEB9','#C4BAA1','#C2B6BF','#242B27','#212429','#99677B','#36352B','#33332F','#2B2B2E','#2E1F13','#2B242A','#918A59','#6E676C','#6E4752','#6B4A2F','#998476','#8A968D','#968D8A','#968D96','#967860','#929488','#949278','#A0A3BD','#BD93A1','#65666B','#6B5745','#6B6664','#695C52','#56695E','#69545C','#565A69','#696043','#63635C','#636150','#333131','#332820','#302D30','#302D1F','#2D302F','#CFB6A3','#CFA07E','#CC855C','#362F2A']);
@@ -164,7 +164,7 @@ function ($window, matrixFactory) {
     }; // END DRAWCHORDS FUNCTION
 
     function resize() {
-      var width = $($el[0]).parent().width();
+      var width = $el.parent()[0].clientWidth;
       svg.attr({
         width: width,
         height: width / (size[0] / size[1])
