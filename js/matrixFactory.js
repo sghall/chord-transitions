@@ -12,7 +12,7 @@ angular.module('app').factory('matrixFactory', [function () {
     var matrix = {};
 
     matrix.update = function () {
-      _matrix = [], recs = [], entry = {};
+      _matrix = [], objs = [], entry = {};
 
       layoutCache = {groups: {}, chords: {}};
 
@@ -45,10 +45,10 @@ angular.module('app').factory('matrixFactory', [function () {
           _matrix[i] = [];
         }
         for (var j = 0; j < matrixIndex.length; j++) {
-          recs = dataStore.filter(function (row) {
-            return filter(row, indexHash[matrixIndex[i]], indexHash[matrixIndex[j]]);
+          objs = dataStore.filter(function (obj) {
+            return filter(obj, indexHash[matrixIndex[i]], indexHash[matrixIndex[j]]);
           });
-          entry = reduce(recs, indexHash[matrixIndex[i]], indexHash[matrixIndex[j]]);
+          entry = reduce(objs, indexHash[matrixIndex[i]], indexHash[matrixIndex[j]]);
           entry.valueOf = function () { return +this.value };
           _matrix[i][j] = entry;
         }
@@ -72,8 +72,8 @@ angular.module('app').factory('matrixFactory', [function () {
       return this;
     };
 
-    matrix.layout = function (d3chordLayout) {
-      chordLayout = d3chordLayout;
+    matrix.layout = function (d3_chordLayout) {
+      chordLayout = d3_chordLayout;
       return this;
     };
 

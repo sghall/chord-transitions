@@ -133,7 +133,7 @@
         $scope.update = function () {
           var data = $scope.master[$scope.selected_year];
 
-          if (data) {
+          if (data && $scope.hasFilters) {
             $scope.drawChords(data.filter(function (d) {
               var fl = $scope.filters;
               var v1 = d.importer1, v2 = d.importer2;
@@ -143,6 +143,9 @@
               }
               return true;
             }));
+          } else if (data) {
+            console.log(data);
+            $scope.drawChords(data);
           }
         };
 
