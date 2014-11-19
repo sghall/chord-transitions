@@ -16,14 +16,14 @@ angular.module('app').factory('matrixFactory', [function () {
 
       layoutCache = {groups: {}, chords: {}};
 
-      chordLayout.groups().forEach(function (group) {
+      this.groups().forEach(function (group) {
         layoutCache.groups[group._id] = {
           startAngle: group.startAngle,
           endAngle: group.endAngle
         };
       });
 
-      chordLayout.chords().forEach(function (chord) {
+      this.chords().forEach(function (chord) {
         layoutCache.chords[chordID(chord)] = {
           source: {
             _id: chord.source._id,
