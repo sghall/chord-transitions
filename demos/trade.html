@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="position:relative;">
 
       <aside class="large-2 small-2 columns panel years">
         <h5>Years</h5>
@@ -56,6 +56,19 @@
         </div>
       </aside>
 
+      <fieldset id="tooltip" class="row secondary">
+        <div class="large-12 small-12 columns">
+          <h6>{{ tooltip.sname }} imported from  {{ tooltip.tname }} : $ {{ qFormat(tooltip.svalue) }}M</h6>
+          {{ pFormat(tooltip.svalue/tooltip.stotal) }} of {{ tooltip.sname }}'s Total ($ {{ qFormat(tooltip.stotal) }}M)
+          {{ pFormat(tooltip.svalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M
+        </div>
+        <div class="large-12 small-12 columns">
+          <h6>{{ tooltip.tname }} imported from  {{ tooltip.sname }} : $ {{ qFormat(tooltip.tvalue) }}M</h6>
+          {{ pFormat(tooltip.tvalue/tooltip.ttotal) }} of {{ tooltip.tname }}'s Total ($ {{ qFormat(tooltip.ttotal) }}M)
+          {{ pFormat(tooltip.tvalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M
+        </div>
+      </fieldset>
+
     </div>
 
     <footer class="row">
@@ -67,19 +80,6 @@
         </ul>
       </div>
     </footer>
-
-    <fieldset id="tooltip" class="alert-box secondary">
-      <div class="row">
-        <h5>{{ tooltip.sname }} imported from  {{ tooltip.tname }} : $ {{ qFormat(tooltip.svalue) }}M</h5>
-        <h6>{{ pFormat(tooltip.svalue/tooltip.stotal) }} of {{ tooltip.sname }}'s Total ($ {{ qFormat(tooltip.stotal) }}M)</h6>
-        <p>{{ pFormat(tooltip.svalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M</p>
-      </div>
-      <div class="row">
-        <h5>{{ tooltip.tname }} imported from  {{ tooltip.sname }} : $ {{ qFormat(tooltip.tvalue) }}M</h5>
-        <h6>{{ pFormat(tooltip.tvalue/tooltip.ttotal) }} of {{ tooltip.tname }}'s Total ($ {{ qFormat(tooltip.ttotal) }}M)</h6>
-        <p>{{ pFormat(tooltip.tvalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M</p>
-      </div>
-    </fieldset>
 
     <script src="../bower_components/d3/d3.min.js"></script>
     <script src="../bower_components/foundation/js/foundation.min.js"></script>

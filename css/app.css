@@ -2,14 +2,15 @@
   background-color: white;
   pointer-events: none;
   font-size: 12px;
+  z-index: 1000;
   color: grey;
   position: fixed;
   width: 500px;
   border-radius: 6px;
   opacity: 0;
-  top:20px;
-  right: 25%;
-  box-shadow: 5px 5px 2.5px #888888;
+  bottom: 10%;
+  right: 5%;
+  box-shadow: 5px 5px 2.5px #666;
 }
 
 path.chord {

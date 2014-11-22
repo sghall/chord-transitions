@@ -78,8 +78,7 @@ function ($window, matrixFactory) {
       
       var gEnter = groups.enter()
         .append("g")
-        .attr("class", "group")
-        .on("click", groupClick);
+        .attr("class", "group");
 
       gEnter.append("path")
         .style("pointer-events", "none")
@@ -88,6 +87,7 @@ function ($window, matrixFactory) {
  
       gEnter.append("text")
         .attr("dy", ".35em")
+        .on("click", groupClick)
         .on("mouseover", dimChords)
         .on("mouseout", resetChords)
         .text(function (d) {
@@ -135,26 +135,36 @@ function ($window, matrixFactory) {
       chords.exit().remove()
 
       function groupClick(d) {
+        d3.event.preventDefault();
+        d3.event.stopPropagation();
         $scope.addFilter(d._id);
         resetChords();
       }
 
       function chordMouseover(d) {
+        d3.event.preventDefault();
+        d3.event.stopPropagation();
         dimChords(d);
         d3.select("#tooltip").style("opacity", 1);
         $scope.updateTooltip(matrix.read(d));
       }
 
       function hideTooltip() {
+        d3.event.preventDefault();
+        d3.event.stopPropagation();
         d3.select("#tooltip").style("opacity", 0);
         resetChords();
       }
 
       function resetChords() {
+        d3.event.preventDefault();
+        d3.event.stopPropagation();
         container.selectAll("path.chord").style("opacity",0.9);
       }
 
       function dimChords(d) {
+        d3.event.preventDefault();
+        d3.event.stopPropagation();
         container.selectAll("path.chord").style("opacity", function (p) {
           if (d.source) { // COMPARE CHORD IDS
             return (p._id === d._id) ? 0.9: 0.1;
