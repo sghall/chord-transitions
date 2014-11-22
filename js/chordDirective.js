@@ -56,7 +56,7 @@ function ($window, matrixFactory) {
 
     var container = svg.append("g")
       .attr("class", "container")
-      .attr("transform", "translate(" + marg[3] + "," + marg[0] + ")");
+      .attr("transform", "translate(" + ((dims[0] / 2) + marg[3]) + "," + ((dims[1] / 2) + marg[0]) + ")");
 
     var messages = container.append("text")
       .attr("class", "messages")
@@ -79,8 +79,7 @@ function ($window, matrixFactory) {
       var gEnter = groups.enter()
         .append("g")
         .attr("class", "group")
-        .on("click", groupClick)
-        .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
+        .on("click", groupClick);
 
       gEnter.append("path")
         .style("pointer-events", "none")
@@ -128,8 +127,7 @@ function ($window, matrixFactory) {
         })
         .attr("d", path)
         .on("mouseover", chordMouseover)
-        .on("mouseout", hideTooltip)
-        .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
+        .on("mouseout", hideTooltip);
 
       chords.transition().duration(2000)
         .attrTween("d", matrix.chordTween(path));
