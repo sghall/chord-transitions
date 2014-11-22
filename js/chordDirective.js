@@ -181,5 +181,3 @@ function ($window, matrixFactory) {
 
 
 
-
-
