@@ -58,7 +58,7 @@ function ($window, matrixFactory) {
       .attr("class", "container")
       .attr("transform", "translate(" + ((dims[0] / 2) + marg[3]) + "," + ((dims[1] / 2) + marg[0]) + ")");
 
-    var messages = container.append("text")
+    var messages = svg.append("text")
       .attr("class", "messages")
       .attr("transform", "translate(10, 10)")
       .text("Updating...");
