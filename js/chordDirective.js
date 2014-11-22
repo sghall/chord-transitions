@@ -52,10 +52,7 @@ function ($window, matrixFactory) {
     var svg = d3.select($el[0]).append("svg")
       .attr("class", "chart")
       .attr({width: size[0] + "px", height: size[1] + "px"})
-      .attr("viewBox", "0 0 " + size[0] + " " + size[1])
-      .on("click", function () {
-        d3.select("#tooltip").style("opacity", 0);
-      });
+      .attr("viewBox", "0 0 " + size[0] + " " + size[1]);
 
     var container = svg.append("g")
       .attr("class", "container")
@@ -83,16 +80,17 @@ function ($window, matrixFactory) {
         .append("g")
         .attr("class", "group")
         .on("click", groupClick)
-        .on("mouseover", dimChords)
-        .on("mouseout", resetChords)
         .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
 
       gEnter.append("path")
+        .style("pointer-events", "none")
         .style("fill", function (d) { return colors(d._id); })
         .attr("d", arc);
  
       gEnter.append("text")
         .attr("dy", ".35em")
+        .on("mouseover", dimChords)
+        .on("mouseout", resetChords)
         .text(function (d) {
           return d._id;
         });

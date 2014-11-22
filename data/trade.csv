@@ -2,6 +2,7 @@ year,importer1,importer2,flow1,flow2
 1870,"Belgium","France",44.42,54.61
 1870,"Belgium","Germany",23.26,26.5
 1870,"Belgium","Russia",8.19,4.36
+1870,"China","Other Trade",2.03,3.91
 1870,"France","Germany",20.68,20.88
 1870,"France","Italy",47.18,41
 1870,"France","Other Trade",20.29,21.92
@@ -17,23 +18,28 @@ year,importer1,importer2,flow1,flow2
 1870,"Other Trade","Belgium",0,9.53
 1870,"Other Trade","Germany",.42,2.99
 1870,"Other Trade","Italy",24.71,35.88
-1870,"Other Trade","Other Trade",12.9,8.25
+1870,"Other Trade","Other Trade",10.87,4.34
 1870,"Other Trade","Russia",2.65,10.18
 1870,"Other Trade","United Kingdom",72.13,86.95
-1870,"Russia","Other Trade",9.84,9.34
+1870,"Russia","China",1.3,.14
+1870,"Russia","Other Trade",2.42,2.6
+1870,"Russia","Turkey",6.12,6.6
 1870,"United Kingdom","Belgium",54.41,30.31
+1870,"United Kingdom","China",46.56,30.78
 1870,"United Kingdom","France",181.94,105.42
 1870,"United Kingdom","Germany",74.52,135.77
 1870,"United Kingdom","Italy",21.23,43.93
 1870,"United Kingdom","Netherlands",43,70.59
-1870,"United Kingdom","Other Trade",192.09,126.58
+1870,"United Kingdom","Other Trade",113.43,63.7
 1870,"United Kingdom","Russia",99.47,73.86
+1870,"United Kingdom","Turkey",32.1,32.1
 1870,"United States","Belgium",2.09,8
+1870,"United States","China",12,.59
 1870,"United States","France",43,43.77
 1870,"United States","Germany",27,42
 1870,"United States","Italy",6.4,7.14
 1870,"United States","Netherlands",1.21,4.05
-1870,"United States","Other Trade",23.82,10.07
+1870,"United States","Other Trade",11.82,9.48
 1870,"United States","Russia",.65,3.42
 1870,"United States","United Kingdom",152,240.95
 1875,"Belgium","France",108.39,95.59
@@ -42,9 +48,11 @@ year,importer1,importer2,flow1,flow2
 1875,"Belgium","Other Trade",5.16,5.28
 1875,"Belgium","Russia",15.75,3.71
 1875,"Belgium","Switzerland",.34,1.26
+1875,"China","Other Trade",3.7,2.9
+1875,"France","China",17.77,1.29
 1875,"France","Germany",86.92,89.99
 1875,"France","Italy",79.26,67.16
-1875,"France","Other Trade",107.24,90.7
+1875,"France","Other Trade",89.47,89.41
 1875,"France","Russia",46.03,11.17
 1875,"France","Switzerland",63.55,76
 1875,"Germany","Italy",4.15,6.4
@@ -53,87 +61,112 @@ year,importer1,importer2,flow1,flow2
 1875,"Italy","Other Trade",.09,.31
 1875,"Italy","Russia",4.84,8.14
 1875,"Netherlands","Belgium",42.21,32.72
+1875,"Netherlands","China",.2,0
 1875,"Netherlands","France",11.05,7.29
 1875,"Netherlands","Germany",64.72,95.67
 1875,"Netherlands","Italy",.8,2.01
-1875,"Netherlands","Other Trade",2.64,2.40008
+1875,"Netherlands","Other Trade",2.44,2.40008
 1875,"Netherlands","Russia",14.87,9.02
 1875,"Other Trade","Belgium",4.74,20.46
 1875,"Other Trade","France",58.55,2.54
 1875,"Other Trade","Germany",6.2,6.26
 1875,"Other Trade","Italy",33.28,40.49
 1875,"Other Trade","Netherlands",.4,4.82
-1875,"Other Trade","Other Trade",23.76429,18.65
+1875,"Other Trade","Other Trade",20.06429,15.75
 1875,"Other Trade","Russia",14.61,20.87
 1875,"Other Trade","United Kingdom",78.74,98.53
-1875,"Russia","Other Trade",17.69,14.64
+1875,"Russia","China",4.61,.15
+1875,"Russia","Other Trade",13.08,14.49
 1875,"Switzerland","Italy",18.87,5.36
 1875,"United Kingdom","Belgium",72.12,28.13
+1875,"United Kingdom","China",66.21,23.98
 1875,"United Kingdom","France",227.34,74.73
 1875,"United Kingdom","Germany",100.77,0
 1875,"United Kingdom","Italy",22.54,32.92
 1875,"United Kingdom","Netherlands",72.19,63.83
-1875,"United Kingdom","Other Trade",246.17,140.49
+1875,"United Kingdom","Other Trade",179.96,116.51
 1875,"United Kingdom","Russia",100.77,39.21
 1875,"United States","Belgium",3.19,13.63
+1875,"United States","China",11.43,1.51
 1875,"United States","France",69.57,36.68
 1875,"United States","Germany",40,50
 1875,"United States","Italy",5.02,7.44
 1875,"United States","Netherlands",1.6,8.44
-1875,"United States","Other Trade",72.03,35.7
+1875,"United States","Other Trade",60.6,34.19
 1875,"United States","Russia",0,5.95
 1875,"United States","United Kingdom",106.41,338.63
-1880,"Austria-Hungary","Other Trade",51.77,70.11
+1880,"Austria-Hungary","Italy",32.09,35.08
+1880,"Austria-Hungary","Other Trade",19.68,35.03
 1880,"Austria-Hungary","Russia",21.77,15.43
 1880,"Belgium","France",89.35,88.27
 1880,"Belgium","Germany",39.1,46.32
-1880,"Belgium","Other Trade",13.74,16.65
+1880,"Belgium","Italy",1.37,3.95
+1880,"Belgium","Other Trade",7.71,8.84
 1880,"Belgium","Russia",24.44,2.55
+1880,"Belgium","Spain",4.66,3.86
 1880,"France","Austria-Hungary",23.95,5.55
 1880,"France","Germany",84.57,70.03
-1880,"France","Other Trade",243.56,128.92
+1880,"France","Italy",76.87,34.99
+1880,"France","Other Trade",100.56,63.31
 1880,"France","Russia",60.62,6.56
+1880,"France","Spain",66.13,30.62
 1880,"Germany","Austria-Hungary",95.69,69.33
-1880,"Germany","Other Trade",27.52865,45.13
+1880,"Germany","Italy",15.42,12.39
+1880,"Germany","Other Trade",12.10865,32.74
 1880,"Germany","Russia",80.07,50.79
+1880,"Italy","Other Trade",8.88,6.99
+1880,"Italy","Russia",16.36,3.64
 1880,"Netherlands","Austria-Hungary",.32,.004824
 1880,"Netherlands","Belgium",29.17,45.64
 1880,"Netherlands","France",7.23,7.89
 1880,"Netherlands","Germany",54.07,45.19
-1880,"Netherlands","Other Trade",3.004422,9.55
+1880,"Netherlands","Italy",.8,4.35
+1880,"Netherlands","Other Trade",2.204422,5.2
 1880,"Netherlands","Russia",18.33,3.7
 1880,"Other Trade","Belgium",4.37,12.89
 1880,"Other Trade","France",47.82,34.02
-1880,"Other Trade","Germany",57.66,52.45
+1880,"Other Trade","Germany",49.44,51.07
+1880,"Other Trade","Italy",20.16,6.95
 1880,"Other Trade","Netherlands",.06,1.56
-1880,"Other Trade","Other Trade",62.85161,36.1
-1880,"Other Trade","Russia",25.93,7.73
+1880,"Other Trade","Other Trade",23.24161,16.8
+1880,"Other Trade","Russia",8.66,3.36
+1880,"Other Trade","Spain",3.26,1.94
 1880,"Other Trade","United Kingdom",72.81,73.69
 1880,"Russia","Other Trade",20.89,20.17
+1880,"Spain","Germany",8.22,1.38
+1880,"Spain","Italy",1.58,.8
+1880,"Spain","Other Trade",5.73,2.62
+1880,"Spain","Russia",.91,.73
 1880,"United Kingdom","Austria-Hungary",6.95,2.88
 1880,"United Kingdom","Belgium",54.69,28.16
 1880,"United Kingdom","France",283.97,75.78
 1880,"United Kingdom","Germany",118.36,83.31
+1880,"United Kingdom","Italy",16.45,26.4
 1880,"United Kingdom","Netherlands",125.91,44.73
-1880,"United Kingdom","Other Trade",246.03,152.05
+1880,"United Kingdom","Other Trade",177.58,112
 1880,"United Kingdom","Russia",77.9,38.64
+1880,"United Kingdom","Spain",52,13.65
 1880,"United States","Belgium",6.99,52.32
 1880,"United States","France",64.11,141.08
 1880,"United States","Germany",44.54,43.91
+1880,"United States","Italy",10.56,14.61
 1880,"United States","Netherlands",6.3,32.68
-1880,"United States","Other Trade",110.91,73.99
+1880,"United States","Other Trade",96.17,41.12
 1880,"United States","Russia",0,6.82
+1880,"United States","Spain",4.18,18.26
 1880,"United States","United Kingdom",150.25,520.9
 1885,"Austria-Hungary","Other Trade",46.6,91.21
 1885,"Austria-Hungary","Russia",17.25,13.79
 1885,"Belgium","France",84.39,78.06
 1885,"Belgium","Germany",35.08,66.62
-1885,"Belgium","Other Trade",14.18,20.36
+1885,"Belgium","Other Trade",12.78,15.41
 1885,"Belgium","Russia",17.96,1.18
+1885,"Belgium","Spain",1.4,4.95
 1885,"France","Austria-Hungary",21.32,3.01
 1885,"France","Germany",72.2,57.97
-1885,"France","Other Trade",219.92,124.83
+1885,"France","Other Trade",150.26,93.49
 1885,"France","Russia",31.51,2.45
+1885,"France","Spain",69.66,31.34
 1885,"Germany","Austria-Hungary",91.31,67.7
 1885,"Germany","Other Trade",34.05432,61.53
 1885,"Germany","Russia",82.1,34.29
@@ -146,71 +179,95 @@ year,importer1,importer2,flow1,flow2
 1885,"Other Trade","Austria-Hungary",12.56,7.23
 1885,"Other Trade","Belgium",5.39,22.72
 1885,"Other Trade","France",46,74.23
-1885,"Other Trade","Germany",61.31,41.76
+1885,"Other Trade","Germany",51.68,39.52
 1885,"Other Trade","Netherlands",.000804,2.58
-1885,"Other Trade","Other Trade",78.22,40.88
+1885,"Other Trade","Other Trade",72.13,37.12
 1885,"Other Trade","Russia",25.8,5.89
+1885,"Other Trade","Spain",3.46,1.98
 1885,"Other Trade","United Kingdom",76.34,61.21
 1885,"Russia","Other Trade",15.75,20.08
+1885,"Spain","Germany",9.63,2.24
+1885,"Spain","Other Trade",2.63,1.78
 1885,"United Kingdom","Austria-Hungary",10.48,3.83
 1885,"United Kingdom","Belgium",72.24,37.93
 1885,"United Kingdom","France",173.54,72.79
 1885,"United Kingdom","Germany",112.11,79.78
 1885,"United Kingdom","Netherlands",121.54,43.14
-1885,"United Kingdom","Other Trade",240.5,165.52
+1885,"United Kingdom","Other Trade",194.56,150.13
 1885,"United Kingdom","Russia",86.08,20.66
+1885,"United Kingdom","Spain",45.94,15.39
 1885,"United States","Belgium",6.4,23.23
 1885,"United States","France",49.06,51.76
 1885,"United States","Germany",36.47,28.97
 1885,"United States","Netherlands",10.61,22.35
-1885,"United States","Other Trade",112.38,78.54
+1885,"United States","Other Trade",109.5,61.04
+1885,"United States","Spain",2.88,17.5
 1885,"United States","United Kingdom",111.74,420.28
 1890,"Austria-Hungary","Other Trade",30.96,63.91
 1890,"Austria-Hungary","Russia",16.16,9.1
-1890,"Brazil","Other Trade",21.76,11.59
+1890,"Belgium","France",59.59,67.56
+1890,"Belgium","Germany",34.31,49.93
+1890,"Belgium","Other Trade",35.64,22.71
+1890,"Belgium","Russia",21.53,1.82
+1890,"Belgium","Spain",4.01,7.29
+1890,"Brazil","Belgium",2.94,5.74
+1890,"Brazil","Other Trade",18.82,5.85
 1890,"Brazil","United Kingdom",35.8,20.88
 1890,"France","Germany",66.76,65.05
-1890,"France","Other Trade",154.07,140.61
+1890,"France","Other Trade",86.73,111.51
 1890,"France","Russia",37.09,8.82
+1890,"France","Spain",67.34,29.1
 1890,"Germany","Austria-Hungary",138.94,81.49
 1890,"Germany","Other Trade",67.03,98.87
 1890,"Germany","Russia",125.79,47.92
+1890,"Netherlands","Belgium",39.24,38.87
 1890,"Netherlands","France",9.61,4.29
 1890,"Netherlands","Germany",59.89,71.78
-1890,"Netherlands","Other Trade",45.47,48.25
+1890,"Netherlands","Other Trade",6.23,9.38
 1890,"Netherlands","Russia",44.54,2.18
 1890,"Other Trade","Austria-Hungary",19.47,7.47
-1890,"Other Trade","France",78.69,109.18
-1890,"Other Trade","Germany",109.92,104.82
-1890,"Other Trade","Other Trade",170.5152,111.1602
-1890,"Other Trade","Russia",62.39,7.57
+1890,"Other Trade","Belgium",7.24,19.79
+1890,"Other Trade","France",19.1,41.62
+1890,"Other Trade","Germany",63.29,46.99
+1890,"Other Trade","Other Trade",85.17519,51.85023
+1890,"Other Trade","Russia",35.8,5.68
+1890,"Other Trade","Spain",3.97,4.01
 1890,"Other Trade","United Kingdom",108.16,66.15
 1890,"Russia","Other Trade",24.42,26.34
+1890,"Spain","Germany",12.32,7.9
+1890,"Spain","Other Trade",34.48,5.51
+1890,"Spain","Russia",5.06,.07
 1890,"United Kingdom","Austria-Hungary",8.29,18.24
+1890,"United Kingdom","Belgium",83.45,36.67
 1890,"United Kingdom","France",215.2,79.34
 1890,"United Kingdom","Germany",125.17,92.62
 1890,"United Kingdom","Netherlands",124.34,48.58
-1890,"United Kingdom","Other Trade",357.24,245.72
+1890,"United Kingdom","Other Trade",213.74,185.05
 1890,"United Kingdom","Russia",114.02,27.61
+1890,"United Kingdom","Spain",60.05,24
 1890,"United States","Austria-Hungary",11.59,.78
+1890,"United States","Belgium",10.94,10.94
 1890,"United States","Brazil",83.23,83.23
 1890,"United States","France",76.68,76.68
 1890,"United States","Germany",97.31,97.31
 1890,"United States","Netherlands",12.42,12.42
-1890,"United States","Other Trade",160.51,152.86
+1890,"United States","Other Trade",143.54,135.89
 1890,"United States","Russia",4.83,4.83
+1890,"United States","Spain",6.03,6.03
 1890,"United States","United Kingdom",153.95,467.03
 1895,"Austria-Hungary","Other Trade",25.55,48.13
 1895,"Austria-Hungary","Russia",9.5,12.36
 1895,"Belgium","Austria-Hungary",3.02,2.68
 1895,"Belgium","France",57.81,54.79
 1895,"Belgium","Germany",38.4,59.92
-1895,"Belgium","Other Trade",38.38,24.37
+1895,"Belgium","Other Trade",37.55,17.8
 1895,"Belgium","Russia",22.54,7.49
+1895,"Belgium","Switzerland",.83,6.57
 1895,"France","Austria-Hungary",12.33,5.24
 1895,"France","Germany",60.03,64.68
-1895,"France","Other Trade",125.46,110.11
+1895,"France","Other Trade",110.96,78.55
 1895,"France","Russia",37.76,11.57
+1895,"France","Switzerland",14.5,31.56
 1895,"Germany","Austria-Hungary",155.45,52.51
 1895,"Germany","Other Trade",81.83,109.61
 1895,"Germany","Russia",92,90.14
@@ -218,42 +275,51 @@ year,importer1,importer2,flow1,flow2
 1895,"Netherlands","Belgium",31.81,33.66
 1895,"Netherlands","France",7.26,6.13
 1895,"Netherlands","Germany",58.24,39.04
-1895,"Netherlands","Other Trade",6.69,7.66
+1895,"Netherlands","Other Trade",5.92,6.96
 1895,"Netherlands","Russia",30.37,2.59
-1895,"Other Trade","Austria-Hungary",14.93,11.24
+1895,"Netherlands","Switzerland",.77,.7
+1895,"Other Trade","Austria-Hungary",.88,6.93
 1895,"Other Trade","Belgium",10.14,42.85
 1895,"Other Trade","France",29.25,42.7
-1895,"Other Trade","Germany",81.57,59.84
-1895,"Other Trade","Other Trade",115.17,78.08
-1895,"Other Trade","Russia",42.34,12.78
+1895,"Other Trade","Germany",29.53,25.51
+1895,"Other Trade","Other Trade",79.99,68.98
+1895,"Other Trade","Russia",30.4,8.56
 1895,"Other Trade","United Kingdom",110.91,93.09
 1895,"Russia","Other Trade",30.51,21.72
+1895,"Switzerland","Austria-Hungary",14.05,4.31
+1895,"Switzerland","Germany",52.04,34.33
+1895,"Switzerland","Other Trade",35.18,9.1
+1895,"Switzerland","Russia",11.94,4.22
 1895,"United Kingdom","Austria-Hungary",5.95,8.36
 1895,"United Kingdom","Belgium",85.58,35.73
 1895,"United Kingdom","France",231.56,67.65
 1895,"United Kingdom","Germany",131.67,100.39
 1895,"United Kingdom","Netherlands",138.63,35.97
-1895,"United Kingdom","Other Trade",268.34,177.16
+1895,"United Kingdom","Other Trade",243.2,168
 1895,"United Kingdom","Russia",120.66,34.16
+1895,"United Kingdom","Switzerland",25.14,9.16
 1895,"United States","Austria-Hungary",7.64,2.37
 1895,"United States","Belgium",13.77,26.39
 1895,"United States","France",66.26,45.35
 1895,"United States","Germany",94.24,96.36
 1895,"United States","Netherlands",13.29,38.09
-1895,"United States","Other Trade",225.42,111.81
+1895,"United States","Other Trade",211.34,111.78
 1895,"United States","Russia",3.62,7.37
+1895,"United States","Switzerland",14.08,.03
 1895,"United States","United Kingdom",169.96,422.18
 1900,"Austria-Hungary","Other Trade",52.67,62.22
 1900,"Austria-Hungary","Russia",18.07,14.52
 1900,"Belgium","Austria-Hungary",3.01,5.29
 1900,"Belgium","France",70.38,79.9
 1900,"Belgium","Germany",60.73,79.99
-1900,"Belgium","Other Trade",41.77,31.57083
+1900,"Belgium","Other Trade",40.56,25.83083
 1900,"Belgium","Russia",23.54,5.9
+1900,"Belgium","Switzerland",1.21,5.74
 1900,"France","Austria-Hungary",13.87,10.92
 1900,"France","Germany",80.38,87.53
-1900,"France","Other Trade",131.68,127.35
+1900,"France","Other Trade",110.68,87.63
 1900,"France","Russia",43.48,15.44
+1900,"France","Switzerland",21,39.72
 1900,"Germany","Austria-Hungary",206.35,128.44
 1900,"Germany","Other Trade",99.57,147.57
 1900,"Germany","Russia",168.78,83.06
@@ -261,42 +327,56 @@ year,importer1,importer2,flow1,flow2
 1900,"Netherlands","Belgium",40.86,36.82
 1900,"Netherlands","France",8.87,8.2
 1900,"Netherlands","Germany",91.58,49.83
-1900,"Netherlands","Other Trade",12.43,11.93
+1900,"Netherlands","Other Trade",11.35,11.25
 1900,"Netherlands","Russia",56.76,4.28
-1900,"Other Trade","Austria-Hungary",17.16,20.59
+1900,"Netherlands","Switzerland",1.08,.68
+1900,"Other Trade","Austria-Hungary",3.26,9.18
 1900,"Other Trade","Belgium",12.99,27.55782
 1900,"Other Trade","France",30.03,27.46
-1900,"Other Trade","Germany",127.81,96.38
-1900,"Other Trade","Other Trade",151.24,98.63362
-1900,"Other Trade","Russia",50.2,8.52
+1900,"Other Trade","Germany",60.24,56.94
+1900,"Other Trade","Other Trade",111.57,83.03362
+1900,"Other Trade","Russia",41.02,3.37
 1900,"Other Trade","United Kingdom",134.67,129.07
 1900,"Russia","Other Trade",27.15,48.2
+1900,"Switzerland","Austria-Hungary",13.9,11.41
+1900,"Switzerland","Germany",67.57,39.44
+1900,"Switzerland","Other Trade",39.67,15.6
+1900,"Switzerland","Russia",9.18,5.15
 1900,"United Kingdom","Austria-Hungary",6.62,12.12
 1900,"United Kingdom","Belgium",113.26,51.93
 1900,"United Kingdom","France",258.4,96.27
 1900,"United Kingdom","Germany",150.27,134.93
 1900,"United Kingdom","Netherlands",151.23,52.71
-1900,"United Kingdom","Other Trade",324.39,249.43
+1900,"United Kingdom","Other Trade",290.86,237.53
 1900,"United Kingdom","Russia",105.85,53.01
+1900,"United Kingdom","Switzerland",33.53,11.9
 1900,"United States","Austria-Hungary",10.06,6.96
 1900,"United States","Belgium",14.6,50
 1900,"United States","France",75.45,76.43
 1900,"United States","Germany",100.44,188.35
 1900,"United States","Netherlands",20.59,83.84
-1900,"United States","Other Trade",236.7703,166.22
+1900,"United States","Other Trade",220.9803,165.97
 1900,"United States","Russia",7.03,8.03
+1900,"United States","Switzerland",15.79,.25
 1900,"United States","United Kingdom",143.38,668.86
+1905,"Argentina","Belgium",8.56,46.43
+1905,"Argentina","France",20.86,50.35
+1905,"Argentina","Germany",28.55,36.38
+1905,"Argentina","Other Trade",31.68,21.82
+1905,"Argentina","United Kingdom",67.14,122.89
 1905,"Austria-Hungary","Other Trade",55.28327,98.56
 1905,"Austria-Hungary","Russia",27.95,10.03
 1905,"Belgium","Austria-Hungary",2.35,7.43
 1905,"Belgium","France",100.12,60.61
 1905,"Belgium","Germany",79.25,65.16
-1905,"Belgium","Other Trade",58.55147,49.75
+1905,"Belgium","Other Trade",56.61147,43.56
 1905,"Belgium","Russia",46.04,3.71
+1905,"Belgium","Switzerland",1.94,6.19
 1905,"France","Austria-Hungary",14.52,13.87
 1905,"France","Germany",92.37,99.19
-1905,"France","Other Trade",156.23,170
+1905,"France","Other Trade",132.96,116.62
 1905,"France","Russia",53.25,13.16
+1905,"France","Switzerland",23.27,53.38
 1905,"Germany","Austria-Hungary",179.29,162.94
 1905,"Germany","Other Trade",176.07,248.3
 1905,"Germany","Russia",236.95,120.34
@@ -304,34 +384,53 @@ year,importer1,importer2,flow1,flow2
 1905,"Netherlands","Belgium",102.36,47.44
 1905,"Netherlands","France",11.8,6
 1905,"Netherlands","Germany",232.74,58.56
-1905,"Netherlands","Other Trade",12.09,22.24
+1905,"Netherlands","Other Trade",10.81,20.68
 1905,"Netherlands","Russia",128.56,6.27
-1905,"Other Trade","Austria-Hungary",20.76,21.15
-1905,"Other Trade","Belgium",19.68,71.94
-1905,"Other Trade","France",66.14,91.37
-1905,"Other Trade","Germany",213.85,195.16
+1905,"Netherlands","Switzerland",1.28,1.56
+1905,"Other Trade","Argentina",19.56,5.8
+1905,"Other Trade","Austria-Hungary",2.95,10.57
+1905,"Other Trade","Belgium",11.12,25.51
+1905,"Other Trade","France",45.28,41.02
+1905,"Other Trade","Germany",99.52,115.24
 1905,"Other Trade","Netherlands",.6,2.3
-1905,"Other Trade","Other Trade",245.7505,219.5457
-1905,"Other Trade","Russia",82.85,8.96
-1905,"Other Trade","United Kingdom",193.5,223.57
+1905,"Other Trade","Other Trade",159.8437,173.2557
+1905,"Other Trade","Russia",67.85,6.62
+1905,"Other Trade","United Kingdom",126.36,100.68
 1905,"Russia","Other Trade",31.12,42.86
+1905,"Switzerland","Austria-Hungary",17.81,10.58
+1905,"Switzerland","Germany",85.78,43.54
+1905,"Switzerland","Other Trade",34.66681,18.67
+1905,"Switzerland","Russia",15,2.34
 1905,"United Kingdom","Austria-Hungary",7.3,31.89
 1905,"United Kingdom","Belgium",136.23,72.92
 1905,"United Kingdom","France",260.54,114.83
 1905,"United Kingdom","Germany",175.74,171.64
 1905,"United Kingdom","Netherlands",174.18,106.35
-1905,"United Kingdom","Other Trade",457.94,387.45
+1905,"United Kingdom","Other Trade",318.76,374.06
 1905,"United Kingdom","Russia",163.79,49.69
+1905,"United Kingdom","Switzerland",139.18,13.39
+1905,"United States","Argentina",18.37,28.39
 1905,"United States","Austria-Hungary",13.86,41.27
 1905,"United States","Belgium",28.41,46.86
 1905,"United States","France",108.41,99.15
 1905,"United States","Germany",135.14,234.74
 1905,"United States","Netherlands",27,97
-1905,"United States","Other Trade",472.77,398.61
+1905,"United States","Other Trade",430.98,369.83
 1905,"United States","Russia",13.53,20.37
+1905,"United States","Switzerland",23.42,.39
 1905,"United States","United Kingdom",210.02,567.36
+1910,"Argentina","Belgium",19.31,60.91
+1910,"Argentina","France",33.15,56.15
+1910,"Argentina","Germany",60.32,85.13
+1910,"Argentina","Other Trade",48.17,24.6
+1910,"Argentina","United Kingdom",107.76,142.9
 1910,"Austria-Hungary","Other Trade",57.65439,124.43
 1910,"Austria-Hungary","Russia",33.9,17.47
+1910,"Belgium","Austria-Hungary",3.37,9.86
+1910,"Belgium","France",163.63,91.35
+1910,"Belgium","Germany",126.16,84.02
+1910,"Belgium","Other Trade",93.82,58.64
+1910,"Belgium","Russia",79.73,3.55
 1910,"France","Austria-Hungary",375.2,22.78
 1910,"France","Germany",159.43,121.26
 1910,"France","Other Trade",205.58,230.62
@@ -340,29 +439,35 @@ year,importer1,importer2,flow1,flow2
 1910,"Germany","Other Trade",231.97,370.97
 1910,"Germany","Russia",330.45,225.7
 1910,"Netherlands","Austria-Hungary",113.32,4.5
+1910,"Netherlands","Belgium",121.41,64.27
 1910,"Netherlands","France",15.4,9.6
 1910,"Netherlands","Germany",306.72,61.59
-1910,"Netherlands","Other Trade",138.57,92.22
+1910,"Netherlands","Other Trade",17.16,27.95
 1910,"Netherlands","Russia",174.78,9.88
-1910,"Other Trade","Austria-Hungary",28.28,39.04
-1910,"Other Trade","France",244.05,268.84
-1910,"Other Trade","Germany",427.28,384.63
+1910,"Other Trade","Argentina",26.1,25.09985
+1910,"Other Trade","Austria-Hungary",24.91,29.18
+1910,"Other Trade","Belgium",16.33,33.05
+1910,"Other Trade","France",47.27,121.34
+1910,"Other Trade","Germany",240.8,215.48
 1910,"Other Trade","Netherlands",.92,33.73
-1910,"Other Trade","Other Trade",455.8168,402.1462
-1910,"Other Trade","Russia",161.85,18.16
-1910,"Other Trade","United Kingdom",291.46,331.9649
+1910,"Other Trade","Other Trade",252.0868,199.8463
+1910,"Other Trade","Russia",82.12,14.61
+1910,"Other Trade","United Kingdom",183.7,189.0649
 1910,"Russia","Other Trade",48.31,74.61
 1910,"United Kingdom","Austria-Hungary",37,46.37
+1910,"United Kingdom","Belgium",94.56,113.19
 1910,"United Kingdom","France",218.14,174.33
 1910,"United Kingdom","Germany",304.58,182.69
 1910,"United Kingdom","Netherlands",91.27,130.89
-1910,"United Kingdom","Other Trade",553.46,564.61
+1910,"United Kingdom","Other Trade",458.9,451.42
 1910,"United Kingdom","Russia",215,78.59
+1910,"United States","Argentina",29.09,47.7
 1910,"United States","Austria-Hungary",16.95,48.04
+1910,"United States","Belgium",37.08,50.63
 1910,"United States","France",115.41,109.4
 1910,"United States","Germany",163.24,283.03
 1910,"United States","Netherlands",32.92,119.07
-1910,"United States","Other Trade",650.5,455.42
+1910,"United States","Other Trade",584.33,357.09
 1910,"United States","Russia",11,37.82
 1910,"United States","United Kingdom",261.28,579.34
 1915,"Argentina","United Kingdom",91.08,172.04
@@ -375,50 +480,91 @@ year,importer1,importer2,flow1,flow2
 1915,"United States","China",0,23.25
 1915,"United States","Spain",63,56.87
 1920,"Argentina","France",53.43,177.28
+1920,"Argentina","Germany",43.32,63.89
 1920,"Argentina","Japan",14.7,1.97
-1920,"Argentina","Other Trade",184.79,440.83
+1920,"Argentina","Netherlands",6.4,76.45
+1920,"Argentina","Other Trade",129.29,274.12
+1920,"Argentina","Sweden",5.78,26.37
 1920,"Argentina","United Kingdom",212.23,539.69
 1920,"Australia","Other Trade",9.71,46.72
+1920,"Brazil","Argentina",46.67,48.96
+1920,"Brazil","France",30.31,53.39
+1920,"Brazil","Germany",26.01,28.01
+1920,"Brazil","Netherlands",2.83,10.64
+1920,"Brazil","Other Trade",64.75,61.93
+1920,"Brazil","Sweden",6.53,11.89
+1920,"Brazil","United Kingdom",120.73,35.69
 1920,"Canada","Australia",.68,21.53
+1920,"Canada","Brazil",.52,3.12
 1920,"Canada","Cuba",26.41,6.77
 1920,"Canada","France",16.44,23.56
+1920,"Canada","Germany",1.32,7.05
 1920,"Canada","Japan",9.75,2.54
-1920,"Canada","Other Trade",33.91,129.44
+1920,"Canada","Netherlands",2.13,4.87
+1920,"Canada","Other Trade",29.94,114.4
 1920,"Canada","United Kingdom",183.81,401.84
 1920,"Cuba","France",16.87,13.02
-1920,"Cuba","Other Trade",23.8495,3.0505
+1920,"Cuba","Germany",2.88,.05
+1920,"Cuba","Other Trade",20.9695,3.0005
 1920,"Cuba","United Kingdom",32.77,115.07
 1920,"Czechoslovakia","Other Trade",13.39193,20.1
 1920,"France","Australia",72.97,17.5
 1920,"France","Czechoslovakia",27.53,0
+1920,"France","Germany",158.1,50.99
 1920,"France","Japan",28.88,7.29
-1920,"France","Other Trade",528.3409,404.43
+1920,"France","Other Trade",328.8109,333.74
+1920,"France","Sweden",41.43,19.7
+1920,"Germany","Australia",6.96,.27
+1920,"Germany","Czechoslovakia",37.3,28.08
+1920,"Germany","Japan",6.55,6.03
+1920,"Germany","Other Trade",184.67,362.38
+1920,"Germany","Sweden",32.95,102.46
 1920,"Japan","Australia",31.46,25.45
 1920,"Japan","Other Trade",1.65,9.15
-1920,"Other Trade","Argentina",61.26,97.86459
-1920,"Other Trade","Australia",82.07,53.82
-1920,"Other Trade","Czechoslovakia",218.14,90.02
-1920,"Other Trade","France",268.23,316.62
-1920,"Other Trade","Japan",222.99,186.12
-1920,"Other Trade","Other Trade",1903.097,1528.502
-1920,"Other Trade","United Kingdom",246.97,188.71
+1920,"Netherlands","Czechoslovakia",15.26,0
+1920,"Netherlands","France",30.03,20.89
+1920,"Netherlands","Germany",339.09,105.94
+1920,"Netherlands","Other Trade",208.46,152.88
+1920,"Netherlands","Sweden",19.49,15.91
+1920,"Other Trade","Argentina",14.59,48.90459
+1920,"Other Trade","Australia",72.1,40.16
+1920,"Other Trade","Czechoslovakia",165.58,61.94
+1920,"Other Trade","France",207.89,242.34
+1920,"Other Trade","Germany",247.78,116.222
+1920,"Other Trade","Japan",213.47,173.63
+1920,"Other Trade","Netherlands",3.21,11
+1920,"Other Trade","Other Trade",590.7392,442.5597
+1920,"Other Trade","Sweden",95.0975,38.12
+1920,"Other Trade","United Kingdom",126.24,153.02
+1920,"Sweden","Australia",3.01,13.39
+1920,"Sweden","Japan",2.97,6.46
+1920,"Sweden","Other Trade",81.49,68.56
 1920,"United Kingdom","Australia",339.47,373.96
 1920,"United Kingdom","Czechoslovakia",9.43,11.7
 1920,"United Kingdom","France",293.35,611.44
+1920,"United Kingdom","Germany",129.91,114.86
 1920,"United Kingdom","Japan",117.33,118.56
-1920,"United Kingdom","Other Trade",2090.88,2234.18
+1920,"United Kingdom","Netherlands",168.25,208.5
+1920,"United Kingdom","Other Trade",1546.51,1723.37
+1920,"United Kingdom","Sweden",246.21,187.45
 1920,"United States","Argentina",207.77,301.35
 1920,"United States","Australia",45.98,175.73
+1920,"United States","Brazil",227.58,229.92
 1920,"United States","Canada",611.86,735.48
 1920,"United States","Cuba",721.69,404.38
 1920,"United States","Czechoslovakia",544.25,47.69
 1920,"United States","France",165.65,643.91
+1920,"United States","Germany",88.83,387.3
 1920,"United States","Japan",414.57,439.89
-1920,"United States","Other Trade",1424.26,2631.91
+1920,"United States","Netherlands",95.23,197.03
+1920,"United States","Other Trade",981.01,1657.98
+1920,"United States","Sweden",31.61,159.68
 1920,"United States","United Kingdom",513.84,2358.04
 1925,"Argentina","France",0,77.52
 1925,"Argentina","Germany",190.83,150.99
-1925,"Argentina","Other Trade",107.15,260.4
+1925,"Argentina","Ireland",.03,7.02
+1925,"Argentina","Netherlands",6.54,49.91
+1925,"Argentina","Other Trade",100.58,203.47
 1925,"Argentina","United Kingdom",363.33,329.98
 1925,"Australia","Other Trade",8.63,25.53
 1925,"Canada","Argentina",6.26,10.32
@@ -426,14 +572,19 @@ year,importer1,importer2,flow1,flow2
 1925,"Canada","Cuba",7.79,7.14
 1925,"Canada","France",18.46,15.88
 1925,"Canada","Germany",9.97,30.91
+1925,"Canada","Ireland",.14,6.56
 1925,"Canada","Japan",9.57,34.9
-1925,"Canada","Other Trade",39.73,119.42
+1925,"Canada","Mexico",1.81,1.55
+1925,"Canada","Netherlands",5.08,12.64
+1925,"Canada","Other Trade",32.7,98.67
 1925,"Canada","United Kingdom",163.55,506.63
 1925,"Cuba","Argentina",1.78,3.26
 1925,"Cuba","France",11.32,5.64
 1925,"Cuba","Germany",9.4,2.2
 1925,"Cuba","Japan",1.12,1.94
-1925,"Cuba","Other Trade",41.81,10.287
+1925,"Cuba","Mexico",8.63,.02
+1925,"Cuba","Netherlands",2.46,5.4
+1925,"Cuba","Other Trade",30.72,4.867
 1925,"Cuba","United Kingdom",12,56
 1925,"France","Australia",96.95,8.91
 1925,"France","Germany",111.38,86.08
@@ -442,49 +593,78 @@ year,importer1,importer2,flow1,flow2
 1925,"Germany","Australia",70.17,8.82
 1925,"Germany","Japan",6.89,47.68
 1925,"Germany","Other Trade",823.5221,951.3102
+1925,"Ireland","Australia",4.88,.13
+1925,"Ireland","Germany",4.24,.5
+1925,"Ireland","Netherlands",3.25,.25
+1925,"Ireland","Other Trade",83.82,30.47
 1925,"Japan","Australia",57.68,18.07
 1925,"Japan","Other Trade",4.92,6.71
-1925,"Other Trade","Argentina",58.556,95.52
-1925,"Other Trade","Australia",36.2,28.08
-1925,"Other Trade","France",273.19,307.98
-1925,"Other Trade","Germany",585.11,505.83
-1925,"Other Trade","Japan",246.93,175.0575
-1925,"Other Trade","Other Trade",1438.127,1482.794
-1925,"Other Trade","United Kingdom",210.6,226.69
+1925,"Mexico","Argentina",.3,4.7
+1925,"Mexico","France",10.37,5.92
+1925,"Mexico","Germany",14.81,16.29
+1925,"Mexico","Japan",.74,0
+1925,"Mexico","Netherlands",.76,5.31
+1925,"Mexico","Other Trade",5.536,52.15
+1925,"Mexico","United Kingdom",15.3,22.22
+1925,"Netherlands","France",43.33,59.99
+1925,"Netherlands","Germany",240.19,177.21
+1925,"Netherlands","Other Trade",234.5901,224.29
+1925,"Other Trade","Argentina",58.256,90.82
+1925,"Other Trade","Australia",31.32,27.95
+1925,"Other Trade","France",219.49,242.07
+1925,"Other Trade","Germany",325.87,311.83
+1925,"Other Trade","Japan",246.19,175.0575
+1925,"Other Trade","Netherlands",11.22,65.46
+1925,"Other Trade","Other Trade",1098.951,1104.864
+1925,"Other Trade","United Kingdom",195.3,204.47
 1925,"United Kingdom","Australia",335.76,290.57
 1925,"United Kingdom","France",420.51,276.67
 1925,"United Kingdom","Germany",224.38,225.55
+1925,"United Kingdom","Ireland",206.22,242.29
 1925,"United Kingdom","Japan",23.07,87.29
-1925,"United Kingdom","Other Trade",1902.621,1550.02
+1925,"United Kingdom","Netherlands",189.12,185.84
+1925,"United Kingdom","Other Trade",1507.281,1121.89
 1925,"United States","Argentina",0,390.83
 1925,"United States","Australia",43.79,160.58
 1925,"United States","Canada",473.72,608.35
 1925,"United States","Cuba",265,187
 1925,"United States","France",157,299.65
 1925,"United States","Germany",164,523.48
+1925,"United States","Ireland",1.42,14.8
 1925,"United States","Japan",386.86,255.72
-1925,"United States","Other Trade",1223.26,1682.648
+1925,"United States","Mexico",255.8,135.8
+1925,"United States","Netherlands",28.69,116.45
+1925,"United States","Other Trade",937.35,1415.598
 1925,"United States","United Kingdom",414,1041
 1930,"Argentina","Belgium",27.79,43.11
 1930,"Argentina","China",.5,0
 1930,"Argentina","Denmark",.75,3.47
+1930,"Argentina","France",33.38,0
 1930,"Argentina","Germany",72.87,0
+1930,"Argentina","Ireland",.41,0
 1930,"Argentina","Japan",3.83,0
-1930,"Argentina","Other Trade",135.28,46.87
+1930,"Argentina","Netherlands",7.67,0
+1930,"Argentina","Other Trade",93.64,46.34
+1930,"Argentina","South Africa",.18,.53
 1930,"Argentina","United Kingdom",129.63,266.3
 1930,"Belgium","China",2.24,13.62
 1930,"Belgium","Denmark",6.42,11.23
+1930,"Belgium","France",153.22,0
 1930,"Belgium","Germany",143.63,0
-1930,"Belgium","Other Trade",225.78,108.59
+1930,"Belgium","Other Trade",60.21,101.6
+1930,"Belgium","South Africa",12.35,6.99
 1930,"Brazil","Argentina",34.94,20.11
 1930,"Brazil","Australia",0,.02
 1930,"Brazil","Belgium",10.15,10.14
 1930,"Brazil","Chile",431,1.57
 1930,"Brazil","China",.21,.01
 1930,"Brazil","Denmark",1.25,3.74
+1930,"Brazil","France",13.1,0
 1930,"Brazil","Germany",29.7,0
 1930,"Brazil","Japan",.56,.17
-1930,"Brazil","Other Trade",46.9,29.74
+1930,"Brazil","Netherlands",7.35,0
+1930,"Brazil","Other Trade",26.43,27.35
+1930,"Brazil","South Africa",.02,2.39
 1930,"Brazil","United Kingdom",50.65,36.51
 1930,"Canada","Argentina",6.62,8.59
 1930,"Canada","Australia",4.54,4.54
@@ -493,17 +673,24 @@ year,importer1,importer2,flow1,flow2
 1930,"Canada","Chile",0,.24
 1930,"Canada","China",4.74,6.7
 1930,"Canada","Denmark",.26,2.14
+1930,"Canada","France",18.79,0
 1930,"Canada","Germany",16.02,0
+1930,"Canada","Ireland",.69,0
 1930,"Canada","Japan",9.19,0
-1930,"Canada","Other Trade",60.46586,36.8
+1930,"Canada","Netherlands",7.21,0
+1930,"Canada","New Zealand",6.62,0
+1930,"Canada","Other Trade",23.89586,26.45
+1930,"Canada","South Africa",3.26,10.35
 1930,"Canada","United Kingdom",147.85,174.29
 1930,"Chile","Argentina",6.88,3.66
 1930,"Chile","Australia",0,.36
 1930,"Chile","Belgium",6.64,6.49
 1930,"Chile","China",.12,0
+1930,"Chile","France",8.487,20.85
 1930,"Chile","Germany",28.63,18.44
 1930,"Chile","Japan",1.32,0
-1930,"Chile","Other Trade",22.96,36.73
+1930,"Chile","Netherlands",1.81,2.8
+1930,"Chile","Other Trade",12.663,13.08
 1930,"Chile","United Kingdom",25.85,24.06
 1930,"China","Australia",3.76,.64
 1930,"China","Japan",162.34,139.44
@@ -512,27 +699,50 @@ year,importer1,importer2,flow1,flow2
 1930,"Denmark","China",9.9,.26
 1930,"Denmark","Japan",.8,1.33
 1930,"Denmark","Other Trade",1.02,.44
+1930,"France","China",0,8.42
+1930,"France","Denmark",4.28,18.46
+1930,"France","Other Trade",43.76,177.5
+1930,"France","South Africa",15.34,6.34
 1930,"Germany","China",0,34.29
 1930,"Germany","Denmark",0,158.14
-1930,"Germany","Other Trade",19.17,502.05
+1930,"Germany","Other Trade",19.17,480.88
+1930,"Germany","South Africa",0,21.17
+1930,"Ireland","Other Trade",2.25,.38
+1930,"Ireland","South Africa",0,.09
 1930,"Japan","Other Trade",0,5.07
+1930,"Netherlands","Belgium",0,111.52
+1930,"Netherlands","Denmark",0,17.92
+1930,"Netherlands","Other Trade",17.53,59.61
+1930,"Netherlands","South Africa",7.37,5.81
 1930,"Other Trade","Argentina",.34488,40.71098
-1930,"Other Trade","Australia",23.07,9.83
-1930,"Other Trade","Belgium",12.2,119.04
+1930,"Other Trade","Australia",14.83,9.3
+1930,"Other Trade","Belgium",12.2,7.52
 1930,"Other Trade","Chile",3.59,9.48
-1930,"Other Trade","China",37.00588,40.94589
-1930,"Other Trade","Denmark",46.90683,125.21
+1930,"Other Trade","China",36.54588,32.46589
+1930,"Other Trade","Denmark",42.62683,88.83
+1930,"Other Trade","France",16.51,21.84
 1930,"Other Trade","Germany",191.98,37.45
-1930,"Other Trade","Japan",15.11,16.80146
-1930,"Other Trade","Other Trade",624.12,722.8352
+1930,"Other Trade","Ireland",.69,0
+1930,"Other Trade","Japan",7.57,16.80146
+1930,"Other Trade","Netherlands",13.79,10.55
+1930,"Other Trade","Other Trade",501.94,428.6353
+1930,"Other Trade","South Africa",4.94,12.08
 1930,"Other Trade","United Kingdom",46.29,134.97
+1930,"South Africa","Australia",8.24,.53
+1930,"South Africa","China",.46,.06
+1930,"South Africa","Japan",7.54,0
 1930,"United Kingdom","Australia",189.87,154.33
 1930,"United Kingdom","Belgium",181.59,78.66
 1930,"United Kingdom","China",39.92,53.71
 1930,"United Kingdom","Denmark",260.95,67.16
+1930,"United Kingdom","France",224.44,0
 1930,"United Kingdom","Germany",308.17,0
+1930,"United Kingdom","Ireland",203.99,0
 1930,"United Kingdom","Japan",35.05,0
-1930,"United Kingdom","Other Trade",1622.01,495.27
+1930,"United Kingdom","Netherlands",188.41,0
+1930,"United Kingdom","New Zealand",196.2,0
+1930,"United Kingdom","Other Trade",751.04,351.19
+1930,"United Kingdom","South Africa",57.93,144.08
 1930,"United States","Argentina",0,138.81
 1930,"United States","Belgium",0,86.27
 1930,"United States","Brazil",0,63.07
@@ -540,67 +750,135 @@ year,importer1,importer2,flow1,flow2
 1930,"United States","Chile",51.01,56.41
 1930,"United States","China",0,115.32
 1930,"United States","Denmark",0,51.91
-1930,"United States","Other Trade",258.93,542.62
+1930,"United States","Other Trade",252.83,497.62
+1930,"United States","South Africa",6.1,45
 1930,"United States","United Kingdom",0,701.07
 1935,"Argentina","Australia",0,1
+1935,"Argentina","Belgium",25,46
 1935,"Argentina","Denmark",1,5
+1935,"Argentina","France",15,27
 1935,"Argentina","Germany",29,58
+1935,"Argentina","Ireland",0,4
+1935,"Argentina","Italy",16,24
 1935,"Argentina","Japan",17,5
 1935,"Argentina","Netherlands",5,50
-1935,"Argentina","Other Trade",94.32,177
+1935,"Argentina","Other Trade",38.32,75
+1935,"Argentina","South Africa",0,1
 1935,"Argentina","United Kingdom",84,208
 1935,"Australia","New Zealand",6,17
+1935,"Belgium","Australia",21,2
+1935,"Belgium","Denmark",4,6
+1935,"Belgium","France",98,93
+1935,"Belgium","Germany",78,51
+1935,"Belgium","Italy",7,17
+1935,"Belgium","Japan",3,7
+1935,"Belgium","New Zealand",1,1
+1935,"Belgium","Other Trade",103.22,96.11
+1935,"Belgium","South Africa",5,7
 1935,"Canada","Argentina",3,4
 1935,"Canada","Australia",7,23
+1935,"Canada","Belgium",5,10
 1935,"Canada","Denmark",0,1
+1935,"Canada","France",7,22
 1935,"Canada","Germany",10,5
+1935,"Canada","Ireland",0,4
+1935,"Canada","Italy",2,2
 1935,"Canada","Japan",4,15
 1935,"Canada","Netherlands",5,6
 1935,"Canada","New Zealand",3,10
-1935,"Canada","Other Trade",44.392,74.53
+1935,"Canada","Other Trade",25.392,36.53
+1935,"Canada","South Africa",5,0
 1935,"Canada","United Kingdom",119,260
 1935,"Denmark","Australia",0,1
 1935,"Denmark","Japan",1,0
-1935,"Denmark","Other Trade",2.12,1.4
+1935,"Denmark","Other Trade",2.12,.4
+1935,"Denmark","South Africa",0,1
+1935,"France","Australia",44,4
+1935,"France","Denmark",3,8
+1935,"France","Germany",116,72
+1935,"France","Italy",27,39
+1935,"France","Japan",13,6
+1935,"France","New Zealand",4,1
+1935,"France","Other Trade",201,180
+1935,"France","South Africa",15,45
 1935,"Germany","Australia",14,13
 1935,"Germany","Denmark",48,65
+1935,"Germany","Italy",76,118
 1935,"Germany","Japan",8,37
 1935,"Germany","New Zealand",2,2
-1935,"Germany","Other Trade",610,626
+1935,"Germany","Other Trade",516,492
+1935,"Germany","South Africa",18,16
+1935,"Ireland","Australia",5,.009
+1935,"Ireland","Belgium",6,1
+1935,"Ireland","Denmark",1,0
+1935,"Ireland","France",2,0
+1935,"Ireland","Germany",6,3
+1935,"Ireland","Japan",1,0
+1935,"Ireland","Netherlands",3,0
+1935,"Ireland","Other Trade",12.36,8
+1935,"Italy","Australia",6,2
+1935,"Italy","Denmark",2,2
+1935,"Italy","Japan",3,2
+1935,"Italy","New Zealand",0,1
+1935,"Italy","Other Trade",91.09,49.7
+1935,"Italy","South Africa",7,3
 1935,"Japan","Australia",69,25
 1935,"Japan","New Zealand",2,4
 1935,"Japan","Other Trade",1,12.69
 1935,"Netherlands","Australia",1,2
+1935,"Netherlands","Belgium",70,59
 1935,"Netherlands","Denmark",3,9
+1935,"Netherlands","France",30,35
 1935,"Netherlands","Germany",164,79
+1935,"Netherlands","Italy",8,11
 1935,"Netherlands","Japan",5,2
 1935,"Netherlands","New Zealand",0,1
-1935,"Netherlands","Other Trade",200,221.6
+1935,"Netherlands","Other Trade",91,112.6
+1935,"Netherlands","South Africa",1,4
 1935,"Other Trade","Argentina",41.92,34
-1935,"Other Trade","Australia",110.66,30.267
-1935,"Other Trade","Denmark",68.82,82.21
-1935,"Other Trade","Germany",480,366.94
-1935,"Other Trade","Japan",164.418,101.7964
-1935,"Other Trade","Netherlands",20.51,24.34
-1935,"Other Trade","New Zealand",6,7
-1935,"Other Trade","Other Trade",1251.928,1255.773
+1935,"Other Trade","Australia",34.66,21.258
+1935,"Other Trade","Belgium",25.02,26
+1935,"Other Trade","Denmark",58.82,66.21
+1935,"Other Trade","France",29.4,66.75
+1935,"Other Trade","Germany",280,240.94
+1935,"Other Trade","Ireland",1,0
+1935,"Other Trade","Italy",95.89,110.58
+1935,"Other Trade","Japan",135.418,84.7964
+1935,"Other Trade","Netherlands",17.51,24.34
+1935,"Other Trade","New Zealand",1,3
+1935,"Other Trade","Other Trade",515.948,502.63
+1935,"Other Trade","South Africa",5,11
 1935,"Other Trade","United Kingdom",94.82,154.25
+1935,"South Africa","Australia",0,1
+1935,"South Africa","Japan",9,2
+1935,"South Africa","New Zealand",0,1
+1935,"South Africa","Other Trade",5,.003
 1935,"United Kingdom","Australia",240,167
+1935,"United Kingdom","Belgium",77,50
 1935,"United Kingdom","Denmark",156,105
+1935,"United Kingdom","France",101,105
 1935,"United Kingdom","Germany",143,103
+1935,"United Kingdom","Ireland",90,133
+1935,"United Kingdom","Italy",36,46
 1935,"United Kingdom","Japan",38,25
 1935,"United Kingdom","Netherlands",109,60
 1935,"United Kingdom","New Zealand",169,73
-1935,"United Kingdom","Other Trade",952,929.29
+1935,"United Kingdom","Other Trade",597,449.8
+1935,"United Kingdom","South Africa",51,145.49
 1935,"United States","Argentina",65,47
 1935,"United States","Australia",10,63
+1935,"United States","Belgium",40,47
 1935,"United States","Canada",286,313
 1935,"United States","Denmark",3,16
+1935,"United States","France",58,119
 1935,"United States","Germany",78,98
+1935,"United States","Ireland",1,8
+1935,"United States","Italy",39,73
 1935,"United States","Japan",153,240
 1935,"United States","Netherlands",41,44
 1935,"United States","New Zealand",2,17
-1935,"United States","Other Trade",798.13,961.18
+1935,"United States","Other Trade",656.13,662.18
+1935,"United States","South Africa",4,52
 1935,"United States","United Kingdom",155,401
 1940,"Argentina","United Kingdom",74.37,124.71
 1940,"Bulgaria","Romania",1.5,.5
@@ -614,294 +892,552 @@ year,importer1,importer2,flow1,flow2
 1945,"Hungary","Russia",.5,.4
 1945,"United States","Spain",57.99,51.48
 1950,"Australia","New Zealand",12.43,58.52
+1950,"Belgium","Australia",80.85696,13.76493
+1950,"Belgium","Denmark",9.144537,14.43874
+1950,"Belgium","France",214.3672,135.0504
+1950,"Belgium","India",17.61526,17.71152
+1950,"Belgium","New Zealand",8.085695,3.388292
+1950,"Belgium","Other Trade",316.9785,376.4662
+1950,"Belgium","Philippines",5.005431,3.494176
 1950,"Brazil","Australia",.99,11.22
+1950,"Brazil","Belgium",67.13052,39.17712
+1950,"Brazil","Denmark",9.02,16.2
+1950,"Brazil","France",56.21,53.3
+1950,"Brazil","India",1.54,0
+1950,"Brazil","Netherlands",27.61,18.8
 1950,"Brazil","New Zealand",0,.22
-1950,"Brazil","Other Trade",452.98,413.11
+1950,"Brazil","Other Trade",291.4695,284.9329
+1950,"Brazil","Philippines",0,.7
 1950,"Brazil","United Kingdom",148.94,113.7
 1950,"Canada","Australia",33.6,34.87
+1950,"Canada","Belgium",22.33192,56.59987
 1950,"Canada","Brazil",28.6,13.97
 1950,"Canada","Colombia",13.4,10.1
 1950,"Canada","Cuba",4.2,17.27
+1950,"Canada","Denmark",1.4,.5
+1950,"Canada","France",14.9,22.6
+1950,"Canada","India",37.6,22.1
 1950,"Canada","Mexico",33.2,11.4
+1950,"Canada","Netherlands",9,8.7
 1950,"Canada","New Zealand",12,10.89
-1950,"Canada","Other Trade",247,321.55
+1950,"Canada","Other Trade",155.2681,201.3701
+1950,"Canada","Philippines",6.5,9.68
 1950,"Canada","United Kingdom",409.6,504.6
 1950,"Canada","Venezuela",88.4,22.7
 1950,"Colombia","Australia",.1,0
+1950,"Colombia","Belgium",7.123113,2.021424
 1950,"Colombia","Brazil",1.1,0
-1950,"Colombia","Other Trade",53.6,20.01
+1950,"Colombia","Denmark",.6,0
+1950,"Colombia","France",5.8,5.4
+1950,"Colombia","Netherlands",2.5,.7
+1950,"Colombia","Other Trade",36.57689,11.88858
+1950,"Colombia","Philippines",1,0
 1950,"Colombia","United Kingdom",16.9,.5
 1950,"Colombia","Venezuela",.8,1.7
 1950,"Cuba","Australia",0,.11
+1950,"Cuba","Belgium",6.035394,3.561557
 1950,"Cuba","Brazil",.11,0
 1950,"Cuba","Colombia",.33,.3
+1950,"Cuba","Denmark",.22,0
+1950,"Cuba","France",2.97,21.4
+1950,"Cuba","India",21.12,3.2
 1950,"Cuba","Mexico",7.15,2
-1950,"Cuba","Other Trade",59.51,116.59
+1950,"Cuba","Netherlands",2.2,26.5
+1950,"Cuba","Other Trade",26.96461,61.92844
 1950,"Cuba","United Kingdom",9.35,105.5
 1950,"Cuba","Venezuela",.44,3.3
+1950,"Denmark","Australia",3.1,1.1
+1950,"Denmark","India",3.4,3.3
+1950,"Denmark","New Zealand",1.3,.22
+1950,"Denmark","Other Trade",18.6,15.8
+1950,"Denmark","Philippines",.8,.11
+1950,"France","Australia",118.8,33
+1950,"France","Denmark",23.7,72.9
+1950,"France","India",20.1,15.1
+1950,"France","New Zealand",30.9,3.74
+1950,"France","Other Trade",711.7,596.9
+1950,"France","Philippines",1.5,.66
+1950,"India","Australia",91.4,70.95
+1950,"India","New Zealand",3.3,6.82
+1950,"India","Other Trade",138.6,199
+1950,"India","Philippines",.8,2.42
 1950,"Mexico","Australia",4.1,0
+1950,"Mexico","Belgium",3.946589,18.38533
 1950,"Mexico","Brazil",.1,1.1
 1950,"Mexico","Colombia",0,.8
+1950,"Mexico","Denmark",.1,.2
+1950,"Mexico","France",6,6.4
+1950,"Mexico","India",.3,.8
+1950,"Mexico","Netherlands",1.7,4.5
 1950,"Mexico","New Zealand",.6,0
-1950,"Mexico","Other Trade",36.2,80.15
+1950,"Mexico","Other Trade",24.15341,49.86467
 1950,"Mexico","United Kingdom",11.6,15.8
 1950,"Mexico","Venezuela",0,1.8
-1950,"Other Trade","Australia",594.45,371.11
+1950,"Netherlands","Australia",24.1,13.42
+1950,"Netherlands","Belgium",363.1825,188.1849
+1950,"Netherlands","Denmark",10.3,28.9
+1950,"Netherlands","France",100.2,68.6
+1950,"Netherlands","India",15.2,10
+1950,"Netherlands","New Zealand",6.9,1.76
+1950,"Netherlands","Other Trade",483.2175,380.6151
+1950,"Netherlands","Philippines",1.9,1.32
+1950,"Other Trade","Australia",274.543,238.7651
+1950,"Other Trade","Belgium",39.34076,72.19372
 1950,"Other Trade","Brazil",0,.55
 1950,"Other Trade","Colombia",.66,1.3
+1950,"Other Trade","Denmark",158.7655,223.1613
+1950,"Other Trade","France",137.1128,132.5496
+1950,"Other Trade","India",158.4447,211.9885
 1950,"Other Trade","Mexico",.95,0
-1950,"Other Trade","New Zealand",81.94,57.75
-1950,"Other Trade","Other Trade",4705.55,4733.88
+1950,"Other Trade","Netherlands",35.07,70.7
+1950,"Other Trade","New Zealand",31.4543,41.82171
+1950,"Other Trade","Other Trade",1690.661,1870.75
+1950,"Other Trade","Philippines",25.00457,21.46582
 1950,"Other Trade","United Kingdom",236.69,439.9
 1950,"Other Trade","Venezuela",.41,1.2
+1950,"Philippines","Australia",1.65,.11
+1950,"Philippines","Other Trade",4.84,.1
 1950,"United Kingdom","Australia",615.1,786.83
+1950,"United Kingdom","Belgium",117.2426,181.4469
+1950,"United Kingdom","Denmark",282.5,269
+1950,"United Kingdom","France",307.3,114.1
+1950,"United Kingdom","India",275.3,246.8
+1950,"United Kingdom","Netherlands",240.1,203.2
 1950,"United Kingdom","New Zealand",374.9,292.27
-1950,"United Kingdom","Other Trade",2993.1,3025.92
+1950,"United Kingdom","Other Trade",1766.357,2005.653
+1950,"United Kingdom","Philippines",4.3,5.72
 1950,"United States","Australia",151,129.03
+1950,"United States","Belgium",144.3874,293.684
 1950,"United States","Brazil",767,416.46
 1950,"United States","Canada",2101,2162.1
 1950,"United States","Colombia",335,255.4
 1950,"United States","Cuba",436,448.25
+1950,"United States","Denmark",13,78.8
+1950,"United States","France",141,376.1
+1950,"United States","India",278,211.6
 1950,"United States","Mexico",338,429.6
+1950,"United States","Netherlands",91,237
 1950,"United States","New Zealand",69,35.31
-1950,"United States","Other Trade",3326,4040.53
+1950,"United States","Other Trade",2405.613,2562.186
+1950,"United States","Philippines",253,281.16
 1950,"United States","United Kingdom",359,592.3
 1950,"United States","Venezuela",347,404.8
 1950,"Venezuela","Australia",.1,0
+1950,"Venezuela","Belgium",9.337053,4.139106
 1950,"Venezuela","Brazil",1.4,18.92
-1950,"Venezuela","Other Trade",84.2,81.3
+1950,"Venezuela","Denmark",4.5,0
+1950,"Venezuela","France",11.3,34.6
+1950,"Venezuela","India",.7,0
+1950,"Venezuela","Netherlands",7.7,15.2
+1950,"Venezuela","Other Trade",46.56295,27.36089
+1950,"Venezuela","Philippines",4.1,0
 1950,"Venezuela","United Kingdom",43.5,45.1
-1955,"Australia","Other Trade",20.46,93.83
+1955,"Australia","New Zealand",20.46,93.83
+1955,"Brazil","Australia",.11,3.63
+1955,"Brazil","China",0,4.6
+1955,"Brazil","France",78.65,67.4
+1955,"Brazil","German FR",96.8,112
+1955,"Brazil","Japan",49.61,59.3
+1955,"Brazil","Netherlands",37.4,17.3
+1955,"Brazil","New Zealand",0,.22
+1955,"Brazil","Other Trade",589.82,522.22
+1955,"Brazil","Russia",0,2.1
+1955,"Brazil","United Kingdom",19.47,88.8
 1955,"Canada","Australia",29.3,63.03
+1955,"Canada","Brazil",34.2,13.64
 1955,"Canada","China",3.5,1
+1955,"Canada","Cuba",11.2,17.82
+1955,"Canada","France",27.8,59.9
 1955,"Canada","German DR",.7,2.3
 1955,"Canada","German FR",61.8,117
 1955,"Canada","Japan",40.9,108.8
 1955,"Canada","Mexico",32,29.1
-1955,"Canada","Other Trade",398.498,551.774
+1955,"Canada","Netherlands",23.4,39.1
+1955,"Canada","New Zealand",13.8,25.74
+1955,"Canada","Other Trade",288.098,395.574
 1955,"Canada","Russia",.7,2.9
 1955,"Canada","United Kingdom",446.7,962.5
 1955,"Canada","Venezuela",208.9,38.8
 1955,"China","Australia",6.3,4.95
 1955,"China","Japan",28.6,80.8
-1955,"China","Other Trade",96.6,46.19
+1955,"China","New Zealand",.4,.88
+1955,"China","Other Trade",96.2,45.31
+1955,"Cuba","Brazil",.33,.22
+1955,"Cuba","China",0,.4
+1955,"Cuba","France",4.95,6.3
+1955,"Cuba","German FR",16.39,22
+1955,"Cuba","Japan",4.4,27.5
+1955,"Cuba","Mexico",10.12,1.4
+1955,"Cuba","Netherlands",7.59,12.5
+1955,"Cuba","Other Trade",58.84,80.19
+1955,"Cuba","Russia",0,39.4
+1955,"Cuba","United Kingdom",14.3,19.7
+1955,"Cuba","Venezuela",11.22,1.5
+1955,"France","Australia",174.2,40.59
+1955,"France","China",12.1,7.5
+1955,"France","German DR",2.3,8.3
+1955,"France","German FR",440.1,504
+1955,"France","Japan",11.6,15.3
+1955,"France","New Zealand",54.3,5.94
+1955,"France","Other Trade",1100.877,1290.41
+1955,"France","Russia",49.1,39.7
 1955,"German DR","Australia",.1,1.65
 1955,"German DR","Japan",3.2,5.2
-1955,"German DR","Other Trade",412.7,415.75
+1955,"German DR","New Zealand",0,.22
+1955,"German DR","Other Trade",412.7,415.53
 1955,"German DR","Russia",478.7,557
 1955,"German FR","Australia",98,81.95
 1955,"German FR","China",46,26
 1955,"German FR","German DR",136.4,144.2
 1955,"German FR","Japan",22,46.3
-1955,"German FR","Other Trade",1805.156,2473.124
+1955,"German FR","New Zealand",36,21.12
+1955,"German FR","Other Trade",1769.156,2452.004
 1955,"German FR","Russia",36,26.2
 1955,"Japan","Australia",177.7,60.83
-1955,"Japan","Other Trade",418.8,413.95
+1955,"Japan","New Zealand",6.7,7.81
+1955,"Japan","Other Trade",412.1,406.14
 1955,"Mexico","Australia",10.8,2.09
+1955,"Mexico","Brazil",0,.99
 1955,"Mexico","China",.3,.2
+1955,"Mexico","France",9.1,6.8
 1955,"Mexico","German FR",34.3,91
 1955,"Mexico","Japan",5.3,84
-1955,"Mexico","Other Trade",78.1,87.65
+1955,"Mexico","Netherlands",6.7,11.9
+1955,"Mexico","New Zealand",.5,0
+1955,"Mexico","Other Trade",61.8,67.96
 1955,"Mexico","Russia",0,.4
 1955,"Mexico","United Kingdom",20.4,19.3
 1955,"Mexico","Venezuela",.1,4.2
-1955,"Other Trade","Australia",546.449,487.732
-1955,"Other Trade","China",200.72,228.5
-1955,"Other Trade","German DR",28.6,61.7
-1955,"Other Trade","German FR",2289.46,2103.9
-1955,"Other Trade","Japan",466.715,509.622
-1955,"Other Trade","Mexico",11.09,1.4
-1955,"Other Trade","Other Trade",8136.212,8309.55
-1955,"Other Trade","Russia",1427.6,1537
-1955,"Other Trade","United Kingdom",250.4,562.1
-1955,"Other Trade","Venezuela",15.9,6.5
+1955,"Netherlands","Australia",6.2,33.88
+1955,"Netherlands","China",8.1,2.9
+1955,"Netherlands","France",127.1,138.4
+1955,"Netherlands","German DR",12.2,32.3
+1955,"Netherlands","German FR",564.5,421
+1955,"Netherlands","Japan",17.7,11.5
+1955,"Netherlands","New Zealand",9.5,7.48
+1955,"Netherlands","Other Trade",1204.791,1195.957
+1955,"Netherlands","Russia",30.2,36.7
+1955,"Other Trade","Australia",365.939,409.632
+1955,"Other Trade","Brazil",1.86,2.09
+1955,"Other Trade","China",180.52,213.1
+1955,"Other Trade","France",489.53,344.2999
+1955,"Other Trade","German DR",14.1,21.1
+1955,"Other Trade","German FR",1171.67,1044.9
+1955,"Other Trade","Japan",383.405,396.022
+1955,"Other Trade","Mexico",.97,0
+1955,"Other Trade","Netherlands",105.35,87.7
+1955,"Other Trade","New Zealand",51.77,75.44
+1955,"Other Trade","Other Trade",4213.554,4455.483
+1955,"Other Trade","Russia",1348.3,1419.1
+1955,"Other Trade","United Kingdom",216.63,453.6
+1955,"Other Trade","Venezuela",4.68,5
 1955,"Russia","Australia",.3,2.31
 1955,"Russia","China",707.9,748.4
 1955,"Russia","Japan",2.1,3.1
-1955,"Russia","Other Trade",298.9,217.81
+1955,"Russia","New Zealand",4.5,.11
+1955,"Russia","Other Trade",294.4,217.7
 1955,"United Kingdom","Australia",738.9,940.28
 1955,"United Kingdom","China",34.4,22.3
+1955,"United Kingdom","France",382.2,183.7
 1955,"United Kingdom","German DR",7.1,19.1
 1955,"United Kingdom","German FR",255.6,206
 1955,"United Kingdom","Japan",66.9,37.9
-1955,"United Kingdom","Other Trade",4625.667,4371.816
+1955,"United Kingdom","Netherlands",372.1,273.4
+1955,"United Kingdom","New Zealand",503.8,424.49
+1955,"United Kingdom","Other Trade",3367.567,3490.226
 1955,"United Kingdom","Russia",175.4,78.2
 1955,"United States","Australia",138,253.55
+1955,"United States","Brazil",683,339.68
 1955,"United States","Canada",2887,3858.5
+1955,"United States","Cuba",457,465.63
+1955,"United States","France",218,458.5
 1955,"United States","German DR",6,5.9
 1955,"United States","German FR",396,764
 1955,"United States","Japan",466,774
 1955,"United States","Mexico",449,701
-1955,"United States","Other Trade",5457.5,7005.073
+1955,"United States","Netherlands",172,435.1
+1955,"United States","New Zealand",47,65.67
+1955,"United States","Other Trade",3880.5,5240.493
 1955,"United States","Russia",19,.7
 1955,"United States","United Kingdom",666,1177.2
 1955,"United States","Venezuela",622,639.1
 1955,"Venezuela","Australia",0,4.07
+1955,"Venezuela","Brazil",.4,102.19
+1955,"Venezuela","France",39.2,20.6
 1955,"Venezuela","German FR",95.6,32
 1955,"Venezuela","Japan",18.6,.3
-1955,"Venezuela","Other Trade",165.8,331.5
+1955,"Venezuela","Netherlands",23.5,59.8
+1955,"Venezuela","Other Trade",102.7,148.91
 1955,"Venezuela","United Kingdom",79.1,89
 1960,"Australia","Other Trade",41.69,107.91
+1960,"Belgium","Australia",52.19159,26.5694
+1960,"Belgium","France",509.6021,352.7431
+1960,"Belgium","German FR",638.4234,550.3323
+1960,"Belgium","Italy",89.03828,109.7823
+1960,"Belgium","Japan",19.98625,12.12436
+1960,"Belgium","Other Trade",958.4876,871.3059
+1960,"Brazil","Australia",0,7.26
+1960,"Brazil","Belgium",16.77519,24.72233
+1960,"Brazil","France",75.46,62
+1960,"Brazil","German FR",149.49,120
+1960,"Brazil","Italy",42.46,38.7
+1960,"Brazil","Japan",41.8,32.8
+1960,"Brazil","Netherlands",38.61,36
+1960,"Brazil","Other Trade",415.7448,343.8377
+1960,"Brazil","United Kingdom",56.32,81.8
 1960,"Canada","Australia",40,101.53
+1960,"Canada","Belgium",44.04553,45.37164
+1960,"Canada","Brazil",27.7,17.49
 1960,"Canada","France",56.4,91.3
 1960,"Canada","German FR",142.6,209
+1960,"Canada","Italy",48.3,64.7
 1960,"Canada","Japan",123.9,203.7
 1960,"Canada","Mexico",23.5,32.8
 1960,"Canada","Netherlands",35.9,36.7
-1960,"Canada","Other Trade",475.6,642.65
+1960,"Canada","Other Trade",355.5545,515.0884
 1960,"Canada","United Kingdom",656.3,1059.8
 1960,"Canada","Venezuela",218.9,39.9
 1960,"France","Australia",140.8,42.02
 1960,"France","German FR",990.3,953
+1960,"France","Italy",252.7,398
 1960,"France","Japan",16.4,32.3
-1960,"France","Other Trade",2210.9,2687.72
+1960,"France","Other Trade",1958.2,2289.72
 1960,"German FR","Australia",94,153.23
+1960,"German FR","Italy",627,670.7
 1960,"German FR","Japan",68,123
-1960,"German FR","Other Trade",3587,5002.6
+1960,"German FR","Other Trade",2960,4331.9
+1960,"Italy","Australia",117.8,40.04
+1960,"Italy","Japan",33.9,12.6
+1960,"Italy","Other Trade",1174.7,911
 1960,"Japan","Australia",343.7,151.25
 1960,"Japan","Other Trade",504.4,751.32
 1960,"Mexico","Australia",9,4.07
+1960,"Mexico","Belgium",7.293561,14.20824
+1960,"Mexico","Brazil",.1,1.54
 1960,"Mexico","France",23.2,22.3
 1960,"Mexico","German FR",73.1,66
+1960,"Mexico","Italy",24.4,17.7
 1960,"Mexico","Japan",17.1,102.9
 1960,"Mexico","Netherlands",10.3,20.5
-1960,"Mexico","Other Trade",98.7,88.68
+1960,"Mexico","Other Trade",66.90644,55.23176
 1960,"Mexico","United Kingdom",57.8,15.8
 1960,"Mexico","Venezuela",.2,4
 1960,"Netherlands","Australia",7,41.25
+1960,"Netherlands","Belgium",786.6627,556.7734
 1960,"Netherlands","France",173.6,233.5
 1960,"Netherlands","German FR",976.9,867
+1960,"Netherlands","Italy",95.4,125.2
 1960,"Netherlands","Japan",23.8,28.4
-1960,"Netherlands","Other Trade",1840.2,1870.68
-1960,"Other Trade","Australia",489.88,482.44
-1960,"Other Trade","France",755.97,558.6
-1960,"Other Trade","German FR",2118.27,1885
-1960,"Other Trade","Japan",791.38,763.01
+1960,"Netherlands","Other Trade",958.1373,1188.707
+1960,"Other Trade","Australia",319.8884,408.5706
+1960,"Other Trade","Belgium",111.6578,113.4764
+1960,"Other Trade","Brazil",1.16,6.27
+1960,"Other Trade","France",170.9079,143.8569
+1960,"Other Trade","German FR",1330.357,1214.668
+1960,"Other Trade","Italy",591.0617,729.1177
+1960,"Other Trade","Japan",695.6937,705.4856
 1960,"Other Trade","Mexico",1.88,.9
-1960,"Other Trade","Netherlands",150.85,190.6
-1960,"Other Trade","Other Trade",7732.02,8736.38
-1960,"Other Trade","United Kingdom",347.43,653.6
+1960,"Other Trade","Netherlands",112.24,154.6
+1960,"Other Trade","Other Trade",4330.935,5588.168
+1960,"Other Trade","United Kingdom",291.11,571.8
 1960,"Other Trade","Venezuela",35.72,9.4
 1960,"United Kingdom","Australia",556.4,867.46
+1960,"United Kingdom","Belgium",202.42,276.3029
 1960,"United Kingdom","France",373.2,230.3
 1960,"United Kingdom","German FR",516,466
+1960,"United Kingdom","Italy",278.5,249.5
 1960,"United Kingdom","Japan",120.6,99.1
 1960,"United Kingdom","Netherlands",509.3,311.5
-1960,"United Kingdom","Other Trade",5679.7,5387.02
+1960,"United Kingdom","Other Trade",5198.78,4861.217
 1960,"United States","Australia",155,475.09
+1960,"United States","Belgium",375.0974,370.3614
+1960,"United States","Brazil",626,487.52
 1960,"United States","Canada",3452,4147.1
 1960,"United States","France",429,745.7
 1960,"United States","German FR",974,1423
+1960,"United States","Italy",427,668.4
 1960,"United States","Japan",1247.6,1554.2
 1960,"United States","Mexico",492,856.4
 1960,"United States","Netherlands",231.3,599.1
-1960,"United States","Other Trade",6117.7,7807.06
+1960,"United States","Other Trade",4689.603,6280.779
 1960,"United States","United Kingdom",1079.4,1605
 1960,"United States","Venezuela",1031.6,606.5
 1960,"Venezuela","Australia",0,3.3
+1960,"Venezuela","Belgium",32.20534,13.1663
+1960,"Venezuela","Brazil",1.4,125.95
 1960,"Venezuela","France",26.6,50.4
 1960,"Venezuela","German FR",103.6,90
+1960,"Venezuela","Italy",73.5,20.2
 1960,"Venezuela","Japan",41.8,1
 1960,"Venezuela","Netherlands",28.9,19.1
-1960,"Venezuela","Other Trade",225.8,395.4
+1960,"Venezuela","Other Trade",118.6947,236.0837
 1960,"Venezuela","United Kingdom",70.6,202.5
 1965,"Belgium","France",946.7833,817.9362
 1965,"Belgium","German FR",1202.859,1289.423
 1965,"Belgium","Italy",239.9813,197.6036
 1965,"Belgium","Japan",42.75857,23.52197
-1965,"Belgium","Other Trade",1375.607,1161.376
+1965,"Belgium","Other Trade",1279.805,1029.767
+1965,"Belgium","Switzerland",95.80204,131.6088
 1965,"Canada","Belgium",69.80408,83.2316
 1965,"Canada","France",97.6,115.5
 1965,"Canada","German FR",213.2,228
 1965,"Canada","Italy",81.7,91.5
 1965,"Canada","Japan",234.2,355
+1965,"Canada","Mexico",27.7,37.7
 1965,"Canada","Netherlands",57.3,65.5
-1965,"Canada","Other Trade",1059.296,1469.308
+1965,"Canada","Other Trade",727.5959,1299.608
+1965,"Canada","Switzerland",44.8,39.9
 1965,"Canada","United Kingdom",630.2,1284.9
+1965,"Canada","Venezuela",259.2,92.1
 1965,"France","German FR",1912.4,1961
 1965,"France","Italy",726.3,718
 1965,"France","Japan",59.5,62.5
-1965,"France","Other Trade",3818.9,4146.45
+1965,"France","Other Trade",3575.5,3607.45
+1965,"France","Switzerland",243.4,539
 1965,"German FR","Italy",1641,1081.4
 1965,"German FR","Japan",240,222.8
 1965,"German FR","Other Trade",5083.7,6339.46
 1965,"Italy","Japan",48.7,38.1
 1965,"Italy","Other Trade",2345.8,1760.74
 1965,"Japan","Other Trade",1407.8,1476.3
+1965,"Mexico","Belgium",12.76091,6.951838
+1965,"Mexico","France",48.5,41.2
+1965,"Mexico","German FR",122.1,65
+1965,"Mexico","Italy",44.6,39.5
+1965,"Mexico","Japan",39.1,144.8
+1965,"Mexico","Netherlands",18.6,10.4
+1965,"Mexico","Other Trade",116.8391,188.1282
+1965,"Mexico","Switzerland",30.2,8.7
+1965,"Mexico","United Kingdom",53.6,29
+1965,"Mexico","Venezuela",.2,9
 1965,"Netherlands","Belgium",1393.891,918.0236
 1965,"Netherlands","France",458.2,520.4
 1965,"Netherlands","German FR",1765.4,1707
 1965,"Netherlands","Italy",299,287.7
 1965,"Netherlands","Japan",61.6,43.8
-1965,"Netherlands","Other Trade",1759.209,1708.596
-1965,"Other Trade","Belgium",160.1589,220.459
-1965,"Other Trade","France",343.2468,439.7638
-1965,"Other Trade","German FR",2646.642,2091.577
-1965,"Other Trade","Italy",1264.769,1123.196
-1965,"Other Trade","Japan",2139.111,2792.178
-1965,"Other Trade","Netherlands",214.9,301.9
-1965,"Other Trade","Other Trade",11018.23,11874.4
-1965,"Other Trade","United Kingdom",618.92,940.2
+1965,"Netherlands","Other Trade",1645.509,1574.296
+1965,"Netherlands","Switzerland",113.7,134.3
+1965,"Other Trade","Belgium",121.8762,198.9369
+1965,"Other Trade","France",248.6468,345.0638
+1965,"Other Trade","German FR",1287.342,1378.577
+1965,"Other Trade","Italy",763.0687,877.7964
+1965,"Other Trade","Japan",1974.411,2547.578
+1965,"Other Trade","Mexico",1.63,.1
+1965,"Other Trade","Netherlands",168.1,263.1
+1965,"Other Trade","Other Trade",9837.149,10258.57
+1965,"Other Trade","Switzerland",100.308,107.0912
+1965,"Other Trade","United Kingdom",480.32,704.7
+1965,"Other Trade","Venezuela",207.83,7.3
+1965,"Switzerland","German FR",1113.3,556
+1965,"Switzerland","Italy",383.5,184
+1965,"Switzerland","Japan",49.8,70.3
+1965,"Switzerland","Other Trade",589,966.98
 1965,"United Kingdom","Belgium",329.4981,462.5353
 1965,"United Kingdom","France",534.2,522.6
 1965,"United Kingdom","German FR",742.9,785
 1965,"United Kingdom","Italy",405.5,340.1
 1965,"United Kingdom","Japan",218.7,162.6
 1965,"United Kingdom","Netherlands",759.1,485.7
-1965,"United Kingdom","Other Trade",8231.902,7989.865
+1965,"United Kingdom","Other Trade",7991.502,7719.665
+1965,"United Kingdom","Switzerland",240.4,270.2
 1965,"United States","Belgium",509.484,523.7686
 1965,"United States","Canada",5257,6153.7
 1965,"United States","France",666,1088.4
 1965,"United States","German FR",1452,2299
 1965,"United States","Italy",671,988.8
 1965,"United States","Japan",2619,2365.2
+1965,"United States","Mexico",700,1025.2
 1965,"United States","Netherlands",271,765.4
-1965,"United States","Other Trade",8990.326,11950.16
+1965,"United States","Other Trade",6853.926,9872.861
+1965,"United States","Switzerland",331,315.5
 1965,"United States","United Kingdom",1524.3,1886.1
+1965,"United States","Venezuela",1105.4,736.6
+1965,"Venezuela","Belgium",25.52182,14.57029
+1965,"Venezuela","France",46.1,53.5
+1965,"Venezuela","German FR",123.9,92
+1965,"Venezuela","Italy",73.6,21.9
+1965,"Venezuela","Japan",75.8,29.5
+1965,"Venezuela","Netherlands",28.2,28.4
+1965,"Venezuela","Other Trade",102.4782,327.5397
+1965,"Venezuela","Switzerland",32.6,1
+1965,"Venezuela","United Kingdom",85,206.5
 1970,"Belgium","France",1856.452,2039.844
 1970,"Belgium","German FR",2537.731,2697.165
 1970,"Belgium","Italy",407.6646,539.433
 1970,"Belgium","Japan",110.4725,71.77863
-1970,"Belgium","Other Trade",2153.131,1895.022
+1970,"Belgium","Other Trade",1934.467,1594.731
+1970,"Belgium","Poland",22.81705,30.3847
+1970,"Belgium","Russia",74.1554,51.5285
+1970,"Belgium","Switzerland",121.6909,218.3782
 1970,"Canada","Belgium",51.5285,144.2228
 1970,"Canada","France",166.7,204.9
 1970,"Canada","German FR",390.5,506
 1970,"Canada","Italy",152.2,214.2
 1970,"Canada","Japan",612.1,928.6
 1970,"Canada","Netherlands",82.9,183.7
-1970,"Canada","Other Trade",1806.932,2105.447
+1970,"Canada","Other Trade",1699.432,1950.417
+1970,"Canada","Poland",12.7,12.43
+1970,"Canada","Russia",9.7,97.2
+1970,"Canada","Switzerland",85.1,45.4
 1970,"Canada","United Kingdom",775.6,1638.6
 1970,"France","German FR",4219.3,3798
 1970,"France","Italy",1765.2,1972.6
 1970,"France","Japan",191.1,186.5
-1970,"France","Other Trade",5623.67,5977.26
+1970,"France","Other Trade",4841.77,4825.03
+1970,"France","Poland",68,96.83
+1970,"France","Russia",203.4,273.1
+1970,"France","Switzerland",510.5,782.3
 1970,"German FR","Italy",2961,2964.3
 1970,"German FR","Japan",560,617
-1970,"German FR","Other Trade",7960.73,10526.83
+1970,"German FR","Other Trade",7415.73,9942.5
+1970,"German FR","Poland",203,162.33
+1970,"German FR","Russia",342,422
 1970,"Italy","Japan",222.6,134.4
-1970,"Italy","Other Trade",4103.62,3086.77
+1970,"Italy","Other Trade",3822.12,2778.87
+1970,"Italy","Russia",281.5,307.9
 1970,"Japan","Other Trade",4005.96,3105.7
 1970,"Netherlands","Belgium",2150.317,1584.264
 1970,"Netherlands","France",1005.9,1127.8
 1970,"Netherlands","German FR",3633.9,3640
 1970,"Netherlands","Italy",581.5,642
 1970,"Netherlands","Japan",141.5,103.6
-1970,"Netherlands","Other Trade",2997.183,2580.966
+1970,"Netherlands","Other Trade",2745.883,2268.786
+1970,"Netherlands","Poland",28.7,42.38
+1970,"Netherlands","Russia",58.1,45.5
+1970,"Netherlands","Switzerland",164.5,224.3
 1970,"Other Trade","Belgium",224.6909,381.9004
 1970,"Other Trade","France",641.5279,667.9559
-1970,"Other Trade","German FR",4477.519,2925.905
-1970,"Other Trade","Italy",2050.925,2007.737
-1970,"Other Trade","Japan",5237.697,5987.021
+1970,"Other Trade","German FR",2534.619,2014.905
+1970,"Other Trade","Italy",1360.055,1551.037
+1970,"Other Trade","Japan",4730.757,5289.521
 1970,"Other Trade","Netherlands",325.89,425.22
-1970,"Other Trade","Other Trade",21969.48,22754.76
+1970,"Other Trade","Other Trade",14056.28,15051.54
+1970,"Other Trade","Poland",408.723,529.6553
+1970,"Other Trade","Russia",1706.585,1562.441
+1970,"Other Trade","Switzerland",332.4591,166.3518
 1970,"Other Trade","United Kingdom",971.44,941.3
+1970,"Poland","Italy",80.57,120.7
+1970,"Poland","Japan",22.94,39.6
+1970,"Poland","Other Trade",1153.87,1079.94
+1970,"Poland","Russia",1497.4,1250.83
+1970,"Russia","Japan",340.9,481
+1970,"Russia","Other Trade",1578.73,1265.87
+1970,"Switzerland","German FR",1942.9,911
+1970,"Switzerland","Italy",610.3,336
+1970,"Switzerland","Japan",143.1,176.9
+1970,"Switzerland","Other Trade",1192.83,1756.96
+1970,"Switzerland","Poland",15.8,41.17
+1970,"Switzerland","Russia",26.8,50
 1970,"United Kingdom","Belgium",449.0205,630.416
 1970,"United Kingdom","France",883.8,974.1
 1970,"United Kingdom","German FR",1317.4,1165
 1970,"United Kingdom","Italy",598,565.6
 1970,"United Kingdom","Japan",322.6,395.2
 1970,"United Kingdom","Netherlands",1101.8,764.1
-1970,"United Kingdom","Other Trade",10953.97,11016.29
+1970,"United Kingdom","Other Trade",9797.37,10057
+1970,"United Kingdom","Poland",151.3,209.99
+1970,"United Kingdom","Russia",528.1,245.1
+1970,"United Kingdom","Switzerland",477.2,504.2
 1970,"United States","Belgium",705.2369,954.1329
 1970,"United States","Canada",11780.7,10411
 1970,"United States","France",1007.8,1896.8
@@ -909,51 +1445,99 @@ year,importer1,importer2,flow1,flow2
 1970,"United States","Italy",1408.8,1543
 1970,"United States","Japan",6256.3,5564.3
 1970,"United States","Netherlands",562.5,1308.3
-1970,"United States","Other Trade",13416.97,17354.91
+1970,"United States","Other Trade",12741.97,16620.73
+1970,"United States","Poland",104.8,64.08
+1970,"United States","Russia",77.5,118
+1970,"United States","Switzerland",492.7,552.1
 1970,"United States","United Kingdom",2339.3,2817.7
 1975,"Belgium","France",5133.467,4922.436
 1975,"Belgium","German FR",6473.826,6170.152
 1975,"Belgium","Italy",1145.024,1163.208
 1975,"Belgium","Japan",402.3471,154.6606
-1975,"Belgium","Other Trade",6601.212,6040.824
+1975,"Belgium","Other Trade",5597.832,5974.787
+1975,"Belgium","Saudi Arabia",1003.38,66.03699
 1975,"Canada","Belgium",147.2912,302.9088
 1975,"Canada","France",524.1,464.4
 1975,"Canada","German FR",846.5,715
 1975,"Canada","Italy",408.7,556.5
 1975,"Canada","Japan",1303.6,2497.5
+1975,"Canada","Mexico",102.7,145.9
 1975,"Canada","Netherlands",170.7,306.8
-1975,"Canada","Other Trade",8486.549,6786.721
+1975,"Canada","Other Trade",5070.649,4528.821
+1975,"Canada","Saudi Arabia",807.8,9.9
+1975,"Canada","United Kingdom",1316.8,1908.5
+1975,"Canada","Venezuela",1188.6,193.6
 1975,"France","German FR",10172,9018
 1975,"France","Italy",4750.1,5119.9
 1975,"France","Japan",1002,500.8
-1975,"France","Other Trade",20506.8,19823.01
+1975,"France","Other Trade",17521.7,19728.51
+1975,"France","Saudi Arabia",2985.1,94.5
 1975,"German FR","Italy",7006,6569.8
 1975,"German FR","Japan",1744,1138.5
-1975,"German FR","Other Trade",23717.5,34706.05
+1975,"German FR","Other Trade",22094.5,34416.85
+1975,"German FR","Saudi Arabia",1623,289.2
 1975,"Italy","Japan",455.3,365
-1975,"Italy","Other Trade",13779.8,9964.57
+1975,"Italy","Other Trade",11429,9800.07
+1975,"Italy","Saudi Arabia",2350.8,164.5
 1975,"Japan","Other Trade",11885.4,9176.4
+1975,"Mexico","Belgium",53.59524,24.50068
+1975,"Mexico","France",184.3,95.8
+1975,"Mexico","German FR",480.5,119
+1975,"Mexico","Italy",111.5,74.2
+1975,"Mexico","Japan",298.5,211.6
+1975,"Mexico","Netherlands",58.7,37
+1975,"Mexico","Other Trade",798.1048,665.5093
+1975,"Mexico","Saudi Arabia",0,5
+1975,"Mexico","United Kingdom",192.8,24.1
+1975,"Mexico","Venezuela",59.3,60.1
 1975,"Netherlands","Belgium",5071.45,4884.632
 1975,"Netherlands","France",2686.5,3419.7
 1975,"Netherlands","German FR",8852.5,10459
 1975,"Netherlands","Italy",1223.8,1799.2
 1975,"Netherlands","Japan",510.4,214.5
-1975,"Netherlands","Other Trade",10169.65,8340.068
-1975,"Other Trade","Belgium",2894.851,2415.662
-1975,"Other Trade","France",5354.693,3938.634
-1975,"Other Trade","German FR",14769.68,9364.768
-1975,"Other Trade","Italy",7549.196,5431.272
-1975,"Other Trade","Japan",23772.5,27224
-1975,"Other Trade","Netherlands",5161.65,3088.46
-1975,"Other Trade","Other Trade",102721.6,100054.5
+1975,"Netherlands","Other Trade",9070.151,8217.868
+1975,"Netherlands","Saudi Arabia",1099.5,122.2
+1975,"Other Trade","Belgium",642.894,534.0861
+1975,"Other Trade","France",1379.293,1195.534
+1975,"Other Trade","German FR",9379.584,6196.768
+1975,"Other Trade","Italy",5312.296,3923.072
+1975,"Other Trade","Japan",20869.3,20037.1
+1975,"Other Trade","Mexico",43.12,4.91
+1975,"Other Trade","Netherlands",843.65,968.66
+1975,"Other Trade","Other Trade",65511.98,67018.31
+1975,"Other Trade","Saudi Arabia",6621.29,1060.063
+1975,"Other Trade","United Kingdom",1475.14,1441.82
+1975,"Other Trade","Venezuela",734.88,135.86
+1975,"Saudi Arabia","Japan",644.9,6131.3
+1975,"Saudi Arabia","Other Trade",649.4,3936.9
+1975,"United Kingdom","Belgium",2023.412,1818.027
+1975,"United Kingdom","France",3616.5,2561.8
+1975,"United Kingdom","German FR",4437.5,2819
+1975,"United Kingdom","Italy",1790.9,1273.1
+1975,"United Kingdom","Japan",1488.5,810.1
+1975,"United Kingdom","Netherlands",4138.1,2016
+1975,"United Kingdom","Other Trade",23939.79,24336.32
+1975,"United Kingdom","Saudi Arabia",1917,326.1
 1975,"United States","Belgium",1218.526,1863.487
 1975,"United States","Canada",22754.1,25381.2
 1975,"United States","France",2288,4090.8
 1975,"United States","German FR",5755.2,5786
 1975,"United States","Italy",2644.6,3347.8
 1975,"United States","Japan",12341.4,11617.8
+1975,"United States","Mexico",3112,4113.2
 1975,"United States","Netherlands",1165.4,3475
-1975,"United States","Other Trade",53262.42,57430.02
+1975,"United States","Other Trade",39013.62,44550.82
+1975,"United States","Saudi Arabia",3102.3,721.7
+1975,"United States","United Kingdom",4052.3,5229.2
+1975,"United States","Venezuela",3982.2,2815.1
+1975,"Venezuela","Belgium",174.9502,39.04796
+1975,"Venezuela","France",174.6,85.5
+1975,"Venezuela","German FR",472.1,230
+1975,"Venezuela","Italy",334.5,160.9
+1975,"Venezuela","Japan",471.3,33.9
+1975,"Venezuela","Netherlands",121.2,66.8
+1975,"Venezuela","Other Trade",571.8498,672.492
+1975,"Venezuela","United Kingdom",206.9,367
 1980,"Belgium","France",9928.506,10786.77
 1980,"Belgium","German FR",13519.79,12910.48
 1980,"Belgium","Italy",2465.879,3395.071
@@ -965,8 +1549,9 @@ year,importer1,importer2,flow1,flow2
 1980,"Canada","German FR",1356.8,1991.1
 1980,"Canada","Italy",572.3,1016.9
 1980,"Canada","Japan",2622.2,4751.9
+1980,"Canada","Mexico",324.7,352.7
 1980,"Canada","Netherlands",248,578.8
-1980,"Canada","Other Trade",8589.005,11708.98
+1980,"Canada","Other Trade",8264.305,11356.28
 1980,"Canada","Saudi Arabia",2295.4,137
 1980,"Canada","United Kingdom",1849.9,3281.8
 1980,"France","German FR",21832.1,20147
@@ -982,6 +1567,15 @@ year,importer1,importer2,flow1,flow2
 1980,"Italy","Other Trade",28420.2,19566.57
 1980,"Italy","Saudi Arabia",6387.6,2208.2
 1980,"Japan","Other Trade",31119.4,21146.71
+1980,"Mexico","Belgium",148.1652,36.17988
+1980,"Mexico","France",520.5,422.4
+1980,"Mexico","German FR",972,318.9
+1980,"Mexico","Italy",305.1,284
+1980,"Mexico","Japan",988.7,939.1
+1980,"Mexico","Netherlands",98.5,108.9
+1980,"Mexico","Other Trade",2037.585,2861.78
+1980,"Mexico","Saudi Arabia",0,.3
+1980,"Mexico","United Kingdom",405.2,259.4
 1980,"Netherlands","Belgium",9901.516,11276.45
 1980,"Netherlands","France",5148.7,7302.8
 1980,"Netherlands","German FR",17088.6,21546.7
@@ -989,15 +1583,16 @@ year,importer1,importer2,flow1,flow2
 1980,"Netherlands","Japan",1456.1,381.6
 1980,"Netherlands","Other Trade",20818.66,16124.61
 1980,"Netherlands","Saudi Arabia",4182.5,954.9
-1980,"Other Trade","Belgium",1131.464,1619.289
-1980,"Other Trade","France",3961.053,4584.876
-1980,"Other Trade","German FR",21586.78,17307.93
-1980,"Other Trade","Italy",11806.94,12176.5
-1980,"Other Trade","Japan",48961.18,49535.4
-1980,"Other Trade","Netherlands",1613.83,2943.26
-1980,"Other Trade","Other Trade",157830.5,163283
-1980,"Other Trade","Saudi Arabia",15281.62,4402.503
-1980,"Other Trade","United Kingdom",3175.58,3037.7
+1980,"Other Trade","Belgium",983.2984,1583.109
+1980,"Other Trade","France",3440.553,4162.476
+1980,"Other Trade","German FR",20614.78,16989.03
+1980,"Other Trade","Italy",11501.84,11892.5
+1980,"Other Trade","Japan",47972.48,48596.3
+1980,"Other Trade","Mexico",48.97,266.32
+1980,"Other Trade","Netherlands",1515.33,2834.36
+1980,"Other Trade","Other Trade",155744,160154.9
+1980,"Other Trade","Saudi Arabia",15281.62,4402.203
+1980,"Other Trade","United Kingdom",2770.38,2778.3
 1980,"Saudi Arabia","Japan",5411.3,19623.4
 1980,"Saudi Arabia","Other Trade",3551.53,16280.96
 1980,"United Kingdom","Belgium",5308.297,5546.529
@@ -1014,68 +1609,107 @@ year,importer1,importer2,flow1,flow2
 1980,"United States","German FR",12257,14161.5
 1980,"United States","Italy",4687.7,6924.4
 1980,"United States","Japan",32972.8,24566.7
+1980,"United States","Mexico",12835.2,11979
 1980,"United States","Netherlands",2043.9,6761
-1980,"United States","Other Trade",122749.4,104611.1
+1980,"United States","Other Trade",109914.2,92632.06
 1980,"United States","Saudi Arabia",13469.3,6040.3
 1980,"United States","United Kingdom",10272.5,14037.1
+1985,"Belgium","China",121.8673,297.6228
+1985,"Belgium","France",8052.764,8790.062
+1985,"Belgium","German FR",11223.22,9494.511
+1985,"Belgium","Italy",1905.129,3220.439
+1985,"Belgium","Japan",1130.129,464.5239
+1985,"Belgium","Other Trade",10967.88,11733.9
+1985,"Canada","Belgium",406.637,302.7641
+1985,"Canada","China",325.5,1150.3
 1985,"Canada","France",1105.3,781
 1985,"Canada","German FR",2189.1,1311
 1985,"Canada","Italy",1071.2,527.6
 1985,"Canada","Japan",4922.7,4802.2
 1985,"Canada","Mexico",1073.5,258.9
 1985,"Canada","Netherlands",501,352.3
-1985,"Canada","Other Trade",10023.68,10600.7
+1985,"Canada","Other Trade",8346.663,8778.666
+1985,"Canada","Taiwan",944.88,368.972
 1985,"Canada","United Kingdom",2656,2117
+1985,"China","Japan",15178.4,6533.5
+1985,"China","Other Trade",2855.3,4397.53
+1985,"France","China",498.9,717.8
 1985,"France","German FR",17850.3,16822.3
 1985,"France","Italy",10860.7,11368.9
 1985,"France","Japan",3027.6,1334.7
-1985,"France","Other Trade",36631.76,32957.02
+1985,"France","Other Trade",35905.18,31987.47
+1985,"France","Taiwan",227.679,251.749
+1985,"German FR","China",871.3,2447.4
 1985,"German FR","Italy",12731,15161.1
 1985,"German FR","Japan",7119.6,2948.4
-1985,"German FR","Other Trade",48454.47,61312.65
+1985,"German FR","Other Trade",46777.75,58019.07
+1985,"German FR","Taiwan",805.421,846.18
+1985,"Italy","China",593.4,902.7
 1985,"Italy","Japan",1491.7,1058.2
-1985,"Italy","Other Trade",31577.14,21299.96
+1985,"Italy","Other Trade",30983.74,20397.26
 1985,"Japan","Other Trade",30929.9,23772.93
+1985,"Mexico","Belgium",92.44778,116.1548
+1985,"Mexico","China",68.4,75
 1985,"Mexico","France",302.4,584.4
 1985,"Mexico","German FR",589.3,334.2
 1985,"Mexico","Italy",230.7,349
 1985,"Mexico","Japan",795.8,1884
 1985,"Mexico","Netherlands",84.3,704.7
-1985,"Mexico","Other Trade",1847.43,3919.48
+1985,"Mexico","Other Trade",1686.582,3728.325
 1985,"Mexico","United Kingdom",312,296.8
+1985,"Netherlands","Belgium",7625.276,9934.091
+1985,"Netherlands","China",189,274.3
 1985,"Netherlands","France",4364.6,6521.5
 1985,"Netherlands","German FR",14521.7,19939.5
 1985,"Netherlands","Italy",1983,4638.7
 1985,"Netherlands","Japan",1569.1,441.8
-1985,"Netherlands","Other Trade",27372.35,24924.77
-1985,"Other Trade","France",10440.44,12432.8
-1985,"Other Trade","German FR",29395.46,26350.3
-1985,"Other Trade","Italy",10706.05,15368.93
-1985,"Other Trade","Japan",62382.27,57256.42
+1985,"Netherlands","Other Trade",19100.28,14495.07
+1985,"Netherlands","Taiwan",457.791,221.31
+1985,"Other Trade","Belgium",680.5337,1492.618
+1985,"Other Trade","China",4969.053,6755.677
+1985,"Other Trade","France",2387.676,3642.739
+1985,"Other Trade","German FR",18172.24,16855.79
+1985,"Other Trade","Italy",8800.921,12148.49
+1985,"Other Trade","Japan",40524.89,46797.45
 1985,"Other Trade","Mexico",480.14,6.51
 1985,"Other Trade","Netherlands",1240.84,2584.97
-1985,"Other Trade","Other Trade",167995.2,188827.9
+1985,"Other Trade","Other Trade",145258.3,159137.7
+1985,"Other Trade","Taiwan",732.812,2175.376
 1985,"Other Trade","United Kingdom",1541.78,2266.4
+1985,"Taiwan","Japan",5548.847,3460.945
+1985,"Taiwan","Other Trade",2409.531,2837.482
+1985,"United Kingdom","Belgium",4943.91,4778.532
+1985,"United Kingdom","China",395.9,753.6
 1985,"United Kingdom","France",8576.9,8813.1
 1985,"United Kingdom","German FR",16310.7,12640.5
 1985,"United Kingdom","Italy",5570,4501.7
 1985,"United Kingdom","Japan",5331.9,1832.6
 1985,"United Kingdom","Netherlands",8431.7,6472.7
-1985,"United Kingdom","Other Trade",45133.09,45105.41
+1985,"United Kingdom","Other Trade",39143.23,39310.84
+1985,"United Kingdom","Taiwan",650.049,262.435
+1985,"United States","Belgium",3396.099,3018.12
 1985,"United States","Canada",69427.4,59464.9
+1985,"United States","China",4224.2,5198.7
 1985,"United States","France",9959.5,8161.1
 1985,"United States","German FR",21231.5,10981.6
 1985,"United States","Italy",10380.8,5396.2
 1985,"United States","Japan",72380.1,26099
 1985,"United States","Mexico",19391.8,9849.8
 1985,"United States","Netherlands",4368.3,5359
-1985,"United States","Other Trade",125462.5,90156.01
+1985,"United States","Other Trade",103068.8,77192.92
+1985,"United States","Taiwan",14773.37,4746.273
 1985,"United States","United Kingdom",15573,12766.6
+1990,"Austria","Italy",4440.71,4146.53
+1990,"Austria","Japan",2222.01,707.74
+1990,"Austria","Other Trade",8254.403,10079.84
+1990,"Belgium","Austria",838.8037,1342.832
 1990,"Belgium","France",17816.43,19361.15
 1990,"Belgium","German FR",27186.68,23452.05
 1990,"Belgium","Italy",5118.481,8731.778
 1990,"Belgium","Japan",2366.649,1534.659
-1990,"Belgium","Other Trade",22536.53,24829.52
+1990,"Belgium","Other Trade",19843.54,21117.95
+1990,"Belgium","Switzerland",1854.183,2368.744
+1990,"Canada","Austria",383.25,242.83
 1990,"Canada","Belgium",489.0214,628.0056
 1990,"Canada","France",2294.91,1559.45
 1990,"Canada","German FR",3625.09,2792.96
@@ -1083,48 +1717,66 @@ year,importer1,importer2,flow1,flow2
 1990,"Canada","Japan",8972.77,8566.07
 1990,"Canada","Mexico",1630.85,429.8
 1990,"Canada","Netherlands",679.73,889.14
-1990,"Canada","Other Trade",18161.34,15079.36
+1990,"Canada","Other Trade",17167.42,14617.33
+1990,"Canada","Switzerland",610.67,219.2
 1990,"Canada","United Kingdom",4562.58,3984.17
+1990,"France","Austria",2079.4,2063.81
 1990,"France","German FR",44227.4,40692.2
 1990,"France","Italy",26893.6,25858.7
 1990,"France","Japan",9338.13,7612.81
-1990,"France","Other Trade",68958.87,66165.94
+1990,"France","Other Trade",60816.83,56380.85
+1990,"France","Switzerland",6062.64,7721.28
+1990,"German FR","Austria",15041.1,21631.5
 1990,"German FR","Italy",32313.7,38674.2
 1990,"German FR","Japan",20465.7,11642.2
-1990,"German FR","Other Trade",101867.2,124905.9
+1990,"German FR","Other Trade",86826.15,103274.4
 1990,"Italy","Japan",4231.18,5024.35
 1990,"Italy","Other Trade",46000.83,37295.5
 1990,"Japan","Other Trade",47296.81,51339.97
+1990,"Mexico","Austria",46.27,55.74
 1990,"Mexico","Belgium",487.1904,207.8157
 1990,"Mexico","France",787.97,733.01
 1990,"Mexico","German FR",1834.74,595.52
 1990,"Mexico","Italy",491.62,191.09
 1990,"Mexico","Japan",1411.41,1913.32
 1990,"Mexico","Netherlands",226.58,161.32
-1990,"Mexico","Other Trade",4663.108,4069.583
+1990,"Mexico","Other Trade",4169.698,3974.523
+1990,"Mexico","Switzerland",447.14,39.32
 1990,"Mexico","United Kingdom",649.33,308.92
+1990,"Netherlands","Austria",1127.4,1391.66
 1990,"Netherlands","Belgium",16588.92,19856.74
 1990,"Netherlands","France",9701.89,11811.9
 1990,"Netherlands","German FR",29964.7,34988.2
 1990,"Netherlands","Italy",4724.48,10420
 1990,"Netherlands","Japan",4009.64,1174.01
-1990,"Netherlands","Other Trade",32798.39,30162.78
+1990,"Netherlands","Other Trade",29916,25902.44
+1990,"Netherlands","Switzerland",1754.99,2868.68
+1990,"Other Trade","Austria",1758.956,1920.309
 1990,"Other Trade","Belgium",1276.463,2245.917
 1990,"Other Trade","France",4012.424,7126.294
-1990,"Other Trade","German FR",50924.6,38822.16
-1990,"Other Trade","Italy",27576.98,26579.24
-1990,"Other Trade","Japan",88146.32,89358.65
+1990,"Other Trade","German FR",27366.4,24209.56
+1990,"Other Trade","Italy",15806.9,14140.54
+1990,"Other Trade","Japan",82865.32,84554.26
 1990,"Other Trade","Mexico",406.7,73.1
 1990,"Other Trade","Netherlands",1950.6,4336.98
-1990,"Other Trade","Other Trade",227057.8,250321.3
+1990,"Other Trade","Other Trade",203599,215319.5
+1990,"Other Trade","Switzerland",1480.067,1295.606
 1990,"Other Trade","United Kingdom",2011.56,3512.13
+1990,"Switzerland","Austria",2747.26,2221.6
+1990,"Switzerland","German FR",23558.2,14612.6
+1990,"Switzerland","Italy",7329.37,8292.17
+1990,"Switzerland","Japan",3058.99,4096.65
+1990,"Switzerland","Other Trade",9218.088,19484.5
+1990,"United Kingdom","Austria",1706.81,1265.54
 1990,"United Kingdom","Belgium",9630.08,9346.948
 1990,"United Kingdom","France",20770.6,16905.2
 1990,"United Kingdom","German FR",35570.6,23123.9
 1990,"United Kingdom","Italy",11863,9499.42
 1990,"United Kingdom","Japan",12064.1,5258.13
 1990,"United Kingdom","Netherlands",18699.8,10311
-1990,"United Kingdom","Other Trade",76094.91,69356.88
+1990,"United Kingdom","Other Trade",66887.37,64414.69
+1990,"United Kingdom","Switzerland",7500.73,3676.65
+1990,"United States","Austria",1373.5,1794.5
 1990,"United States","Belgium",4500.707,4969.691
 1990,"United States","Canada",93780.4,82777.6
 1990,"United States","France",13593.7,18956
@@ -1133,8 +1785,17 @@ year,importer1,importer2,flow1,flow2
 1990,"United States","Japan",93069.5,52841.5
 1990,"United States","Mexico",30796.8,21830.2
 1990,"United States","Netherlands",5257.8,9677.18
-1990,"United States","Other Trade",198933.5,152429.2
+1990,"United States","Other Trade",192003.6,146375.1
+1990,"United States","Switzerland",5556.4,4259.62
 1990,"United States","United Kingdom",20931.6,25035.9
+1995,"Belgium","China",1235.53,1125.289
+1995,"Belgium","France",22787.2,22892.44
+1995,"Belgium","Germany",30671.64,26826.25
+1995,"Belgium","Italy",6260.767,9255.974
+1995,"Belgium","Japan",3691.71,2233.745
+1995,"Belgium","Other Trade",29565.16,33541.3
+1995,"Belgium","South Korea",328.6385,694.2513
+1995,"Canada","Belgium",575.1687,962.0633
 1995,"Canada","China",3722.64,2681.32
 1995,"Canada","France",2454.53,2093.34
 1995,"Canada","Germany",3837.43,3749.31
@@ -1142,53 +1803,69 @@ year,importer1,importer2,flow1,flow2
 1995,"Canada","Japan",9649,10893.6
 1995,"Canada","Mexico",4151.49,1511.68
 1995,"Canada","Netherlands",776.42,946.53
-1995,"Canada","Other Trade",23017.73,19983.01
+1995,"Canada","Other Trade",19871.62,16416.95
+1995,"Canada","South Korea",2570.94,2604
 1995,"Canada","United Kingdom",4367.34,3757.4
 1995,"China","Japan",29007.3,35922.2
-1995,"China","Other Trade",24413.45,28076.84
+1995,"China","Other Trade",14125.85,20675.24
+1995,"China","South Korea",10287.6,7401.6
 1995,"France","China",5139.51,2648.72
 1995,"France","Germany",50522.7,47580.4
 1995,"France","Italy",27269.2,28669.6
 1995,"France","Japan",9584.26,6692.88
-1995,"France","Other Trade",81790.04,91539.93
+1995,"France","Other Trade",79892.02,89591.13
+1995,"France","South Korea",1898.02,1948.8
 1995,"Germany","China",11107.4,8034.73
 1995,"Germany","Italy",36963.7,39616.9
 1995,"Germany","Japan",24590.3,13702.9
-1995,"Germany","Other Trade",131280.3,159041.4
+1995,"Germany","Other Trade",126010.4,152457
+1995,"Germany","South Korea",5269.9,6584.4
 1995,"Italy","China",3919.71,3116.17
 1995,"Italy","Japan",4490.59,6363.68
-1995,"Italy","Other Trade",48853.28,51319.01
+1995,"Italy","Other Trade",47766.96,48893.81
+1995,"Italy","South Korea",1086.32,2425.2
 1995,"Japan","Other Trade",70261.54,102742.3
+1995,"Mexico","Belgium",215.8647,332.7602
 1995,"Mexico","China",572.65,194.7
 1995,"Mexico","France",1080.99,510.71
 1995,"Mexico","Germany",2955.85,665.34
 1995,"Mexico","Italy",848.62,349.28
 1995,"Mexico","Japan",3968.85,1485.04
 1995,"Mexico","Netherlands",239.65,376.94
-1995,"Mexico","Other Trade",7524.156,7958.196
+1995,"Mexico","Other Trade",6236.701,7318.236
+1995,"Mexico","South Korea",1071.59,307.2
 1995,"Mexico","United Kingdom",584.93,470.65
+1995,"Netherlands","Belgium",16385.84,25982.18
 1995,"Netherlands","China",2210.68,818.08
 1995,"Netherlands","France",11028.4,14485.9
 1995,"Netherlands","Germany",34697.1,37351.8
 1995,"Netherlands","Italy",5359.14,11402.6
 1995,"Netherlands","Japan",5784.64,2180.09
-1995,"Netherlands","Other Trade",60698.4,72986.53
-1995,"Other Trade","China",20265.65,17751.64
-1995,"Other Trade","France",29892.78,32767.73
-1995,"Other Trade","Germany",94523.07,81985.17
-1995,"Other Trade","Italy",46455.06,43529.08
-1995,"Other Trade","Japan",114122.3,100748.9
+1995,"Netherlands","Other Trade",43470.24,45891.95
+1995,"Netherlands","South Korea",842.32,1112.4
+1995,"Other Trade","Belgium",2208.781,3290.871
+1995,"Other Trade","China",19030.12,16626.35
+1995,"Other Trade","France",7105.579,9875.289
+1995,"Other Trade","Germany",63851.43,55158.92
+1995,"Other Trade","Italy",40194.29,34273.11
+1995,"Other Trade","Japan",77824.17,81184.9
 1995,"Other Trade","Mexico",682.83,92.2
 1995,"Other Trade","Netherlands",2748.34,6336.39
-1995,"Other Trade","Other Trade",377648.8,441827.3
+1995,"Other Trade","Other Trade",307722.4,356551.3
+1995,"Other Trade","South Korea",20542.59,27472.5
 1995,"Other Trade","United Kingdom",3254.64,4382.42
+1995,"South Korea","Japan",32606.4,17330.3
+1995,"South Korea","Other Trade",17281.2,20277.05
+1995,"United Kingdom","Belgium",10880.72,12895.33
 1995,"United Kingdom","China",3057.73,1971.85
 1995,"United Kingdom","France",23486.4,21886.1
 1995,"United Kingdom","Germany",38168.5,28251.4
 1995,"United Kingdom","Italy",11627.5,12622.4
 1995,"United Kingdom","Japan",15208.4,7145.24
 1995,"United Kingdom","Netherlands",16110.9,15028.7
-1995,"United Kingdom","Other Trade",97850.74,104244.8
+1995,"United Kingdom","Other Trade",84506.17,88962.63
+1995,"United Kingdom","South Korea",2463.85,2386.8
+1995,"United States","Belgium",6055.445,8022.229
 1995,"United States","Canada",148304,119886
 1995,"United States","China",48520.7,16123.2
 1995,"United States","France",17769.5,20898.8
@@ -1197,61 +1874,106 @@ year,importer1,importer2,flow1,flow2
 1995,"United States","Japan",127195,75879.9
 1995,"United States","Mexico",62756.3,59394
 1995,"United States","Netherlands",6769,14066.4
-1995,"United States","Other Trade",260124.8,248577.2
+1995,"United States","Other Trade",229178.7,210135
+1995,"United States","South Korea",24890.6,30420
 1995,"United States","United Kingdom",27709.6,32140
 2000,"Canada","China",9467.43,4632.64
 2000,"Canada","France",3087.14,1929.69
 2000,"Canada","Germany",5567.96,3189.98
+2000,"Canada","Italy",2725.76,1776.66
 2000,"Canada","Japan",12285.2,8688.86
 2000,"Canada","Mexico",8526.88,4418.22
 2000,"Canada","Netherlands",937.55,1151.62
-2000,"Canada","Other Trade",37373.39,22157.75
+2000,"Canada","Other Trade",28940.84,16999.85
+2000,"Canada","South Korea",3824.68,2107.79
+2000,"Canada","Taiwan",1882.115,1273.453
 2000,"Canada","United Kingdom",9600.31,6243.35
 2000,"China","Japan",68849.03,56847.16
-2000,"China","Other Trade",96926.28,61645.43
+2000,"China","Other Trade",58704.15,41361.6
+2000,"China","South Korea",34004.7,14060.72
+2000,"China","Taiwan",4217.429,6223.112
 2000,"France","China",8155.41,6206.98
 2000,"France","Germany",55121.5,47914.6
+2000,"France","Italy",28736.5,26828
 2000,"France","Japan",7785.81,6410.01
-2000,"France","Other Trade",132263.1,131189.7
+2000,"France","Other Trade",100017.4,100285
+2000,"France","South Korea",1871.67,2246.65
+2000,"France","Taiwan",1637.506,1830.01
 2000,"Germany","China",19430.13,14275.72
+2000,"Germany","Italy",33452.6,41164
 2000,"Germany","Japan",24532.5,12732.5
-2000,"Germany","Other Trade",193704.7,210446.3
+2000,"Germany","Other Trade",154910.8,164657.6
+2000,"Germany","South Korea",5341.38,4624.66
+2000,"Italy","China",6862.39,6127.43
+2000,"Italy","Japan",5933.9,5313.18
+2000,"Italy","Other Trade",60733.8,48366.09
+2000,"Italy","South Korea",2074.44,1637.86
+2000,"Italy","Taiwan",1484.422,1391.379
 2000,"Japan","Other Trade",80224.71,86095.2
 2000,"Mexico","China",3679.05,676.2
 2000,"Mexico","France",1613.28,553
 2000,"Mexico","Germany",6334.26,1349.18
+2000,"Mexico","Italy",2034.29,317.57
 2000,"Mexico","Japan",7112.26,2388.26
 2000,"Mexico","Netherlands",399.4,642.05
-2000,"Mexico","Other Trade",24443.91,11107.75
+2000,"Mexico","Other Trade",17133.9,9857.4
+2000,"Mexico","South Korea",4059.42,377.95
+2000,"Mexico","Taiwan",1216.302,554.8332
 2000,"Mexico","United Kingdom",1200.38,949.67
 2000,"Netherlands","China",9856.31,2219.3
 2000,"Netherlands","France",11405.7,24697.5
 2000,"Netherlands","Germany",35437.3,44108.7
+2000,"Netherlands","Italy",5648.91,13965.3
 2000,"Netherlands","Japan",10185.9,2004.81
-2000,"Netherlands","Other Trade",91428.05,98001.33
-2000,"Other Trade","China",52261.81,55853.34
+2000,"Netherlands","Other Trade",78537.19,80777.69
+2000,"Netherlands","South Korea",2308.16,1171.05
+2000,"Netherlands","Taiwan",4933.792,2087.287
+2000,"Other Trade","China",45399.42,49725.91
 2000,"Other Trade","France",31241.7,45784.96
 2000,"Other Trade","Germany",94882.37,80952.39
-2000,"Other Trade","Japan",131248,128704.6
+2000,"Other Trade","Italy",51329.19,48499.27
+2000,"Other Trade","Japan",54929.2,86338.71
 2000,"Other Trade","Mexico",973.62,178.88
 2000,"Other Trade","Netherlands",3847.47,9665.17
-2000,"Other Trade","Other Trade",616059.8,640506.9
+2000,"Other Trade","Other Trade",404335.6,434762.4
+2000,"Other Trade","South Korea",23409.41,38982.82
+2000,"Other Trade","Taiwan",12626.28,17700.13
 2000,"Other Trade","United Kingdom",3425.02,5469.42
+2000,"South Korea","Japan",31827.9,20453.6
+2000,"South Korea","Other Trade",26319.17,22945.48
+2000,"Taiwan","Japan",38556.95,16599.06
+2000,"Taiwan","Other Trade",24759.63,22313.83
+2000,"Taiwan","South Korea",8987.938,3907.641
 2000,"United Kingdom","China",16855.54,7683.89
 2000,"United Kingdom","France",26928.8,26658.5
 2000,"United Kingdom","Germany",42230.4,34910.9
+2000,"United Kingdom","Italy",14670.7,12799.5
 2000,"United Kingdom","Japan",15906.7,6580.3
 2000,"United Kingdom","Netherlands",22969.9,19408.1
-2000,"United Kingdom","Other Trade",150204.6,130397.5
+2000,"United Kingdom","Other Trade",125718,113085
+2000,"United Kingdom","South Korea",5307.39,2575.7
+2000,"United Kingdom","Taiwan",4508.429,1937.265
 2000,"United States","Canada",229191,169068
 2000,"United States","China",119416.6,37045.38
 2000,"United States","France",30084.4,24556.8
 2000,"United States","Germany",59480.5,42791.4
+2000,"United States","Italy",26000.8,12452.8
 2000,"United States","Japan",149520,72514
 2000,"United States","Mexico",135080,140288
 2000,"United States","Netherlands",9954.3,21925.5
-2000,"United States","Other Trade",452034.5,293553
+2000,"United States","Other Trade",350308.4,226688.8
+2000,"United States","South Korea",40911,29286.1
+2000,"United States","Taiwan",34814.3,25125.35
 2000,"United States","United Kingdom",43676.8,44996.5
+2005,"Belgium","China",11496.41,6214.96
+2005,"Belgium","France",36294.8,54082.1
+2005,"Belgium","Germany",54887.9,38710
+2005,"Belgium","Italy",10119.3,17186.8
+2005,"Belgium","Japan",8544.41,2125.82
+2005,"Belgium","Other Trade",70352.8,75435.43
+2005,"Belgium","South Korea",1825.66,966.91
+2005,"Belgium","Taiwan",931.0356,597.5719
+2005,"Canada","Belgium",1624.46,1339.81
 2005,"Canada","China",27368.44,8697.91
 2005,"Canada","France",4474.29,2442.69
 2005,"Canada","Germany",9289.56,3260.03
@@ -1259,17 +1981,21 @@ year,importer1,importer2,flow1,flow2
 2005,"Canada","Japan",13071.9,8904.55
 2005,"Canada","Mexico",13181.1,6786.28
 2005,"Canada","Netherlands",1389.37,2109.49
-2005,"Canada","Other Trade",66636.52,35740.04
+2005,"Canada","Other Trade",53894.85,25392.32
 2005,"Canada","South Korea",4863.71,2603.74
+2005,"Canada","Taiwan",1672.706,1311.087
+2005,"Canada","United Kingdom",9444.5,7696.82
 2005,"China","Japan",136913.3,110039.7
-2005,"China","Other Trade",226143.7,137626.7
+2005,"China","Other Trade",154240.4,115780.9
 2005,"China","South Korea",92488.11,40697.08
+2005,"China","Taiwan",71903.28,21845.79
 2005,"France","China",18521.44,12576.18
 2005,"France","Germany",95345.5,67876.1
 2005,"France","Italy",41789.1,38413.3
 2005,"France","Japan",7919.25,8507.03
-2005,"France","Other Trade",166376.3,176460.9
+2005,"France","Other Trade",164944.4,173923
 2005,"France","South Korea",3415.48,2767.6
+2005,"France","Taiwan",1431.83,2537.909
 2005,"Germany","China",52051.81,35902.55
 2005,"Germany","Italy",44279.9,66706
 2005,"Germany","Japan",26605.7,17870.3
@@ -1277,35 +2003,58 @@ year,importer1,importer2,flow1,flow2
 2005,"Germany","South Korea",11214.9,9774.21
 2005,"Italy","China",18259.08,10728.95
 2005,"Italy","Japan",6208.29,6887.7
-2005,"Italy","Other Trade",109984.6,94677.72
+2005,"Italy","Other Trade",108202.9,93233.21
 2005,"Italy","South Korea",4887.4,2778.01
+2005,"Italy","Taiwan",1781.696,1444.506
 2005,"Japan","Other Trade",103808.3,104943.4
+2005,"Mexico","Belgium",0,877.23
 2005,"Mexico","China",20089.72,2421.63
 2005,"Mexico","France",2821.05,696.81
 2005,"Mexico","Germany",9537.48,2560.09
 2005,"Mexico","Italy",3848.07,343.85
 2005,"Mexico","Japan",14385.6,2541.88
 2005,"Mexico","Netherlands",1017.05,874.33
-2005,"Mexico","Other Trade",40335.13,18930.88
+2005,"Mexico","Other Trade",37409.4,16873.54
 2005,"Mexico","South Korea",7222.69,459.78
+2005,"Mexico","Taiwan",873.0212,352.6497
+2005,"Mexico","United Kingdom",2052.71,827.46
+2005,"Netherlands","Belgium",33855.7,56587.5
 2005,"Netherlands","China",34582.19,4093.27
 2005,"Netherlands","France",16940.9,33033.1
 2005,"Netherlands","Germany",60422.1,66313.3
 2005,"Netherlands","Italy",8361.79,21744.2
 2005,"Netherlands","Japan",11667.2,2131.5
-2005,"Netherlands","Other Trade",152591.5,151879.9
+2005,"Netherlands","Other Trade",114412.7,93249.75
 2005,"Netherlands","South Korea",3652.16,2759.56
-2005,"Other Trade","China",199126.9,151031
-2005,"Other Trade","France",81527.69,101452.2
-2005,"Other Trade","Germany",233833.2,180800.7
-2005,"Other Trade","Italy",102331.6,101511.9
-2005,"Other Trade","Japan",147894.4,159627.6
+2005,"Netherlands","Taiwan",4323.121,2042.681
+2005,"Other Trade","Belgium",2622.83,25917.25
+2005,"Other Trade","China",151507.4,133596.5
+2005,"Other Trade","France",10842.29,17587.52
+2005,"Other Trade","Germany",117013.3,93163.4
+2005,"Other Trade","Italy",72686.14,68795.72
+2005,"Other Trade","Japan",77491.95,136309.8
 2005,"Other Trade","Mexico",1050.11,466.41
-2005,"Other Trade","Netherlands",37492.63,40305.81
-2005,"Other Trade","Other Trade",1048853,1141079
-2005,"Other Trade","South Korea",73390.75,77597.46
+2005,"Other Trade","Netherlands",5727.73,19090.51
+2005,"Other Trade","Other Trade",724470.1,799378
+2005,"Other Trade","South Korea",52756.52,67906.55
+2005,"Other Trade","Taiwan",14751.12,30822.35
+2005,"Other Trade","United Kingdom",3779.43,8280.53
 2005,"South Korea","Japan",48403.2,24398.2
 2005,"South Korea","Other Trade",39433.88,37936.61
+2005,"Taiwan","Japan",45940.44,14480.68
+2005,"Taiwan","Other Trade",27299.37,32116.05
+2005,"Taiwan","South Korea",13203.48,5574.926
+2005,"United Kingdom","Belgium",22389.2,21658.8
+2005,"United Kingdom","China",36123.07,11219.56
+2005,"United Kingdom","France",34390.6,29782.6
+2005,"United Kingdom","Germany",61932,48927.3
+2005,"United Kingdom","Italy",19526.2,15529.4
+2005,"United Kingdom","Japan",15917.6,6711.33
+2005,"United Kingdom","Netherlands",31764.9,21215.3
+2005,"United Kingdom","Other Trade",179056.4,145181
+2005,"United Kingdom","South Korea",5605.09,3149.07
+2005,"United Kingdom","Taiwan",3200.212,1691.948
+2005,"United States","Belgium",13399.1,17070.2
 2005,"United States","Canada",291944,195151
 2005,"United States","China",270460.7,65476.34
 2005,"United States","France",34774.3,25488.6
@@ -1314,5 +2063,7 @@ year,importer1,importer2,flow1,flow2
 2005,"United States","Japan",141950,65446.9
 2005,"United States","Mexico",172485,130402
 2005,"United States","Netherlands",15503.1,27537.2
-2005,"United States","Other Trade",628251.4,355026.6
+2005,"United States","Other Trade",533961.8,275100.8
 2005,"United States","South Korea",45522.8,30787.6
+2005,"United States","Taiwan",28510.23,20987.78
+2005,"United States","United Kingdom",52380.3,41867.8
