@@ -1,104 +1,94 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>delimited | Chord Transitions Demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="../bower_components/angular-material/angular-material.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/trade-theme.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>delimited | Chord Transitions</title>
+    <link rel="stylesheet" href="../bower_components/foundation/css/foundation.css" />
     <link rel="stylesheet" type="text/css" href="../css/app.css">
-    <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
-    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="../bower_components/hammerjs/hammer.min.js"></script>
-    <script src="../bower_components/angular-material/angular-material.min.js"></script>
-    <script src="../bower_components/d3/d3.min.js"></script>
+    <script src="../bower_components/modernizr/modernizr.js"></script>
   </head>
-  <body ng-app="app" ng-cloak ng-controller="mainCntrl" md-theme="trade">
+  <body ng-app="app" ng-cloak ng-controller="mainCntrl">
 
-    <!-- top tool bar -->
-    <md-toolbar style="z-index:0;">
-      <h1 class="md-toolbar-tools">
-        <span>International Trade (1870-2005)</span>
-      </h1>
-    </md-toolbar>
-
-    <!-- intro -->
-    <div flex layout="vertical" layout-align="center center">
-      <h2 style="margin-bottom:0px;">International Trade Flows <span class="radioValue">{{ selected_year }}</span></h2>
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>International Trade Flows <small>(1870 - 2005)</small></h1>
+        <hr/>
+      </div>
     </div>
 
-    <!-- main content -->
-    <md-content layout="horizontal" layout-padding>
+    <div class="row">
 
-      <!-- left side - year selectors -->
-      <md-whiteframe flex="15" class="md-whiteframe-z1" layout="vertical" layout-align="start center">
-        <h4 style="margin:0px;">Years:</h4>
-        <md-radio-group ng-model="selected_year">
-          <md-radio-button ng-repeat="year in years" ng-value="year">
-            {{ year }}
-          </md-radio-button>
-        </md-radio-group>
-      </md-whiteframe>
+      <aside class="large-2 small-2 columns panel years">
+        <h5>Years</h5>
+        <ul class="side-nav">
+          <li ng-repeat="year in years">
+            <input ng-model="$parent.selected_year" type="radio" name="years" ng-value="year" id="year_{{ year }}">
+            <label for="year_{{ year }}">{{ year }}</label>
+          </li>
+        </ul>
+      </aside>
 
-      <!-- chord diagram -->
-      <div flex>
-        <chord-diagram></chord-diagram>
+      <div class="large-7 small-6 columns" role="content">
+        <article>
+          <h4 style="margin-bottom:0px;">International Trade Flows <span>{{ selected_year }}</span></h4>
+          <hr/>
+          <chord-diagram></chord-diagram>
+        </article>
       </div>
 
-      <!-- right side - filter list -->
-      <md-whiteframe flex="20" class="md-whiteframe-z1" layout="vertical" layout-align="start space-around">
-        <div layout="horizontal" layout-align="space-around">
-          <div><h4 style="margin-top:5px;">Filters:</h4></div>
-          <div>
-            <md-button class="md-primary" aria-label="clear" ng-click="filters = {}; hasFilters = false;">
-              clear
-            </md-button>
+      <aside class="large-3 small-4 columns">
+        <h5>Filters</h5>
+        <button class="button tiny right" ng-click="filters = {}; hasFilters = false;">
+          clear
+        </button>
+        <div class="panel">
+          <div ng-if="hasFilters === false" style="margin: 15px; opacity: 0.5;">
+            Click a country
           </div>
+          <ul class="side-nav">
+            <li ng-repeat="filter in filters">
+              <input ng-model="filter.hide" id="{{ filter.name }}" type="checkbox">
+              <label for="{{ filter.name }}">{{ filter.name }}</label>
+            </li>
+          </ul>
         </div>
-        <div ng-if="hasFilters === false" style="margin-left: 15px; opacity: 0.5;">
-          Click a country
-        </div>
-        <md-checkbox ng-repeat="filter in filters" ng-model="filter.hide" aria-label="filter.name">
-            {{ filter.name }}
-        </md-checkbox>
-      </md-whiteframe>
+      </aside>
 
-    </md-content>
-
-    <!-- bottom links -->
-    <hr/>
-    <div style="padding: 5px;">
-      Colors by <a target="_blank" href="http://en.wikipedia.org/wiki/Paul_Klee">Paul Klee (After the Flood)</a><br />
-      Data Visualization by <a target="_blank" href="http://www.delimited.io/blog">delimited.io</a><br />
-      Trade Data from <a target="_blank" href="http://www.correlatesofwar.org">Correlates of War</a>
     </div>
 
-    <!-- TOOL TIP -->
-    <md-whiteframe id="tooltip" class="md-whiteframe-z1" layout="vertical" layout-align="center center">
-      <md-list layout="vertical">
-        <md-item>
-          <md-item-content>
-            <div class="md-tile-content">
-              <h3>{{ tooltip.sname }} imported from  {{ tooltip.tname }} : $ {{ qFormat(tooltip.svalue) }}M</h3>
-              <h4>{{ pFormat(tooltip.svalue/tooltip.stotal) }} of {{ tooltip.sname }}'s Total ($ {{ qFormat(tooltip.stotal) }}M)</h4>
-              <p>{{ pFormat(tooltip.svalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M</p>
-            </div>
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content>
-            <div class="md-tile-content">
-              <h3>{{ tooltip.tname }} imported from  {{ tooltip.sname }} : $ {{ qFormat(tooltip.tvalue) }}M</h3>
-              <h4>{{ pFormat(tooltip.tvalue/tooltip.ttotal) }} of {{ tooltip.tname }}'s Total ($ {{ qFormat(tooltip.ttotal) }}M)</h4>
-              <p>{{ pFormat(tooltip.tvalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M</p>
-            </div>
-          </md-item-content>
-        </md-item>
-      </md-list>
-    </md-whiteframe>
+    <footer class="row">
+      <div class="large-12 columns">
+        <ul class="inline-list left">
+          <li>Colors by <a target="_blank" href="http://en.wikipedia.org/wiki/Paul_Klee">Paul Klee</a></li>
+          <li>Design by <a target="_blank" href="http://www.delimited.io/blog">delimited.io</a></li>
+          <li>Data from <a target="_blank" href="http://www.correlatesofwar.org">Correlates of War</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <fieldset id="tooltip" class="alert-box secondary">
+      <div class="row">
+        <h5>{{ tooltip.sname }} imported from  {{ tooltip.tname }} : $ {{ qFormat(tooltip.svalue) }}M</h5>
+        <h6>{{ pFormat(tooltip.svalue/tooltip.stotal) }} of {{ tooltip.sname }}'s Total ($ {{ qFormat(tooltip.stotal) }}M)</h6>
+        <p>{{ pFormat(tooltip.svalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M</p>
+      </div>
+      <div class="row">
+        <h5>{{ tooltip.tname }} imported from  {{ tooltip.sname }} : $ {{ qFormat(tooltip.tvalue) }}M</h5>
+        <h6>{{ pFormat(tooltip.tvalue/tooltip.ttotal) }} of {{ tooltip.tname }}'s Total ($ {{ qFormat(tooltip.ttotal) }}M)</h6>
+        <p>{{ pFormat(tooltip.tvalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M</p>
+      </div>
+    </fieldset>
+
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/d3/d3.min.js"></script>
+    <script src="../bower_components/foundation/js/foundation.min.js"></script>
     <script src="../js/mainController.js"></script>
     <script src="../js/matrixFactory.js"></script>
     <script src="../js/chordDirective.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>

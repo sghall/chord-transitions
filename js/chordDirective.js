@@ -51,7 +51,10 @@ function ($window, matrixFactory) {
     var svg = d3.select($el[0]).append("svg")
       .attr("class", "chart")
       .attr({width: size[0] + "px", height: size[1] + "px"})
-      .attr("viewBox", "0 0 " + size[0] + " " + size[1]);
+      .attr("viewBox", "0 0 " + size[0] + " " + size[1])
+      .on("click", function () {
+        d3.select("#tooltip").style("opacity", 0);
+      });
 
     var container = svg.append("g")
       .attr("class", "container")
@@ -126,7 +129,7 @@ function ($window, matrixFactory) {
         })
         .attr("d", path)
         .on("mouseover", chordMouseover)
-        .on("mouseout", chordMouseout)
+        .on("mouseout", hideTooltip)
         .attr("transform", "translate(" + (dims[0] / 2) + "," + (dims[1] / 2) + ")");
 
       chords.transition().duration(2000)
@@ -145,7 +148,7 @@ function ($window, matrixFactory) {
         $scope.updateTooltip(matrix.read(d));
       }
 
-      function chordMouseout() {
+      function hideTooltip() {
         d3.select("#tooltip").style("opacity", 0);
         resetChords();
       }

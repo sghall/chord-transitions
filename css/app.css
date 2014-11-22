@@ -6,11 +6,14 @@ md-radio-button, md-checkbox {
   background-color: white;
   pointer-events: none;
   font-size: 12px;
+  color: grey;
   position: fixed;
+  width: 500px;
   border-radius: 6px;
   opacity: 0;
   top:20px;
   right: 25%;
+  box-shadow: 5px 5px 2.5px #888888;
 }
 
 path.chord {
@@ -28,4 +31,8 @@ input[type="radio"] {
 .years {
   height: 600px;
   overflow: scroll;
+}
+
+aside {
+  margin: 0px;
 }
