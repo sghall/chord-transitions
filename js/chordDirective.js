@@ -54,10 +54,18 @@ function ($window, matrixFactory) {
       .attr("viewBox", "0 0 " + size[0] + " " + size[1]);
 
     var container = svg.append("g")
-      .attr("id", "container")
+      .attr("class", "container")
       .attr("transform", "translate(" + marg[3] + "," + marg[0] + ")");
 
+    var messages = container.append("text")
+      .attr("class", "messages")
+      .attr("transform", "translate(10, 10)")
+      .text("Updating...");
+
     $scope.drawChords = function (data) {
+
+      messages.attr("opacity", 1);
+      messages.transition().duration(1000).attr("opacity", 0);
 
       matrix.data(data)
         .resetKeys()

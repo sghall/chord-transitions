@@ -1,4 +1,4 @@
-angular.module('app', ['ngMaterial']);
+angular.module('app', []);
 
 angular.module('app').controller('mainCntrl', ['$scope', 
 function ($scope) {

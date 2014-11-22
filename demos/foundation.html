@@ -1,0 +1,106 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>delimited | Chord Transitions</title>
+    <link rel="stylesheet" href="../bower_components/foundation/css/foundation.css" />
+    <link rel="stylesheet" type="text/css" href="../css/app.css">
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+  </head>
+  <body ng-app="app" ng-cloak ng-controller="mainCntrl">
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>International Trade Flows <small>(1870 - 2005)</small></h1>
+        <hr/>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <aside class="large-2 small-2 columns years">
+        <h5>Years</h5>
+        <div class="panel">
+
+        <ul class="side-nav">
+          <li ng-repeat="year in years">
+            <input ng-model="$parent.selected_year" type="radio" name="years" ng-value="year" id="year_{{ year }}">
+            <label for="year_{{ year }}">{{ year }}</label>
+          </li>
+        </ul>
+
+        </div>
+      </aside>
+
+      <div class="large-7 small-7 columns" role="content">
+        <article>
+          <h4 style="margin-bottom:0px;">International Trade Flows <span>{{ selected_year }}</span></h4>
+          <hr/>
+          <chord-diagram></chord-diagram>
+        </article>
+      </div>
+
+      <aside class="large-3 small-3 columns">
+        <h5>Filters</h5>
+        <div class="panel">
+          <div ng-if="hasFilters === false" style="margin-left: 15px; opacity: 0.5;">
+            Click a country
+          </div>
+          <ul class="side-nav">
+            <li ng-repeat="filter in filters">
+              <input ng-model="filter.hide" id="{{ filter.name }}" type="checkbox">
+              <label for="{{ filter.name }}">{{ filter.name }}</label>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+
+    <footer class="row">
+      <div class="large-12 columns">
+        <ul class="inline-list left">
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+          <li><a href="#">Link 4</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <md-whiteframe id="tooltip" class="md-whiteframe-z1" layout="vertical" layout-align="center center">
+      <md-list layout="vertical">
+        <md-item>
+          <md-item-content>
+            <div class="md-tile-content">
+              <h3>{{ tooltip.sname }} imported from  {{ tooltip.tname }} : $ {{ qFormat(tooltip.svalue) }}M</h3>
+              <h4>{{ pFormat(tooltip.svalue/tooltip.stotal) }} of {{ tooltip.sname }}'s Total ($ {{ qFormat(tooltip.stotal) }}M)</h4>
+              <p>{{ pFormat(tooltip.svalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M</p>
+            </div>
+          </md-item-content>
+        </md-item>
+        <md-item>
+          <md-item-content>
+            <div class="md-tile-content">
+              <h3>{{ tooltip.tname }} imported from  {{ tooltip.sname }} : $ {{ qFormat(tooltip.tvalue) }}M</h3>
+              <h4>{{ pFormat(tooltip.tvalue/tooltip.ttotal) }} of {{ tooltip.tname }}'s Total ($ {{ qFormat(tooltip.ttotal) }}M)</h4>
+              <p>{{ pFormat(tooltip.tvalue/tooltip.mtotal) }} of Total of $ {{ qFormat(tooltip.mtotal) }}M</p>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </md-whiteframe>
+
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/d3/d3.min.js"></script>
+    <script src="../bower_components/foundation/js/foundation.min.js"></script>
+    <script src="../js/mainController.js"></script>
+    <script src="../js/matrixFactory.js"></script>
+    <script src="../js/chordDirective.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

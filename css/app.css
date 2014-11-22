@@ -20,3 +20,12 @@ path.chord {
 text, .group path {
   cursor: pointer;
 }
+
+input[type="radio"] {
+  margin: 0px;
+}
+
+.years {
+  height: 600px;
+  overflow: scroll;
+}
