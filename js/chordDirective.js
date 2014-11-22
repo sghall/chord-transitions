@@ -15,6 +15,7 @@ function ($window, matrixFactory) {
 
     var chord = d3.layout.chord()
       .padding(0.02)
+      .sortGroups(d3.ascending)
       .sortSubgroups(d3.ascending);
 
     var matrix = matrixFactory.chordMatrix()
