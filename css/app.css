@@ -14,9 +14,9 @@
 }
 
 path.chord {
+  -webkit-backface-visibility: hidden;
   fill-opacity: .67;
-  stroke: #000;
-  stroke-width: .5px;
+  stroke: none;
 }
 
 text, .group path {
