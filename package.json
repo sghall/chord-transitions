@@ -1,0 +1,29 @@
+{
+  "name": "chord-transitions",
+  "version": "0.1.0",
+  "description": "example of chord transitions with Angular 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sghall/chord-transitions.git"
+  },
+  "keywords": [
+    "angular",
+    "chord",
+    "diagrams",
+    "d3"
+  ],
+  "author": "Steven Hall",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sghall/chord-transitions/issues"
+  },
+  "homepage": "https://github.com/sghall/chord-transitions#readme",
+  "dependencies": {
+    "angular": "^1.3.0",
+    "d3": "^3.5.17"
+  }
+}
